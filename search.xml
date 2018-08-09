@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[conda和pip换源]]></title>
+    <url>%2F2018%2F08%2F09%2Fconda%E5%92%8Cpip%E6%8D%A2%E6%BA%90%2F</url>
+    <content type="text"><![CDATA[推荐使用国内镜像下载 pip国内源清华大学：https://pypi.tuna.tsinghua.edu.cn/simple阿里云：http://mirrors.aliyun.com/pypi/simple/豆瓣：http://pypi.doubanio.com/simple/中科大：https://mirrors.ustc.edu.cn/pypi/web/simple/ 更换源以更换清华的源为例： 临时使用使用-i参数，加上下载地址示例：1pip install -i https://pypi.tuna.tsinghua.edu.cn/simple keras 永久使用Linux在~/.pip/pip.conf文件中加入如下内容，没有则创建该文件 Windows找到用户目录下的AppData文件夹（显示隐藏项目或者资源管理器中直接搜索%appdata%），进入Local创建pip文件夹，创建pip.ini文件，添加如下内容1234[global]timeout = 6000index-url = https://pypi.tuna.tsinghua.edu.cn/simpletrusted-host = pypi.tuna.tsinghua.edu.cn conda国内源conda国内的源貌似只有清华的：https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ 更换源换源命令12conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/conda config --set show_channel_urls yes 换回默认源1conda config --remove-key channels]]></content>
+      <categories>
+        <category>环境搭建</category>
+      </categories>
+      <tags>
+        <tag>conda</tag>
+        <tag>pip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[windows搭建cplex的使用环境]]></title>
+    <url>%2F2018%2F08%2F09%2Fwindows%E6%90%AD%E5%BB%BAcplex%E7%9A%84%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%2F</url>
+    <content type="text"><![CDATA[最近的一个实验中用到了cplex和keras，现有的支持只有cplex的win版本，并且只支持python2的32位版本，所以在这里记录一下环境搭建过程。 CPLEXCPLEX是IBM发布的一款软件，提供了用来求解线性规划（LP）等相关问题的函数库，并且支持Python、Matlab等多种语言的调用，详细介绍可以参考IBM的官方介绍文档。 有安装可执行文件，所以双击正常安装，需要java环境，按照提示操作就可以，安装完成后的界面和eclipse相似。 Anacondapython选择通过anaconda来安装，anaconda包含了Python、Conda等一系列的工具包，使用起来很方便。官网下载安装包，正常安装 theano因为tensorflow在windows下不支持python2，所以用theano做keras的后端 安装MinGW试过CodeBlock内置的MinGW和单独下载安装MinGW，都不行，会报编译错误，只能通过conda来安装了，安装之前一定要换源1conda install mingw libpython 下载安装完成后，要在Path中添加环境变量D:(anaconda的安装目录)\MinGW\binD:(anaconda的安装目录)\MinGW\i686-w64-mingw32(依平台而定)\lib并且注意，Path中只能有这一个MniGw变量。 下载1pip install theano 添加PYTHONPATH环境变量D:(anaconda的安装目录)\Lib\site-packages\theano 配置文件在C:\Users(用户名)目录下新建.theanorc.txt文件，添加内容入下：12345[blas]ldflags=[gcc]cxxflags=-ID:\(anaconda的安装目录)\MinGW\i686-w64-mingw32\include keras安装之前一定要换源1pip install keras 因为keras默认后端是tensorflow，所以要修改位theano修改后端文件，在C:\Users(用户名).keras\keras.json中，把tensorflow改成theano python调用cplex在D:(cplex的安装目录)\cplex\python\x86_win32目录下运行setup.py文件1python setup.py install 生成build文件夹在环境变量PYTHONPATH中添加D:(cplex的安装目录)\cplex\python\x86_win32 这样应该就可以用了。]]></content>
+      <categories>
+        <category>环境搭建</category>
+      </categories>
+      <tags>
+        <tag>anaconda</tag>
+        <tag>theano</tag>
+        <tag>keras</tag>
+        <tag>cplex</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python的几个内置函数]]></title>
     <url>%2F2018%2F01%2F29%2Fpython0%2F</url>
     <content type="text"><![CDATA[Python is beautiful. (本文python环境为2.7.12) lambda表达式语法1lambda (参数) : (计算表达式) 描述目前知道的，lambda表达式在c#、java8、python都支持，主要作用为定义了一个匿名函数，使代码更加简洁 map函数语法1map(function, iterable, ...) 参数 function: 函数 iterable: 一个或多个列表 python2返回列表 python3返回迭代器 描述map函数将列表元素依次传入函数，作为函数的参数值进行计算，返回计算结果，一般也为列表 示例12#python2.7print(map(lambda x, y : x+y, [1, 2, 3], [2, 3, 4])) #打印[3, 5, 7] reduce函数语法1reduce(function, iterable[, initializer]) 参数 function: 函数，有两个参数 iterable: 可迭代对象，例如，list initializer: 可选，初始参数 返回函数计算结果 描述若无初始参数，reduce函数将可迭代对象的第1、2个之传入函数中进行计算，之后将计算结果与第3个值传入函数中，依次递推 若有初始参数，则第一步将初始参数和可迭代对象中第1个值传入参数中 示例12345678def add(x, y): return x+yprint(reduce(add, [1, 2, 3])) #打印6print(reduce(lambda x, y: x+y, [1, 2, 3])) #打印6print(reduce(lambda x, y : x+y, [1, 2, 3], 100)) #打印106 zip函数语法1zip([iterable, ...]) 参数 iterable: 一个或多个迭代器 描述zip函数，可用于将迭代器中对应元素打包成元组，返回元组列表，若迭代器元素个数不一致时，以最少的元素个数为准。此外，zip函数传入*操作符，可将元组解压 示例12345678list1 = [1, 2, 3]list2 = [4, 5, 6]list3 = [7, 8]zipped = zip(list1, list2)print(zipped) #打印[(1, 4), (2, 5), (3, 6)]print(zip(list1, list3)) #打印[(1, 7), (2, 8)]print(zip(*zipped)) #打印[(1, 2, 3), (4, 5, 6)]]]></content>
