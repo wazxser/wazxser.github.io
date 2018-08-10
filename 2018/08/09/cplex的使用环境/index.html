@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="最近的一个实验中用到了cplex和keras，现有的支持只有cplex的win版本，并且只支持python2的32位版本，所以在这里记录一下环境搭建过程。 CPLEXCPLEX是IBM发布的一款软件，提供了用来求解线性规划（LP）等相关问题的函数库，并且支持Python、Matlab等多种语言的调用，详细介绍可以参考IBM的官方介绍文档。 有安装可执行文件，所以双击正常安装，需要java环境，按照">
+<meta name="description" content="最近的一个实验中用到了cplex和keras，现有的支持只有cplex的win版本，并且只支持python2的32位版本，所以在这里记录一下环境搭建过程。 CPLEXCPLEX是IBM发布的一款软件，提供了用来求解线性规划（LP）等相关问题的函数库，并且支持Python、Matlab等多种语言的调用，详细介绍可以参考IBM的官方介绍文档。 试过pip install cplex和conda ins">
 <meta name="keywords" content="anaconda,theano,keras,cplex">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cplex的使用环境">
 <meta property="og:url" content="https://wazxser.github.io/2018/08/09/cplex的使用环境/index.html">
 <meta property="og:site_name" content="Moon">
-<meta property="og:description" content="最近的一个实验中用到了cplex和keras，现有的支持只有cplex的win版本，并且只支持python2的32位版本，所以在这里记录一下环境搭建过程。 CPLEXCPLEX是IBM发布的一款软件，提供了用来求解线性规划（LP）等相关问题的函数库，并且支持Python、Matlab等多种语言的调用，详细介绍可以参考IBM的官方介绍文档。 有安装可执行文件，所以双击正常安装，需要java环境，按照">
+<meta property="og:description" content="最近的一个实验中用到了cplex和keras，现有的支持只有cplex的win版本，并且只支持python2的32位版本，所以在这里记录一下环境搭建过程。 CPLEXCPLEX是IBM发布的一款软件，提供了用来求解线性规划（LP）等相关问题的函数库，并且支持Python、Matlab等多种语言的调用，详细介绍可以参考IBM的官方介绍文档。 试过pip install cplex和conda ins">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-09T13:03:42.652Z">
+<meta property="og:updated_time" content="2018-08-10T06:02:31.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cplex的使用环境">
-<meta name="twitter:description" content="最近的一个实验中用到了cplex和keras，现有的支持只有cplex的win版本，并且只支持python2的32位版本，所以在这里记录一下环境搭建过程。 CPLEXCPLEX是IBM发布的一款软件，提供了用来求解线性规划（LP）等相关问题的函数库，并且支持Python、Matlab等多种语言的调用，详细介绍可以参考IBM的官方介绍文档。 有安装可执行文件，所以双击正常安装，需要java环境，按照">
+<meta name="twitter:description" content="最近的一个实验中用到了cplex和keras，现有的支持只有cplex的win版本，并且只支持python2的32位版本，所以在这里记录一下环境搭建过程。 CPLEXCPLEX是IBM发布的一款软件，提供了用来求解线性规划（LP）等相关问题的函数库，并且支持Python、Matlab等多种语言的调用，详细介绍可以参考IBM的官方介绍文档。 试过pip install cplex和conda ins">
 
 
 
@@ -397,7 +397,7 @@
       
         <p>最近的一个实验中用到了cplex和keras，现有的支持只有cplex的win版本，并且只支持python2的32位版本，所以在这里记录一下环境搭建过程。</p>
 <h1 id="CPLEX"><a href="#CPLEX" class="headerlink" title="CPLEX"></a>CPLEX</h1><p>CPLEX是IBM发布的一款软件，提供了用来求解线性规划（LP）等相关问题的函数库，并且支持Python、Matlab等多种语言的调用，详细介绍可以参考IBM的官方介绍文档。</p>
-<p>有安装可执行文件，所以双击正常安装，需要java环境，按照提示操作就可以，安装完成后的界面和eclipse相似。</p>
+<p>试过pip install cplex和conda install -c IBMDecisionOptimization docplex cplex这两种，import cplex没有问题，但是跑实验时会报错求解问题size超过限制。<br>有安装可执行文件，所以双击正常安装，需要java环境，按照提示操作就可以，安装完成后的界面和eclipse相似。</p>
 <h1 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h1><p>python选择通过anaconda来安装，anaconda包含了Python、Conda等一系列的工具包，使用起来很方便。<br><a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">官网</a>下载安装包，正常安装</p>
 <h1 id="theano"><a href="#theano" class="headerlink" title="theano"></a>theano</h1><p>因为tensorflow在windows下不支持python2，所以用theano做keras的后端</p>
 <h2 id="安装MinGW"><a href="#安装MinGW" class="headerlink" title="安装MinGW"></a>安装MinGW</h2><p>试过CodeBlock内置的MinGW和单独下载安装MinGW，都不行，会报编译错误，只能通过conda来安装了，安装之前一定要换源<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install mingw libpython</span><br></pre></td></tr></table></figure></p>
