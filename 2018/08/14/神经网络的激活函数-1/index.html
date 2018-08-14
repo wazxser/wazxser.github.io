@@ -83,14 +83,20 @@
 <meta name="keywords" content="neural network,activation function">
 <meta property="og:type" content="article">
 <meta property="og:title" content="神经网络的激活函数">
-<meta property="og:url" content="https://wazxser.github.io/2018/08/14/神经网络的激活函数/index.html">
+<meta property="og:url" content="https://wazxser.github.io/2018/08/14/神经网络的激活函数-1/index.html">
 <meta property="og:site_name" content="Moon">
 <meta property="og:description" content="激活函数给神经网络引入了非线性因素，大大增加了神经网络的可解释性难度。常用激活函数大致经历了sigmoid到tanh到ReLU的演变过程。 sigmoid公式$$\sigma (x) = \frac{1}{1+e^{-x}}$$ 性质函数饱和导致梯度消失问题，当神经元的激活值在0和1附近时，梯度接近为0，会饱和，导致梯度消失，几乎没有信号通过神经网络传回上一层。函数输出不是以0为中心，导致梯度下降">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-14T07:22:26.719Z">
+<meta property="og:image" content="https://wazxser.github.io/2018/08/14/神经网络的激活函数-1/85858640-5.png">
+<meta property="og:image" content="https://wazxser.github.io/2018/08/14/神经网络的激活函数-1/43148640-7.png">
+<meta property="og:image" content="https://wazxser.github.io/2018/08/14/神经网络的激活函数-1/06134640-9.png">
+<meta property="og:image" content="https://wazxser.github.io/2018/08/14/神经网络的激活函数-1/12034640-11.png">
+<meta property="og:image" content="https://wazxser.github.io/2018/08/14/神经网络的激活函数-1/v2-68a7dfdf613d8cd43f0569184b206c5c_hd.jpg">
+<meta property="og:updated_time" content="2018-08-14T07:39:01.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="神经网络的激活函数">
 <meta name="twitter:description" content="激活函数给神经网络引入了非线性因素，大大增加了神经网络的可解释性难度。常用激活函数大致经历了sigmoid到tanh到ReLU的演变过程。 sigmoid公式$$\sigma (x) = \frac{1}{1+e^{-x}}$$ 性质函数饱和导致梯度消失问题，当神经元的激活值在0和1附近时，梯度接近为0，会饱和，导致梯度消失，几乎没有信号通过神经网络传回上一层。函数输出不是以0为中心，导致梯度下降">
+<meta name="twitter:image" content="https://wazxser.github.io/2018/08/14/神经网络的激活函数-1/85858640-5.png">
 
 
 
@@ -120,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="https://wazxser.github.io/2018/08/14/神经网络的激活函数/"/>
+  <link rel="canonical" href="https://wazxser.github.io/2018/08/14/神经网络的激活函数-1/"/>
 
 
 
@@ -291,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wazxser.github.io/2018/08/14/神经网络的激活函数/">
+    <link itemprop="mainEntityOfPage" href="https://wazxser.github.io/2018/08/14/神经网络的激活函数-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -361,8 +367,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/14/神经网络的激活函数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/08/14/神经网络的激活函数/" itemprop="commentsCount"></span>
+                <a href="/2018/08/14/神经网络的激活函数-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/08/14/神经网络的激活函数-1/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -396,18 +402,18 @@
 
       
         <p>激活函数给神经网络引入了非线性因素，大大增加了神经网络的可解释性难度。常用激活函数大致经历了sigmoid到tanh到ReLU的演变过程。</p>
-<h1 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h1><h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><p>$$\sigma (x) = \frac{1}{1+e^{-x}}$$</p>
+<h1 id="sigmoid"><a href="#sigmoid" class="headerlink" title="sigmoid"></a>sigmoid</h1><h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><p>$$\sigma (x) = \frac{1}{1+e^{-x}}$$<br><img src="85858640-5.png" alt=""></p>
 <h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><p>函数饱和导致梯度消失问题，当神经元的激活值在0和1附近时，梯度接近为0，会饱和，导致梯度消失，几乎没有信号通过神经网络传回上一层。<br>函数输出不是以0为中心，导致梯度下降权重更新时出现z字型下降。</p>
 <h1 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h1><p>双曲正切函数</p>
-<h2 id="公式-1"><a href="#公式-1" class="headerlink" title="公式"></a>公式</h2><p>$$\sigma (x) = \frac{e^x - e^{-x}}{e^x+e^{-x}}$$</p>
+<h2 id="公式-1"><a href="#公式-1" class="headerlink" title="公式"></a>公式</h2><p>$$\sigma (x) = \frac{e^x - e^{-x}}{e^x+e^{-x}}$$<br><img src="43148640-7.png" alt=""></p>
 <h2 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h2><p>解决了sigmoid函数输出不以0为中心的问题，仍然存在饱和问题。</p>
 <h1 id="ReLU"><a href="#ReLU" class="headerlink" title="ReLU"></a>ReLU</h1><p>Rectified Linear Unit(ReLU)，目前最常用的激活函数。</p>
-<h2 id="公式-2"><a href="#公式-2" class="headerlink" title="公式"></a>公式</h2><p>$$\sigma (x) = max(x, 0)$$<br>当输入x&gt;0时，输出为x，当输入x&lt;0时，输出为0。</p>
+<h2 id="公式-2"><a href="#公式-2" class="headerlink" title="公式"></a>公式</h2><p>$$\sigma (x) = max(x, 0)$$<br>当输入x&gt;0时，输出为x，当输入x&lt;0时，输出为0。<br><img src="06134640-9.png" alt=""></p>
 <h2 id="性质-2"><a href="#性质-2" class="headerlink" title="性质"></a>性质</h2><p>计算简单，效率高，不会饱和，对随机梯度下降的收敛有巨大的加速作用。由于其稀疏激活性，ReLU神经元很容易die并且不可逆，导致数据多样化的丢失，模型无法学习到有效特征。</p>
-<h1 id="Leaky-ReLU"><a href="#Leaky-ReLU" class="headerlink" title="Leaky ReLU"></a>Leaky ReLU</h1><h2 id="公式-3"><a href="#公式-3" class="headerlink" title="公式"></a>公式</h2><p>$$\sigma (x) = max(\varepsilon x, x)$$<br>$\varepsilon$是一个比较小的负数梯度值，例如0.01。</p>
+<h1 id="Leaky-ReLU"><a href="#Leaky-ReLU" class="headerlink" title="Leaky ReLU"></a>Leaky ReLU</h1><h2 id="公式-3"><a href="#公式-3" class="headerlink" title="公式"></a>公式</h2><p>$$\sigma (x) = max(\varepsilon x, x)$$<br>$\varepsilon$是一个比较小的负数梯度值，例如0.01。<br><img src="12034640-11.png" alt=""></p>
 <h2 id="性质-3"><a href="#性质-3" class="headerlink" title="性质"></a>性质</h2><p>使负轴信息不会全部丢失，解决了ReLU中神经元die掉的问题。</p>
 <h1 id="softmax"><a href="#softmax" class="headerlink" title="softmax"></a>softmax</h1><p>将神经网络的输出转换为可能性大小，用在最后一层输出层，输出值在[0,1]范围内，同时各输出值相加和为1，满足输出值代表的可能性的概率分布。</p>
-<h2 id="公式-4"><a href="#公式-4" class="headerlink" title="公式"></a>公式</h2><p>$${\sigma (\mathbf{z})}_{j} = \frac{e^{z_j}}{\sum_{k=1}^{K}{e^{z_k}}},\mathrm{for}j=1,…,K$$</p>
+<h2 id="公式-4"><a href="#公式-4" class="headerlink" title="公式"></a>公式</h2><p>$${\sigma (\mathbf{z})}_{j} = \frac{e^{z_j}}{\sum_{k=1}^{K}{e^{z_k}}},\mathrm{for}j=1,…,K$$<br><img src="v2-68a7dfdf613d8cd43f0569184b206c5c_hd.jpg" alt=""></p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://zhuanlan.zhihu.com/p/32610035" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32610035</a><br><a href="https://feisky.xyz/machine-learning/neural-networks/active.html" target="_blank" rel="noopener">https://feisky.xyz/machine-learning/neural-networks/active.html</a><br><a href="https://www.jiqizhixin.com/articles/2017-11-02-26" target="_blank" rel="noopener">https://www.jiqizhixin.com/articles/2017-11-02-26</a><br><a href="https://zh.wikipedia.org/wiki/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0</a><br><a href="https://www.jianshu.com/p/22d9720dbf1a" target="_blank" rel="noopener">https://www.jianshu.com/p/22d9720dbf1a</a></p>
 
       
