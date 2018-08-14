@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[神经网络的激活函数]]></title>
+    <url>%2F2018%2F08%2F14%2F%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[激活函数给神经网络引入了非线性因素，大大增加了神经网络的可解释性难度。常用激活函数大致经历了sigmoid到tanh到ReLU的演变过程。 sigmoid公式$$\sigma (x) = \frac{1}{1+e^{-x}}$$ 性质函数饱和导致梯度消失问题，当神经元的激活值在0和1附近时，梯度接近为0，会饱和，导致梯度消失，几乎没有信号通过神经网络传回上一层。函数输出不是以0为中心，导致梯度下降权重更新时出现z字型下降。 tanh双曲正切函数 公式$$\sigma (x) = \frac{e^x - e^{-x}}{e^x+e^{-x}}$$ 性质解决了sigmoid函数输出不以0为中心的问题，仍然存在饱和问题。 ReLURectified Linear Unit(ReLU)，目前最常用的激活函数。 公式$$\sigma (x) = max(x, 0)$$当输入x&gt;0时，输出为x，当输入x&lt;0时，输出为0。 性质计算简单，效率高，不会饱和，对随机梯度下降的收敛有巨大的加速作用。由于其稀疏激活性，ReLU神经元很容易die并且不可逆，导致数据多样化的丢失，模型无法学习到有效特征。 Leaky ReLU公式$$\sigma (x) = max(\varepsilon x, x)$$$\varepsilon$是一个比较小的负数梯度值，例如0.01。 性质使负轴信息不会全部丢失，解决了ReLU中神经元die掉的问题。 softmax将神经网络的输出转换为可能性大小，用在最后一层输出层，输出值在[0,1]范围内，同时各输出值相加和为1，满足输出值代表的可能性的概率分布。 公式$${\sigma (\mathbf{z})}_{j} = \frac{e^{z_j}}{\sum_{k=1}^{K}{e^{z_k}}},\mathrm{for}j=1,…,K$$ Referencehttps://zhuanlan.zhihu.com/p/32610035https://feisky.xyz/machine-learning/neural-networks/active.htmlhttps://www.jiqizhixin.com/articles/2017-11-02-26https://zh.wikipedia.org/wiki/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0https://www.jianshu.com/p/22d9720dbf1a]]></content>
+      <categories>
+        <category>Deep learning</category>
+      </categories>
+      <tags>
+        <tag>neural network</tag>
+        <tag>activation function</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[conda和pip换源]]></title>
     <url>%2F2018%2F08%2F09%2Fconda%E5%92%8Cpip%E6%8D%A2%E6%BA%90%2F</url>
     <content type="text"><![CDATA[推荐使用国内镜像下载 pip国内源清华大学：https://pypi.tuna.tsinghua.edu.cn/simple阿里云：http://mirrors.aliyun.com/pypi/simple/豆瓣：http://pypi.doubanio.com/simple/中科大：https://mirrors.ustc.edu.cn/pypi/web/simple/ 更换源以更换清华的源为例： 临时使用使用-i参数，加上下载地址示例：1pip install -i https://pypi.tuna.tsinghua.edu.cn/simple keras 永久使用Linux在~/.pip/pip.conf文件中加入如下内容，没有则创建该文件 Windows找到用户目录下的AppData文件夹（显示隐藏项目或者资源管理器中直接搜索%appdata%），进入Local创建pip文件夹，创建pip.ini文件，添加如下内容1234[global]timeout = 6000index-url = https://pypi.tuna.tsinghua.edu.cn/simpletrusted-host = pypi.tuna.tsinghua.edu.cn conda国内源conda国内的源貌似只有清华的：https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ 更换源换源命令12conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/conda config --set show_channel_urls yes 换回默认源1conda config --remove-key channels]]></content>
