@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[POJ1321棋盘问题]]></title>
+    <url>%2F2018%2F08%2F15%2FPOJ1321%E6%A3%8B%E7%9B%98%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[kuangbin带你飞专题 题目POJ1321在一个给定形状的棋盘（形状可能是不规则的）上面摆放棋子，棋子没有区别。要求摆放时任意的两个棋子不能放在棋盘中的同一行或者同一列，请编程求解对于给定形状和大小的棋盘，摆放k个棋子的所有可行的摆放方案C。 Input输入含有多组测试数据。每组数据的第一行是两个正整数，n k，用一个空格隔开，表示了将在一个n*n的矩阵内描述棋盘，以及摆放棋子的数目。 n &lt;= 8 , k &lt;= n当为-1 -1时表示输入结束。随后的n行描述了棋盘的形状：每行有n个字符，其中 # 表示棋盘区域， . 表示空白区域（数据保证不出现多余的空白行或者空白列）。 Output对于每一组数据，给出一行输出，输出摆放的方案数目C （数据保证C&lt;2^31）。 Sample Input1234567892 1#..#4 4...#..#..#..#...-1 -1 Sample Output1221 思路深搜，回溯 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include &lt;iostream&gt;#include &lt;cstdio&gt;//#include &lt;memory.h&gt;using namespace std;int n, k;char pan[10][10];int row[10];int col[10];int sum;int res;void dfs(int sum, int a)&#123; if(sum == k)&#123; res++; return; &#125; for(int i = a; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(pan[i][j] == '#' &amp;&amp; !row[i] &amp;&amp; !col[j])&#123; row[i] = 1; col[j] = 1; dfs(sum+1, i+1); row[i] = 0; col[j] = 0; &#125; &#125; &#125;&#125;int main()&#123; while(scanf("%d %d", &amp;n, &amp;k) &amp;&amp; n != -1)&#123; //memset(row, 0, sizeof(row)); //memset(col, 0, sizeof(col)); for(int i = 0; i &lt; n; i++)&#123; row[i] = col[i] = 0; &#125; res = 0; for(int i = 0; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; scanf(" %c", &amp;pan[i][j]); &#125; &#125; dfs(0, 0); printf("%d\n", res); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>kuangbin带你飞 专题一 简单搜索</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+        <tag>dfs回溯</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[神经网络的激活函数]]></title>
     <url>%2F2018%2F08%2F14%2F%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0-1%2F</url>
     <content type="text"><![CDATA[激活函数给神经网络引入了非线性因素，大大增加了神经网络的可解释性难度。常用激活函数大致经历了sigmoid到tanh到ReLU的演变过程。 sigmoid公式$$\sigma (x) = \frac{1}{1+e^{-x}}$$ 性质函数饱和导致梯度消失问题，当神经元的激活值在0和1附近时，梯度接近为0，会饱和，导致梯度消失，几乎没有信号通过神经网络传回上一层。函数输出不是以0为中心，导致梯度下降权重更新时出现z字型下降。 tanh双曲正切函数 公式$$\sigma (x) = \frac{e^x - e^{-x}}{e^x+e^{-x}}$$ 性质解决了sigmoid函数输出不以0为中心的问题，仍然存在饱和问题。 ReLURectified Linear Unit(ReLU)，目前最常用的激活函数。 公式$$\sigma (x) = max(x, 0)$$当输入x&gt;0时，输出为x，当输入x&lt;0时，输出为0。 性质计算简单，效率高，不会饱和，对随机梯度下降的收敛有巨大的加速作用。由于其稀疏激活性，ReLU神经元很容易die并且不可逆，导致数据多样化的丢失，模型无法学习到有效特征。 Leaky ReLU公式$$\sigma (x) = max(\varepsilon x, x)$$$\varepsilon$是一个比较小的负数梯度值，例如0.01。 性质使负轴信息不会全部丢失，解决了ReLU中神经元die掉的问题。 softmax将神经网络的输出转换为可能性大小，用在最后一层输出层，输出值在[0,1]范围内，同时各输出值相加和为1，满足输出值代表的可能性的概率分布。 公式$${\sigma (\mathbf{z})}_{j} = \frac{e^{z_j}}{\sum_{k=1}^{K}{e^{z_k}}},\mathrm{for}j=1,…,K$$ Referencehttps://zhuanlan.zhihu.com/p/32610035https://feisky.xyz/machine-learning/neural-networks/active.htmlhttps://www.jiqizhixin.com/articles/2017-11-02-26https://zh.wikipedia.org/wiki/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0https://www.jianshu.com/p/22d9720dbf1a]]></content>
