@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo博客添加搜索功能]]></title>
+    <url>%2F2018%2F08%2F16%2FHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD%2F</url>
+    <content type="text"><![CDATA[为自己的博客添加搜索功能。 local_search 安装hexo-generator-searchdb模块，在博客的根目录下执行以下命令： 1npm install hexo-generator-searchdb --save 在站点配置文件中加入如下内容： 12345search: path: search.xml field: post format: html limit: 10000 在主题配置文件中开启local_search功能： 12local_search: enable: true algolia_search官方教程]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[POJ1321棋盘问题]]></title>
     <url>%2F2018%2F08%2F15%2FPOJ1321%E6%A3%8B%E7%9B%98%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[kuangbin带你飞专题 题目POJ1321在一个给定形状的棋盘（形状可能是不规则的）上面摆放棋子，棋子没有区别。要求摆放时任意的两个棋子不能放在棋盘中的同一行或者同一列，请编程求解对于给定形状和大小的棋盘，摆放k个棋子的所有可行的摆放方案C。 Input输入含有多组测试数据。每组数据的第一行是两个正整数，n k，用一个空格隔开，表示了将在一个n*n的矩阵内描述棋盘，以及摆放棋子的数目。 n &lt;= 8 , k &lt;= n当为-1 -1时表示输入结束。随后的n行描述了棋盘的形状：每行有n个字符，其中 # 表示棋盘区域， . 表示空白区域（数据保证不出现多余的空白行或者空白列）。 Output对于每一组数据，给出一行输出，输出摆放的方案数目C （数据保证C&lt;2^31）。 Sample Input1234567892 1#..#4 4...#..#..#..#...-1 -1 Sample Output1221 思路深搜，回溯 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include &lt;iostream&gt;#include &lt;cstdio&gt;//#include &lt;memory.h&gt;using namespace std;int n, k;char pan[10][10];int row[10];int col[10];int sum;int res;void dfs(int sum, int a)&#123; if(sum == k)&#123; res++; return; &#125; for(int i = a; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(pan[i][j] == '#' &amp;&amp; !row[i] &amp;&amp; !col[j])&#123; row[i] = 1; col[j] = 1; dfs(sum+1, i+1); row[i] = 0; col[j] = 0; &#125; &#125; &#125;&#125;int main()&#123; while(scanf("%d %d", &amp;n, &amp;k) &amp;&amp; n != -1)&#123; //memset(row, 0, sizeof(row)); //memset(col, 0, sizeof(col)); for(int i = 0; i &lt; n; i++)&#123; row[i] = col[i] = 0; &#125; res = 0; for(int i = 0; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; scanf(" %c", &amp;pan[i][j]); &#125; &#125; dfs(0, 0); printf("%d\n", res); &#125; return 0;&#125;]]></content>
