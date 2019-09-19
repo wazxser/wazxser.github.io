@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[odd_papers_reading]]></title>
     <url>%2F2019%2F09%2F18%2Fodd-papers-reading%2F</url>
-    <content type="text"><![CDATA[1.Deep anomaly detection with outlier exposure]]></content>
+    <content type="text"><![CDATA[Deep anomaly detection with outlier exposure训练辅助的anomaly detectors，Outlier Exposure (OE) 来检测，在图像识别和自然语言处理数据集上进行实验，同样可以应用于density estimation models和 large-scale images，分析了OE的灵活性和鲁棒性。 代码实现（Pytorch）：https://github.com/hendrycks/outlier-exposure A baseline for detecting misclassified and out-of-distribution examples in neural networksDan Hendrycks, Kevin Gimpel 代码实现（Pytorch）：https://github.com/hendrycks/error-detection Training confidence-calibrated classifiers for detecting out-of-distribution samplesKimin Lee, Honglak Lee, Kibok Lee, Jinwoo Shin 代码实现（Pytorch）：https://github.com/alinlab/Confident_classifier Open Category Detection with PAC GuaranteesSi Liu, Risheek Garrepalli, Thomas G. Dietterich, Alan Fern, Dan Hendrycks 代码实现（R）：https://github.com/liusi2019/ocd]]></content>
   </entry>
   <entry>
     <title><![CDATA[leetcode_137_Single_Number_II]]></title>
