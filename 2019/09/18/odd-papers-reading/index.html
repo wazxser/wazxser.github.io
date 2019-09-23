@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Moon">
 <meta property="og:description" content="Summary目前大部分论文都是用和原始模型训练集不同的数据集来作为out of distribution的数据集，。OOD——out of distributionODD——out of distribution detectionID——in distributionODD也称作： one-class classification, novelty detection, anomaly det">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-23T12:17:11.071Z">
+<meta property="og:updated_time" content="2019-09-23T12:31:41.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ODD papers reading">
 <meta name="twitter:description" content="Summary目前大部分论文都是用和原始模型训练集不同的数据集来作为out of distribution的数据集，。OOD——out of distributionODD——out of distribution detectionID——in distributionODD也称作： one-class classification, novelty detection, anomaly det">
@@ -507,7 +507,17 @@
 </ul>
 <h2 id="Deep-One-Class-Classification"><a href="#Deep-One-Class-Classification" class="headerlink" title="Deep One-Class Classification"></a><a href="http://proceedings.mlr.press/v80/ruff18a.html" target="_blank" rel="noopener">Deep One-Class Classification</a></h2><p>(ICML’18) <strong>Lukas Ruff, Robert Vandermeulen, Nico Goernitz, Lucas Deecke, Shoaib Ahmed Siddiqui, Alexander Binder, Emmanuel Müller, Marius Kloft</strong></p>
 <ul>
-<li>代码实现（Pytorch）：<a href="https://github.com/lukasruff/Deep-SVDD" target="_blank" rel="noopener">https://github.com/lukasruff/Deep-SVDD</a></li>
+<li>主要内容：<ul>
+<li>深度支持向量数据描述。。。将OOD样本的检测问题视为一个二分类问题，这方面研究还有很多工作，One-Class SVM（OC-SVM），编码解码器，GAN之类的。</li>
+<li>目标是学习一个训练集数据的描述，用神经网络表示为一个超球，这个超球尽可能小地只包含ID样本，如果样本落在超球内，是ID样本，如果落在外面是，OOD样本。</li>
+<li></li>
+</ul>
+</li>
+<li>代码实现（Pytorch）：<a href="https://github.com/lukasruff/Deep-SVDD" target="_blank" rel="noopener">https://github.com/lukasruff/Deep-SVDD</a><ul>
+<li>做实验时，使用数据集中的一类样本做为ID的，其他类样本为OOD的</li>
+<li>能检测对抗样本</li>
+</ul>
+</li>
 </ul>
 <h2 id="Classification-Reconstruction-Learning-for-Open-Set-Recognition"><a href="#Classification-Reconstruction-Learning-for-Open-Set-Recognition" class="headerlink" title="Classification-Reconstruction Learning for Open-Set Recognition"></a><a href="https://arxiv.org/abs/1812.04246?context=cs" target="_blank" rel="noopener">Classification-Reconstruction Learning for Open-Set Recognition</a></h2><p>(‘18) <strong>Ryota Yoshihashi, Wen Shao, Rei Kawakami, Shaodi You, Makoto Iida, Takeshi Naemura</strong></p>
 <ul>
