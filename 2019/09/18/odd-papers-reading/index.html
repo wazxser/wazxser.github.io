@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Moon">
 <meta property="og:description" content="Summary目前大部分论文都是用和原始模型训练集不同的数据集来作为out of distribution的数据集，。OOD——out of distributionODD——out of distribution detectionID——in distributionODD也称作： one-class classification, novelty detection, anomaly det">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-23T12:31:41.074Z">
+<meta property="og:updated_time" content="2019-09-23T13:43:03.547Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ODD papers reading">
 <meta name="twitter:description" content="Summary目前大部分论文都是用和原始模型训练集不同的数据集来作为out of distribution的数据集，。OOD——out of distributionODD——out of distribution detectionID——in distributionODD也称作： one-class classification, novelty detection, anomaly det">
@@ -455,6 +455,13 @@
 </ul>
 <h2 id="A-Simple-Unified-Framework-for-Detecting-Out-of-Distribution-Samples-and-Adversarial-Attacks"><a href="#A-Simple-Unified-Framework-for-Detecting-Out-of-Distribution-Samples-and-Adversarial-Attacks" class="headerlink" title="A Simple Unified Framework for Detecting Out-of-Distribution Samples and Adversarial Attacks"></a><a href="https://arxiv.org/abs/1807.03888" target="_blank" rel="noopener">A Simple Unified Framework for Detecting Out-of-Distribution Samples and Adversarial Attacks</a></h2><p>(NeurIPS’18) <strong>Kimin Lee, Kibok Lee, Honglak Lee, Jinwoo Shin</strong></p>
 <ul>
+<li>主要内容：<ul>
+<li>用于OOD样本检测和对抗样本检测</li>
+<li>通过类条件高斯分布来表示每个类别的样本的特征的分布（这个有近似的理论依据），$f(\cdot)$为DNN的penultimate layer的输出。<br>$$P(f(\mathbf{x}) | y = c) = \mathcal{N} (f(\mathbf{x}) | \mu _ {c}, \Sigma)$$</li>
+<li>通过计算待测样本和距离最近的类条件高斯分布之间的马式距离来作为ODD score。</li>
+<li>通过在待测样本上增加扰动（在score增加的方向上）来使得ID样本和OOD样本区别更大</li>
+</ul>
+</li>
 <li>代码实现（Pytorch）：<a href="https://github.com/pokaxpoka/deep_Mahalanobis_detector" target="_blank" rel="noopener">https://github.com/pokaxpoka/deep_Mahalanobis_detector</a> </li>
 </ul>
 <h2 id="Anomaly-Detection-with-Generative-Adversarial-Networks"><a href="#Anomaly-Detection-with-Generative-Adversarial-Networks" class="headerlink" title="Anomaly Detection with Generative Adversarial Networks"></a><a href="https://arxiv.org/abs/1703.05921" target="_blank" rel="noopener">Anomaly Detection with Generative Adversarial Networks</a></h2><p>(IPMI’17) <strong>Thomas Schlegl, Philipp Seeböck, Sebastian M. Waldstein, Ursula Schmidt-Erfurth, Georg Langs</strong></p>
