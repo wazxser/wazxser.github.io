@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Moon">
 <meta property="og:description" content="Summary目前大部分论文都是用和原始模型训练集不同的数据集来作为out of distribution的数据集，。OOD——out of distributionODD——out of distribution detectionID——in distributionODD也称作： one-class classification, novelty detection, anomaly det">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-23T14:08:41.584Z">
+<meta property="og:updated_time" content="2019-09-24T06:49:08.269Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ODD papers reading">
 <meta name="twitter:description" content="Summary目前大部分论文都是用和原始模型训练集不同的数据集来作为out of distribution的数据集，。OOD——out of distributionODD——out of distribution detectionID——in distributionODD也称作： one-class classification, novelty detection, anomaly det">
@@ -431,7 +431,8 @@
 <li><p>主要内容：</p>
 <ul>
 <li>在使用的softmax做为ID和OOD样本分类的基础上，增加了temp scaling和在input perturbing的机制。</li>
-<li></li>
+<li>Tempperature Scaling:<br>$$S _ {i} (\mathbf{x}; T) = \frac{exp(f_i(\mathbf{x})/ T)}{\sum _ {j = 1} ^ {N} exp (f_j(\mathbf{x})/T)}$$</li>
+<li>Input perturbing:<br>$$\tilde{x} = x - \varepsilon sign (-\nabla _ {x} log S_{\tilde{y}} (\mathbf{x};T)) $$</li>
 </ul>
 </li>
 <li><p>代码实现（Pytorch）：<a href="https://github.com/facebookresearch/odin" target="_blank" rel="noopener">https://github.com/facebookresearch/odin</a></p>
@@ -443,14 +444,29 @@
 </ul>
 <h2 id="Out-of-distribution-detection-using-an-ensemble-of-self-supervised-leave-out-classifiers"><a href="#Out-of-distribution-detection-using-an-ensemble-of-self-supervised-leave-out-classifiers" class="headerlink" title="Out-of-distribution detection using an ensemble of self supervised leave-out classifiers"></a><a href="https://arxiv.org/abs/1809.03576" target="_blank" rel="noopener">Out-of-distribution detection using an ensemble of self supervised leave-out classifiers</a></h2><p>(ECCV’18) <strong>Apoorv Vyas, Nataraj Jammalamadaka, Xia Zhu, Dipankar Das, Bharat Kaul, Theodore L. Willke</strong></p>
 <ul>
+<li>主要内容：<ul>
+<li>使用集成的方法来判断样本是否是OOD的</li>
+<li>每个分类器都是通过留出法来训练的</li>
+</ul>
+</li>
 <li>代码实现（Pytorch）：<a href="https://github.com/YU1ut/Ensemble-of-Leave-out-Classifiers" target="_blank" rel="noopener">https://github.com/YU1ut/Ensemble-of-Leave-out-Classifiers</a></li>
 </ul>
 <h2 id="Out-of-Distribution-Detection-using-Multiple-Semantic-Label-Representations"><a href="#Out-of-Distribution-Detection-using-Multiple-Semantic-Label-Representations" class="headerlink" title="Out-of-Distribution Detection using Multiple Semantic Label Representations"></a><a href="https://arxiv.org/abs/1808.06664" target="_blank" rel="noopener">Out-of-Distribution Detection using Multiple Semantic Label Representations</a></h2><p>(NeurIPS’18) <strong>Gabi Shalev, Yossi Adi, Joseph Keshet</strong></p>
 <ul>
+<li>主要内容：<ul>
+<li>在深度神经网络之后接入K个回归函数，输出K个不同词向量</li>
+<li>用词向量之间的$L_2$范数距离做为衡量OOD样本的标准</li>
+</ul>
+</li>
 <li>代码实现： <a href="https://github.com/MLSpeech/semantic_OOD（代码仓库是空的。。。）" target="_blank" rel="noopener">https://github.com/MLSpeech/semantic_OOD（代码仓库是空的。。。）</a></li>
 </ul>
 <h2 id="WAIC-but-Why-Generative-Ensembles-for-Robust-Anomaly-Detection"><a href="#WAIC-but-Why-Generative-Ensembles-for-Robust-Anomaly-Detection" class="headerlink" title="WAIC, but Why? Generative Ensembles for Robust Anomaly Detection"></a><a href="https://arxiv.org/abs/1810.01392" target="_blank" rel="noopener">WAIC, but Why? Generative Ensembles for Robust Anomaly Detection</a></h2><p>(‘18) <strong>Hyunsun Choi, Eric Jang, Alexander A. Alemi</strong></p>
 <ul>
+<li>主要内容：<ul>
+<li>WAIC：估计训练集和测试集数据期望之间的差距</li>
+<li></li>
+</ul>
+</li>
 <li>代码实现： </li>
 </ul>
 <h2 id="A-Simple-Unified-Framework-for-Detecting-Out-of-Distribution-Samples-and-Adversarial-Attacks"><a href="#A-Simple-Unified-Framework-for-Detecting-Out-of-Distribution-Samples-and-Adversarial-Attacks" class="headerlink" title="A Simple Unified Framework for Detecting Out-of-Distribution Samples and Adversarial Attacks"></a><a href="https://arxiv.org/abs/1807.03888" target="_blank" rel="noopener">A Simple Unified Framework for Detecting Out-of-Distribution Samples and Adversarial Attacks</a></h2><p>(NeurIPS’18) <strong>Kimin Lee, Kibok Lee, Honglak Lee, Jinwoo Shin</strong></p>
@@ -506,6 +522,12 @@
 </ul>
 <h2 id="Selective-Classification-for-Deep-Neural-Networks"><a href="#Selective-Classification-for-Deep-Neural-Networks" class="headerlink" title="Selective Classification for Deep Neural Networks"></a><a href="http://papers.nips.cc/paper/7073-selective-classification-for-deep-neural-networks" target="_blank" rel="noopener">Selective Classification for Deep Neural Networks</a></h2><p>(NeurIPS’17) <strong>Yonatan Geifman, Ran El-Yaniv</strong></p>
 <ul>
+<li>主要内容：<ul>
+<li>在原始网络的基础上再训练一个selective classifier</li>
+<li>允许用户设置期望的风险水平</li>
+<li></li>
+</ul>
+</li>
 <li>代码实现：</li>
 </ul>
 <h2 id="To-Trust-Or-Not-To-Trust-A-Classifier"><a href="#To-Trust-Or-Not-To-Trust-A-Classifier" class="headerlink" title="To Trust Or Not To Trust A Classifier"></a><a href="https://arxiv.org/abs/1805.11783v2" target="_blank" rel="noopener">To Trust Or Not To Trust A Classifier</a></h2><p>(NeurIPS’18) <strong>Heinrich Jiang, Been Kim, Melody Y. Guan, Maya Gupta</strong></p>
@@ -536,6 +558,12 @@
 </ul>
 <h2 id="Deep-autoencoding-gaussian-mixture-model-for-unsupervised-anomaly-detection"><a href="#Deep-autoencoding-gaussian-mixture-model-for-unsupervised-anomaly-detection" class="headerlink" title="Deep autoencoding gaussian mixture model for unsupervised anomaly detection"></a><a href="https://openreview.net/forum?id=BJJLHbb0-" target="_blank" rel="noopener">Deep autoencoding gaussian mixture model for unsupervised anomaly detection</a></h2><p>(ICLR’18) <strong>Bo Zong, Qi Song, Martin Renqiang Min, Wei Cheng, Cristian Lumezanu, Daeki Cho, Haifeng Chen</strong></p>
 <ul>
+<li>主要内容：<ul>
+<li>深度自动编码的高斯混合模型，无监督的异常检测问题</li>
+<li>利用深度解码器来对输入进行降维</li>
+<li>利用高斯混合模型通过density estimation来估计每个样本的是否是OOD的分数</li>
+</ul>
+</li>
 <li>代码实现（Pytorch）：<a href="https://github.com/danieltan07/dagmm" target="_blank" rel="noopener">https://github.com/danieltan07/dagmm</a> （Tensorflow）：<a href="https://github.com/Newcomer520/tf-dagmm" target="_blank" rel="noopener">https://github.com/Newcomer520/tf-dagmm</a><ul>
 <li>OODS datasets：<a href="http://odds.cs.stonybrook.edu/" target="_blank" rel="noopener">http://odds.cs.stonybrook.edu/</a></li>
 </ul>
