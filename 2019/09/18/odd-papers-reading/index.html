@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Moon">
 <meta property="og:description" content="Summary目前大部分论文都是用和原始模型训练集不同的数据集来作为out of distribution的数据集，。OOD——out of distributionODD——out of distribution detectionID——in distributionODD也称作： one-class classification, novelty detection, anomaly det">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-24T10:29:59.978Z">
+<meta property="og:updated_time" content="2019-09-29T08:55:44.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ODD papers reading">
 <meta name="twitter:description" content="Summary目前大部分论文都是用和原始模型训练集不同的数据集来作为out of distribution的数据集，。OOD——out of distributionODD——out of distribution detectionID——in distributionODD也称作： one-class classification, novelty detection, anomaly det">
@@ -398,7 +398,7 @@
 <li>高置信度的错误预测经常是来自于softmax的，单从某个样本上看，softmax给的信心值可能是错的，但是从统计上看，错误分类的样本<br>和OOD的样本在softmax给出的信心值上是比正常的正确分类的样本是要高的。</li>
 </ul>
 </li>
-<li>代码实现（Pytorch）：<a href="https://github.com/hendrycks/error-detection" target="_blank" rel="noopener">https://github.com/hendrycks/error-detection</a></li>
+<li>代码实现（Tensorflow）：<a href="https://github.com/hendrycks/error-detection" target="_blank" rel="noopener">https://github.com/hendrycks/error-detection</a></li>
 </ul>
 <h2 id="Training-confidence-calibrated-classifiers-for-detecting-out-of-distribution-samples"><a href="#Training-confidence-calibrated-classifiers-for-detecting-out-of-distribution-samples" class="headerlink" title="Training confidence-calibrated classifiers for detecting out-of-distribution samples"></a><a href="https://arxiv.org/abs/1711.09325" target="_blank" rel="noopener">Training confidence-calibrated classifiers for detecting out-of-distribution samples</a></h2><p>(ICLR’18) <strong>Kimin Lee, Honglak Lee, Kibok Lee, Jinwoo Shin</strong></p>
 <ul>
@@ -538,7 +538,11 @@
 </ul>
 <h2 id="To-Trust-Or-Not-To-Trust-A-Classifier"><a href="#To-Trust-Or-Not-To-Trust-A-Classifier" class="headerlink" title="To Trust Or Not To Trust A Classifier"></a><a href="https://arxiv.org/abs/1805.11783v2" target="_blank" rel="noopener">To Trust Or Not To Trust A Classifier</a></h2><p>(NeurIPS’18) <strong>Heinrich Jiang, Been Kim, Melody Y. Guan, Maya Gupta</strong></p>
 <ul>
-<li>主要内容：<br>  - </li>
+<li>主要内容：<ul>
+<li>设计一种评分标准，分数高则认为分类器结果哦可信任，低则不可信任</li>
+<li>分数为，测试样本到除了预测分类以外，其他分类中距离最近样本的距离和测试样本到预测分类样本的距离</li>
+</ul>
+</li>
 <li>代码实现： <a href="https://github.com/google/TrustScore" target="_blank" rel="noopener">https://github.com/google/TrustScore</a></li>
 </ul>
 <h2 id="Simple-and-Scalable-Predictive-Uncertainty-Estimation-using-Deep-Ensembles"><a href="#Simple-and-Scalable-Predictive-Uncertainty-Estimation-using-Deep-Ensembles" class="headerlink" title="Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles"></a><a href="https://arxiv.org/abs/1612.01474" target="_blank" rel="noopener">Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles</a></h2><p>(NeurIPS’17) <strong>Balaji Lakshminarayanan, Alexander Pritzel, Charles Blundell</strong></p>
