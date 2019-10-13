@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Moon">
 <meta property="og:description" content="Summary目前大部分论文都是用和原始模型训练集不同的数据集来作为out of distribution的数据集，。OOD——out of distributionODD——out of distribution detectionID——in distributionODD也称作： one-class classification, novelty detection, anomaly det">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-09T06:46:57.283Z">
+<meta property="og:updated_time" content="2019-10-09T10:55:10.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ODD papers reading">
 <meta name="twitter:description" content="Summary目前大部分论文都是用和原始模型训练集不同的数据集来作为out of distribution的数据集，。OOD——out of distributionODD——out of distribution detectionID——in distributionODD也称作： one-class classification, novelty detection, anomaly det">
@@ -395,7 +395,7 @@
 <ul>
 <li>主要内容：<ul>
 <li>利用softmax给出的信心值作为判断样本是否是OOD的依据</li>
-<li>高置信度的错误预测经常是来自于softmax的，单从某个样本上看，softmax给的信心值可能是错的，但是从统计上看，错误分类的样本<br>和OOD的样本在softmax给出的信心值上是比正常的正确分类的样本是要高的。</li>
+<li>高置信度的错误预测经常是来自于softmax的，单从某个样本上看，softmax给的信心值可能是错的，但是从统计上看，错误分类的样本<br>和OOD的样本在softmax给出的信心值上是比正常的正确分类的样本是要低的。</li>
 </ul>
 </li>
 <li>代码实现（Tensorflow）：<a href="https://github.com/hendrycks/error-detection" target="_blank" rel="noopener">https://github.com/hendrycks/error-detection</a></li>
@@ -434,15 +434,6 @@
 <li><p>代码实现（Pytorch）：<a href="https://github.com/facebookresearch/odin" target="_blank" rel="noopener">https://github.com/facebookresearch/odin</a></p>
 </li>
 </ul>
-<h2 id="Out-of-distribution-detection-using-an-ensemble-of-self-supervised-leave-out-classifiers"><a href="#Out-of-distribution-detection-using-an-ensemble-of-self-supervised-leave-out-classifiers" class="headerlink" title="Out-of-distribution detection using an ensemble of self supervised leave-out classifiers"></a><a href="https://arxiv.org/abs/1809.03576" target="_blank" rel="noopener">Out-of-distribution detection using an ensemble of self supervised leave-out classifiers</a></h2><p>(ECCV’18) <strong>Apoorv Vyas, Nataraj Jammalamadaka, Xia Zhu, Dipankar Das, Bharat Kaul, Theodore L. Willke</strong></p>
-<ul>
-<li>主要内容：<ul>
-<li>使用集成的方法来判断样本是否是OOD的</li>
-<li>每个分类器都是通过留出法来训练的</li>
-</ul>
-</li>
-<li>代码实现（Pytorch）：<a href="https://github.com/YU1ut/Ensemble-of-Leave-out-Classifiers" target="_blank" rel="noopener">https://github.com/YU1ut/Ensemble-of-Leave-out-Classifiers</a></li>
-</ul>
 <h2 id="Out-of-Distribution-Detection-using-Multiple-Semantic-Label-Representations"><a href="#Out-of-Distribution-Detection-using-Multiple-Semantic-Label-Representations" class="headerlink" title="Out-of-Distribution Detection using Multiple Semantic Label Representations"></a><a href="https://arxiv.org/abs/1808.06664" target="_blank" rel="noopener">Out-of-Distribution Detection using Multiple Semantic Label Representations</a></h2><p>(NeurIPS’18) <strong>Gabi Shalev, Yossi Adi, Joseph Keshet</strong></p>
 <ul>
 <li>主要内容：<ul>
@@ -463,24 +454,6 @@
 </li>
 <li>代码实现（Pytorch）：<a href="https://github.com/pokaxpoka/deep_Mahalanobis_detector" target="_blank" rel="noopener">https://github.com/pokaxpoka/deep_Mahalanobis_detector</a> </li>
 </ul>
-<h2 id="Anomaly-Detection-with-Generative-Adversarial-Networks"><a href="#Anomaly-Detection-with-Generative-Adversarial-Networks" class="headerlink" title="Anomaly Detection with Generative Adversarial Networks"></a><a href="https://arxiv.org/abs/1703.05921" target="_blank" rel="noopener">Anomaly Detection with Generative Adversarial Networks</a></h2><p>(IPMI’17) <strong>Thomas Schlegl, Philipp Seeböck, Sebastian M. Waldstein, Ursula Schmidt-Erfurth, Georg Langs</strong></p>
-<ul>
-<li>主要内容：<ul>
-<li>通过GAN来学习</li>
-<li>设计一种评价机制来给出样本一个分数做为判断是否是OOD的标准。</li>
-</ul>
-</li>
-<li>代码实现：</li>
-</ul>
-<h2 id="Novelty-Detection-with-GAN"><a href="#Novelty-Detection-with-GAN" class="headerlink" title="Novelty Detection with GAN"></a><a href="https://arxiv.org/abs/1802.10560" target="_blank" rel="noopener">Novelty Detection with GAN</a></h2><p>(‘18) <strong>Mark Kliger, Shachar Fleishman</strong></p>
-<ul>
-<li>主要内容：<ul>
-<li>使用原始训练集和其他分布的数据来训练generator</li>
-<li>使得discriminator能够识别出OOD的样本</li>
-</ul>
-</li>
-<li>代码实现：</li>
-</ul>
 <h2 id="How-to-know-when-machine-learning-does-not-know"><a href="#How-to-know-when-machine-learning-does-not-know" class="headerlink" title="How to know when machine learning does not know"></a><a href="http://www.cleverhans.io/security/2019/05/20/dknn.html" target="_blank" rel="noopener">How to know when machine learning does not know</a></h2><p>(cleverhans blog by Nicolas Papernot and Nicholas Frosst)</p>
 <ul>
 <li>主要内容：<ul>
@@ -490,14 +463,6 @@
 </ul>
 </li>
 <li>代码实现：<a href="https://github.com/rodgzilla/machine_learning_deep_knn" target="_blank" rel="noopener">https://github.com/rodgzilla/machine_learning_deep_knn</a></li>
-</ul>
-<h2 id="Reducing-Network-Agnostophobia"><a href="#Reducing-Network-Agnostophobia" class="headerlink" title="Reducing Network Agnostophobia"></a><a href="https://arxiv.org/abs/1811.04110v2" target="_blank" rel="noopener">Reducing Network Agnostophobia</a></h2><p>(NeurIPS’18) <strong>Akshay Raj Dhamija, Manuel Günther, Terrance E. Boult</strong></p>
-<ul>
-<li>主要内容：<ul>
-<li>Agnostophobia：未知的恐惧</li>
-</ul>
-</li>
-<li>代码实现（Keras）：<a href="https://github.com/Vastlab/Reducing-Network-Agnostophobia" target="_blank" rel="noopener">https://github.com/Vastlab/Reducing-Network-Agnostophobia</a></li>
 </ul>
 <h2 id="Deep-One-Class-Classification"><a href="#Deep-One-Class-Classification" class="headerlink" title="Deep One-Class Classification"></a><a href="http://proceedings.mlr.press/v80/ruff18a.html" target="_blank" rel="noopener">Deep One-Class Classification</a></h2><p>(ICML’18) <strong>Lukas Ruff, Robert Vandermeulen, Nico Goernitz, Lucas Deecke, Shoaib Ahmed Siddiqui, Alexander Binder, Emmanuel Müller, Marius Kloft</strong></p>
 <ul>
@@ -525,6 +490,41 @@
 <li>OODS datasets：<a href="http://odds.cs.stonybrook.edu/" target="_blank" rel="noopener">http://odds.cs.stonybrook.edu/</a></li>
 </ul>
 </li>
+</ul>
+<h2 id="Anomaly-Detection-with-Generative-Adversarial-Networks"><a href="#Anomaly-Detection-with-Generative-Adversarial-Networks" class="headerlink" title="Anomaly Detection with Generative Adversarial Networks"></a><a href="https://arxiv.org/abs/1703.05921" target="_blank" rel="noopener">Anomaly Detection with Generative Adversarial Networks</a></h2><p>(IPMI’17) <strong>Thomas Schlegl, Philipp Seeböck, Sebastian M. Waldstein, Ursula Schmidt-Erfurth, Georg Langs</strong></p>
+<ul>
+<li>主要内容：<ul>
+<li>通过GAN来学习</li>
+<li>设计一种评价机制来给出样本一个分数做为判断是否是OOD的标准。</li>
+</ul>
+</li>
+<li>代码实现：</li>
+</ul>
+<h2 id="Novelty-Detection-with-GAN"><a href="#Novelty-Detection-with-GAN" class="headerlink" title="Novelty Detection with GAN"></a><a href="https://arxiv.org/abs/1802.10560" target="_blank" rel="noopener">Novelty Detection with GAN</a></h2><p>(‘18) <strong>Mark Kliger, Shachar Fleishman</strong></p>
+<ul>
+<li>主要内容：<ul>
+<li>使用原始训练集和其他分布的数据来训练generator</li>
+<li>使得discriminator能够识别出OOD的样本</li>
+</ul>
+</li>
+<li>代码实现：</li>
+</ul>
+<h2 id="Out-of-distribution-detection-using-an-ensemble-of-self-supervised-leave-out-classifiers"><a href="#Out-of-distribution-detection-using-an-ensemble-of-self-supervised-leave-out-classifiers" class="headerlink" title="Out-of-distribution detection using an ensemble of self supervised leave-out classifiers"></a><a href="https://arxiv.org/abs/1809.03576" target="_blank" rel="noopener">Out-of-distribution detection using an ensemble of self supervised leave-out classifiers</a></h2><p>(ECCV’18) <strong>Apoorv Vyas, Nataraj Jammalamadaka, Xia Zhu, Dipankar Das, Bharat Kaul, Theodore L. Willke</strong></p>
+<ul>
+<li>主要内容：<ul>
+<li>使用集成的方法来判断样本是否是OOD的</li>
+<li>每个分类器都是通过留出法来训练的</li>
+</ul>
+</li>
+<li>代码实现（Pytorch）：<a href="https://github.com/YU1ut/Ensemble-of-Leave-out-Classifiers" target="_blank" rel="noopener">https://github.com/YU1ut/Ensemble-of-Leave-out-Classifiers</a></li>
+</ul>
+<h2 id="Reducing-Network-Agnostophobia"><a href="#Reducing-Network-Agnostophobia" class="headerlink" title="Reducing Network Agnostophobia"></a><a href="https://arxiv.org/abs/1811.04110v2" target="_blank" rel="noopener">Reducing Network Agnostophobia</a></h2><p>(NeurIPS’18) <strong>Akshay Raj Dhamija, Manuel Günther, Terrance E. Boult</strong></p>
+<ul>
+<li>主要内容：<ul>
+<li>Agnostophobia：未知的恐惧</li>
+</ul>
+</li>
+<li>代码实现（Keras）：<a href="https://github.com/Vastlab/Reducing-Network-Agnostophobia" target="_blank" rel="noopener">https://github.com/Vastlab/Reducing-Network-Agnostophobia</a></li>
 </ul>
 <h2 id="Classification-Reconstruction-Learning-for-Open-Set-Recognition"><a href="#Classification-Reconstruction-Learning-for-Open-Set-Recognition" class="headerlink" title="Classification-Reconstruction Learning for Open-Set Recognition"></a><a href="https://arxiv.org/abs/1812.04246?context=cs" target="_blank" rel="noopener">Classification-Reconstruction Learning for Open-Set Recognition</a></h2><p>(‘18) <strong>Ryota Yoshihashi, Wen Shao, Rei Kawakami, Shaodi You, Makoto Iida, Takeshi Naemura</strong></p>
 <ul>
@@ -653,6 +653,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/10/13/Leetcode-470/" rel="prev" title="Leetcode 470 Implement Rand10() Using Rand7()">
+                Leetcode 470 Implement Rand10() Using Rand7() <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -732,7 +736,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -870,7 +874,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Summary"><span class="nav-number">1.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Evaluation-Metrics"><span class="nav-number">2.</span> <span class="nav-text">Evaluation Metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-anomaly-detection-with-outlier-exposure"><span class="nav-number">2.1.</span> <span class="nav-text">Deep anomaly detection with outlier exposure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-baseline-for-detecting-misclassified-and-out-of-distribution-examples-in-neural-networks"><span class="nav-number">2.2.</span> <span class="nav-text">A baseline for detecting misclassified and out-of-distribution examples in neural networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Training-confidence-calibrated-classifiers-for-detecting-out-of-distribution-samples"><span class="nav-number">2.3.</span> <span class="nav-text">Training confidence-calibrated classifiers for detecting out-of-distribution samples</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Learning-Confidence-for-Out-of-Distribution-Detection-in-Neural-Networks"><span class="nav-number">2.4.</span> <span class="nav-text">Learning Confidence for Out-of-Distribution Detection in Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Enhancing-The-Reliability-of-Out-of-distribution-Image-Detection-in-Neural-Networks"><span class="nav-number">2.5.</span> <span class="nav-text">Enhancing The Reliability of Out-of-distribution Image Detection in Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Out-of-distribution-detection-using-an-ensemble-of-self-supervised-leave-out-classifiers"><span class="nav-number">2.6.</span> <span class="nav-text">Out-of-distribution detection using an ensemble of self supervised leave-out classifiers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Out-of-Distribution-Detection-using-Multiple-Semantic-Label-Representations"><span class="nav-number">2.7.</span> <span class="nav-text">Out-of-Distribution Detection using Multiple Semantic Label Representations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Simple-Unified-Framework-for-Detecting-Out-of-Distribution-Samples-and-Adversarial-Attacks"><span class="nav-number">2.8.</span> <span class="nav-text">A Simple Unified Framework for Detecting Out-of-Distribution Samples and Adversarial Attacks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Anomaly-Detection-with-Generative-Adversarial-Networks"><span class="nav-number">2.9.</span> <span class="nav-text">Anomaly Detection with Generative Adversarial Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Novelty-Detection-with-GAN"><span class="nav-number">2.10.</span> <span class="nav-text">Novelty Detection with GAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-know-when-machine-learning-does-not-know"><span class="nav-number">2.11.</span> <span class="nav-text">How to know when machine learning does not know</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reducing-Network-Agnostophobia"><span class="nav-number">2.12.</span> <span class="nav-text">Reducing Network Agnostophobia</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-One-Class-Classification"><span class="nav-number">2.13.</span> <span class="nav-text">Deep One-Class Classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-autoencoding-gaussian-mixture-model-for-unsupervised-anomaly-detection"><span class="nav-number">2.14.</span> <span class="nav-text">Deep autoencoding gaussian mixture model for unsupervised anomaly detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Classification-Reconstruction-Learning-for-Open-Set-Recognition"><span class="nav-number">2.15.</span> <span class="nav-text">Classification-Reconstruction Learning for Open-Set Recognition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#On-the-Foundations-of-Noise-free-Selective-Classification"><span class="nav-number">2.16.</span> <span class="nav-text">On the Foundations of Noise-free Selective Classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Selective-Classification-for-Deep-Neural-Networks"><span class="nav-number">2.17.</span> <span class="nav-text">Selective Classification for Deep Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#To-Trust-Or-Not-To-Trust-A-Classifier"><span class="nav-number">2.18.</span> <span class="nav-text">To Trust Or Not To Trust A Classifier</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Simple-and-Scalable-Predictive-Uncertainty-Estimation-using-Deep-Ensembles"><span class="nav-number">2.19.</span> <span class="nav-text">Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Open-Category-Detection-with-PAC-Guarantees"><span class="nav-number">2.20.</span> <span class="nav-text">Open Category Detection with PAC Guarantees</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Metric-Learning-for-Novelty-and-Anomaly-Detection"><span class="nav-number">2.21.</span> <span class="nav-text">Metric Learning for Novelty and Anomaly Detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WAIC-but-Why-Generative-Ensembles-for-Robust-Anomaly-Detection"><span class="nav-number">2.22.</span> <span class="nav-text">WAIC, but Why? Generative Ensembles for Robust Anomaly Detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Towards-open-world-recognition"><span class="nav-number">2.23.</span> <span class="nav-text">Towards open world recognition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Anomaly-Detection-using-One-Class-Neural-Networks"><span class="nav-number">2.24.</span> <span class="nav-text">Anomaly Detection using One-Class Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Figure-of-Merit-Training-for-Detection-and-Spotting"><span class="nav-number">2.25.</span> <span class="nav-text">Figure of Merit Training for Detection and Spotting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Towards-Open-Set-Deep-Networks"><span class="nav-number">2.26.</span> <span class="nav-text">Towards Open Set Deep Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-loss-framework-for-calibrated-anomaly-detection"><span class="nav-number">2.27.</span> <span class="nav-text">A loss framework for calibrated anomaly detection</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Summary"><span class="nav-number">1.</span> <span class="nav-text">Summary</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Evaluation-Metrics"><span class="nav-number">2.</span> <span class="nav-text">Evaluation Metrics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-anomaly-detection-with-outlier-exposure"><span class="nav-number">2.1.</span> <span class="nav-text">Deep anomaly detection with outlier exposure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-baseline-for-detecting-misclassified-and-out-of-distribution-examples-in-neural-networks"><span class="nav-number">2.2.</span> <span class="nav-text">A baseline for detecting misclassified and out-of-distribution examples in neural networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Training-confidence-calibrated-classifiers-for-detecting-out-of-distribution-samples"><span class="nav-number">2.3.</span> <span class="nav-text">Training confidence-calibrated classifiers for detecting out-of-distribution samples</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Learning-Confidence-for-Out-of-Distribution-Detection-in-Neural-Networks"><span class="nav-number">2.4.</span> <span class="nav-text">Learning Confidence for Out-of-Distribution Detection in Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Enhancing-The-Reliability-of-Out-of-distribution-Image-Detection-in-Neural-Networks"><span class="nav-number">2.5.</span> <span class="nav-text">Enhancing The Reliability of Out-of-distribution Image Detection in Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Out-of-Distribution-Detection-using-Multiple-Semantic-Label-Representations"><span class="nav-number">2.6.</span> <span class="nav-text">Out-of-Distribution Detection using Multiple Semantic Label Representations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Simple-Unified-Framework-for-Detecting-Out-of-Distribution-Samples-and-Adversarial-Attacks"><span class="nav-number">2.7.</span> <span class="nav-text">A Simple Unified Framework for Detecting Out-of-Distribution Samples and Adversarial Attacks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-know-when-machine-learning-does-not-know"><span class="nav-number">2.8.</span> <span class="nav-text">How to know when machine learning does not know</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-One-Class-Classification"><span class="nav-number">2.9.</span> <span class="nav-text">Deep One-Class Classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-autoencoding-gaussian-mixture-model-for-unsupervised-anomaly-detection"><span class="nav-number">2.10.</span> <span class="nav-text">Deep autoencoding gaussian mixture model for unsupervised anomaly detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Anomaly-Detection-with-Generative-Adversarial-Networks"><span class="nav-number">2.11.</span> <span class="nav-text">Anomaly Detection with Generative Adversarial Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Novelty-Detection-with-GAN"><span class="nav-number">2.12.</span> <span class="nav-text">Novelty Detection with GAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Out-of-distribution-detection-using-an-ensemble-of-self-supervised-leave-out-classifiers"><span class="nav-number">2.13.</span> <span class="nav-text">Out-of-distribution detection using an ensemble of self supervised leave-out classifiers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reducing-Network-Agnostophobia"><span class="nav-number">2.14.</span> <span class="nav-text">Reducing Network Agnostophobia</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Classification-Reconstruction-Learning-for-Open-Set-Recognition"><span class="nav-number">2.15.</span> <span class="nav-text">Classification-Reconstruction Learning for Open-Set Recognition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#On-the-Foundations-of-Noise-free-Selective-Classification"><span class="nav-number">2.16.</span> <span class="nav-text">On the Foundations of Noise-free Selective Classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Selective-Classification-for-Deep-Neural-Networks"><span class="nav-number">2.17.</span> <span class="nav-text">Selective Classification for Deep Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#To-Trust-Or-Not-To-Trust-A-Classifier"><span class="nav-number">2.18.</span> <span class="nav-text">To Trust Or Not To Trust A Classifier</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Simple-and-Scalable-Predictive-Uncertainty-Estimation-using-Deep-Ensembles"><span class="nav-number">2.19.</span> <span class="nav-text">Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Open-Category-Detection-with-PAC-Guarantees"><span class="nav-number">2.20.</span> <span class="nav-text">Open Category Detection with PAC Guarantees</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Metric-Learning-for-Novelty-and-Anomaly-Detection"><span class="nav-number">2.21.</span> <span class="nav-text">Metric Learning for Novelty and Anomaly Detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WAIC-but-Why-Generative-Ensembles-for-Robust-Anomaly-Detection"><span class="nav-number">2.22.</span> <span class="nav-text">WAIC, but Why? Generative Ensembles for Robust Anomaly Detection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Towards-open-world-recognition"><span class="nav-number">2.23.</span> <span class="nav-text">Towards open world recognition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Anomaly-Detection-using-One-Class-Neural-Networks"><span class="nav-number">2.24.</span> <span class="nav-text">Anomaly Detection using One-Class Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Figure-of-Merit-Training-for-Detection-and-Spotting"><span class="nav-number">2.25.</span> <span class="nav-text">Figure of Merit Training for Detection and Spotting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Towards-Open-Set-Deep-Networks"><span class="nav-number">2.26.</span> <span class="nav-text">Towards Open Set Deep Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-loss-framework-for-calibrated-anomaly-detection"><span class="nav-number">2.27.</span> <span class="nav-text">A loss framework for calibrated anomaly detection</span></a></li></ol></li></ol></div>
             
 
           </div>
