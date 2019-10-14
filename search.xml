@@ -3,7 +3,13 @@
   <entry>
     <title><![CDATA[Leetcode 958 Check Completeness of a Binary Tree]]></title>
     <url>%2F2019%2F10%2F13%2FLeetcode-958%2F</url>
-    <content type="text"><![CDATA[tags: leetcode categories: Online Judgehttps://leetcode.com/problems/check-completeness-of-a-binary-tree/ 这道题比较简单，利用树的层序遍历，当第一次遇到空节点时，设置flag，如果第二次再遇到，那就返回false。 代码：123456789101112131415161718192021222324252627282930313233343536373839/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: bool isCompleteTree(TreeNode* root) &#123; if(!root)&#123; return true; &#125; queue&lt;TreeNode*&gt; q; q.push(root); int flag = 0; while(!q.empty())&#123; TreeNode * temp = q.front(); q.pop(); if(!temp)&#123; flag = 1; &#125; else&#123; if(flag)&#123; return false; &#125; q.push(temp-&gt;left); q.push(temp-&gt;right); &#125; &#125; return true; &#125;&#125;;]]></content>
+    <content type="text"><![CDATA[https://leetcode.com/problems/check-completeness-of-a-binary-tree/ 这道题比较简单，利用树的层序遍历，当第一次遇到空节点时，设置flag，如果第二次再遇到，那就返回false。 代码：123456789101112131415161718192021222324252627282930313233343536373839/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: bool isCompleteTree(TreeNode* root) &#123; if(!root)&#123; return true; &#125; queue&lt;TreeNode*&gt; q; q.push(root); int flag = 0; while(!q.empty())&#123; TreeNode * temp = q.front(); q.pop(); if(!temp)&#123; flag = 1; &#125; else&#123; if(flag)&#123; return false; &#125; q.push(temp-&gt;left); q.push(temp-&gt;right); &#125; &#125; return true; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Leetcode 470 Implement Rand10() Using Rand7()]]></title>

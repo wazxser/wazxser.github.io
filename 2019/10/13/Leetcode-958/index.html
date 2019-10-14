@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="leetcode," />
 
 
 
@@ -88,17 +88,18 @@
 
 
 
-<meta name="description" content="tags: leetcode categories: Online Judgehttps://leetcode.com/problems/check-completeness-of-a-binary-tree/ 这道题比较简单，利用树的层序遍历，当第一次遇到空节点时，设置flag，如果第二次再遇到，那就返回false。 代码：123456789101112131415161718192021222">
+<meta name="description" content="https://leetcode.com/problems/check-completeness-of-a-binary-tree/ 这道题比较简单，利用树的层序遍历，当第一次遇到空节点时，设置flag，如果第二次再遇到，那就返回false。 代码：123456789101112131415161718192021222324252627282930313233343536373839/** *">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode 958 Check Completeness of a Binary Tree">
 <meta property="og:url" content="https://wazxser.github.io/2019/10/13/Leetcode-958/index.html">
 <meta property="og:site_name" content="Moon">
-<meta property="og:description" content="tags: leetcode categories: Online Judgehttps://leetcode.com/problems/check-completeness-of-a-binary-tree/ 这道题比较简单，利用树的层序遍历，当第一次遇到空节点时，设置flag，如果第二次再遇到，那就返回false。 代码：123456789101112131415161718192021222">
+<meta property="og:description" content="https://leetcode.com/problems/check-completeness-of-a-binary-tree/ 这道题比较简单，利用树的层序遍历，当第一次遇到空节点时，设置flag，如果第二次再遇到，那就返回false。 代码：123456789101112131415161718192021222324252627282930313233343536373839/** *">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-13T07:06:19.792Z">
+<meta property="og:updated_time" content="2019-10-14T01:45:04.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode 958 Check Completeness of a Binary Tree">
-<meta name="twitter:description" content="tags: leetcode categories: Online Judgehttps://leetcode.com/problems/check-completeness-of-a-binary-tree/ 这道题比较简单，利用树的层序遍历，当第一次遇到空节点时，设置flag，如果第二次再遇到，那就返回false。 代码：123456789101112131415161718192021222">
+<meta name="twitter:description" content="https://leetcode.com/problems/check-completeness-of-a-binary-tree/ 这道题比较简单，利用树的层序遍历，当第一次遇到空节点时，设置flag，如果第二次再遇到，那就返回false。 代码：123456789101112131415161718192021222324252627282930313233343536373839/** *">
 
 
 
@@ -347,6 +348,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Online-Judge/" itemprop="url" rel="index">
+                    <span itemprop="name">Online Judge</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -373,8 +396,7 @@
       
 
       
-        <p>tags: leetcode</p>
-<h2 id="categories-Online-Judge"><a href="#categories-Online-Judge" class="headerlink" title="categories: Online Judge"></a>categories: Online Judge</h2><p><a href="https://leetcode.com/problems/check-completeness-of-a-binary-tree/" target="_blank" rel="noopener">https://leetcode.com/problems/check-completeness-of-a-binary-tree/</a></p>
+        <p><a href="https://leetcode.com/problems/check-completeness-of-a-binary-tree/" target="_blank" rel="noopener">https://leetcode.com/problems/check-completeness-of-a-binary-tree/</a></p>
 <p>这道题比较简单，利用树的层序遍历，当第一次遇到空节点时，设置flag，如果第二次再遇到，那就返回false。</p>
 <p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * struct TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left;</span><br><span class="line"> *     TreeNode *right;</span><br><span class="line"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isCompleteTree(TreeNode* root) &#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)&#123;</span><br><span class="line">            <span class="keyword">return</span> true;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        queue&lt;TreeNode*&gt; q;</span><br><span class="line">        q.push(root);</span><br><span class="line">        int flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">            TreeNode * temp = q.front();</span><br><span class="line">            q.pop();</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(!temp)&#123;</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(flag)&#123;</span><br><span class="line">                    <span class="keyword">return</span> false;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                q.push(temp-&gt;left);</span><br><span class="line">                q.push(temp-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
@@ -409,6 +431,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+        </div>
       
 
       
@@ -479,17 +507,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -636,22 +655,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#categories-Online-Judge"><span class="nav-number">1.</span> <span class="nav-text">categories: Online Judge</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
