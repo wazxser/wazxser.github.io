@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Leetcode_670]]></title>
+    <title><![CDATA[Leetcode 670. Maximum Swap]]></title>
     <url>%2F2019%2F10%2F14%2FLeetcode-670%2F</url>
     <content type="text"><![CDATA[https://leetcode.com/problems/maximum-swap/ num各位上的数字交换一次，使num达到能达到的最大值 12345678910111213141516class Solution &#123;public: int maximumSwap(int num) &#123; string str = to_string(num); int res = num; for(int i = 0; i &lt; str.size()-1; i++)&#123; for(int j = i + 1; j &lt; str.size(); j++)&#123; swap(str[i], str[j]); res = max(res, stoi(str)); swap(str[j], str[i]); &#125; &#125; return res; &#125;&#125;; 使用一个数组记录num从低位开始到该位所有数字的最大值，然后从num的高位开始遍历，如果高位上数字小于数组中记录的数字，就从低位查找到数组中记录的该数字的位置，然后进行交换返回。 123456789101112131415161718192021222324class Solution &#123;public: int maximumSwap(int num) &#123; string str = to_string(num); string arr = str; for(int i = arr.size()-2; i &gt;= 0; i--)&#123; arr[i] = max(arr[i], arr[i+1]); &#125; for(int i = 0; i &lt; str.size(); i++)&#123; if(str[i] &lt; arr[i])&#123; for(int j = str.size()-1; j &gt; i; j--)&#123; if(str[j] == arr[i])&#123; swap(str[i], str[j]); return stoi(str); &#125; &#125; &#125; &#125; return num; &#125;&#125;;]]></content>
       <categories>
