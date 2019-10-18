@@ -1,11 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Leetcode 56. Merge Intervals]]></title>
+    <url>%2F2019%2F10%2F18%2FLeetcode-56%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/merge-intervals/ 代码：1234567891011121314151617181920212223242526272829303132333435363738/** * Definition for an interval. * struct Interval &#123; * int start; * int end; * Interval() : start(0), end(0) &#123;&#125; * Interval(int s, int e) : start(s), end(e) &#123;&#125; * &#125;; */class Solution &#123;public: static bool compare(Interval a, Interval b)&#123; return a.start &lt; b.start; &#125; vector&lt;Interval&gt; merge(vector&lt;Interval&gt;&amp; intervals) &#123; if(intervals.empty()) return &#123;&#125;; sort(intervals.begin(), intervals.end(), compare); vector&lt;Interval&gt; res; Interval temp(intervals[0].start, intervals[0].end); for(int i = 1; i &lt; intervals.size(); i++)&#123; if(temp.end &gt;= intervals[i].start)&#123; temp.end = max(temp.end, intervals[i].end); &#125; else&#123; res.push_back(temp); temp = intervals[i]; &#125; &#125; res.push_back(temp); return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 206. Reverse Linked List]]></title>
+    <url>%2F2019%2F10%2F18%2FLeetcode-206%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/reverse-linked-list/ 题意：反转链表 代码：1234567891011121314151617181920212223242526272829303132333435/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* reverseList(ListNode* head) &#123; if(!head)&#123; return NULL; &#125; if(!head-&gt;next)&#123; return head; &#125; ListNode * ptr1, * ptr2, * ptr3; ptr1 = head; while(ptr1)&#123; ptr2 = ptr1-&gt;next; ptr1-&gt;next = ptr3; if(!ptr2)&#123; return ptr1; &#125; ptr3 = ptr1; ptr1 = ptr2; &#125; return ptr2; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>List</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 23. Merge k Sorted Lists]]></title>
+    <url>%2F2019%2F10%2F18%2FLeetcode-23%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/merge-k-sorted-lists/ 题意：合并k个已排好序的链表 代码：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) &#123; if(lists.size() == 0)&#123; return NULL; &#125; ListNode* temp = new ListNode(-1); temp-&gt;next = lists[0]; ListNode * ptr1, *ptr2, *ptr3; for(int i = 1; i &lt; lists.size(); i++)&#123; if(!lists[i])&#123; continue; &#125; ptr1 = lists[i]; ptr2 = temp; ptr3 = temp-&gt;next; while(ptr1 &amp;&amp; ptr3)&#123; if(ptr1-&gt;val &lt;= ptr3-&gt;val)&#123; ListNode * temp2 = ptr1-&gt;next; ptr2-&gt;next = ptr1; ptr1-&gt;next = ptr3; ptr2 = ptr2-&gt;next; ptr1 = temp2; &#125; else&#123; ptr3 = ptr3-&gt;next; ptr2 = ptr2-&gt;next; &#125; &#125; if(ptr1)&#123; ptr2-&gt;next = ptr1; &#125; &#125; return temp-&gt;next; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>List</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Leetcode 20. Valid Parentheses]]></title>
     <url>%2F2019%2F10%2F18%2FLeetcode-20%2F</url>
     <content type="text"><![CDATA[https://leetcode.com/problems/valid-parentheses/ 题意：括号匹配，栈的典型题 代码： 123456789101112131415161718class Solution(object): def isValid(self, s): """ :type s: str :rtype: bool """ stack = [] for ch in s: if len(stack) == 0: stack.append(ch) elif (stack[-1] == '[' and ch == ']') or (stack[-1] == '&#123;' and ch == '&#125;') or (stack[-1] == '(' and ch == ')'): stack.pop() else: stack.append(ch) if(len(stack) &gt; 0): return False return True]]></content>
       <categories>
         <category>Online Judge</category>
+        <category>stack</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
@@ -17,6 +53,7 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/merge-two-sorted-lists/submissions/ 题意：合并两个已经排好序的链表 代码：123456789101112131415161718192021222324252627282930# Definition for singly-linked list.# class ListNode(object):# def __init__(self, x):# self.val = x# self.next = Noneclass Solution(object): def mergeTwoLists(self, l1, l2): """ :type l1: ListNode :type l2: ListNode :rtype: ListNode """ temp = ListNode(0) temp.next = None p = temp while(l1 is not None and l2 is not None): if l1.val &lt; l2.val: p.next = l1 l1 = l1.next else: p.next = l2 l2 = l2.next p = p.next if l1 is not None: p.next = l1 else: p.next = l2 return temp.next]]></content>
       <categories>
         <category>Online Judge</category>
+        <category>List</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
@@ -62,6 +99,7 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/longest-substring-without-repeating-characters/ 题意：给定一个字符串，返回这个字符串中最长的不包含重复字母的子串的长度 思路：设置一个数组记录每个字符出现的最后位置，left左指针到当前位置为滑动窗口 代码：1234567891011121314151617181920class Solution &#123;public: int lengthOfLongestSubstring(string s) &#123; int len = s.length(); int left = 0; int last[255]; int res = 0; memset(last, -1, sizeof last); for(int i = 0; i &lt; len; i++)&#123; if(last[s[i]] &gt;= left)&#123; left = last[s[i]] + 1; &#125; last[s[i]] = i; res = max(res, i-left+1); &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
+        <category>string</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
@@ -73,6 +111,7 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/longest-palindromic-substring/ 题意：搜索一个字符串中最长的回文序列 思路：回文序列的搜索以中间一个单独一个字母和中间两个相同字符分为两类 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849class Solution &#123;public: string longestPalindrome(string s) &#123; if(s.length() == 1)&#123; return s; &#125; int left = 0, right = 0, index = 0, len = 0, wide = 0, res_index = 0; for(int i = 0; i &lt; s.length()-1; i++)&#123; if(s[i] == s[i+1])&#123; index = searchPalindrome(s, i, i+1, len); if(len &gt; wide)&#123; wide = len; res_index = index; &#125; &#125; index = searchPalindrome(s, i, i, len); if(len &gt; wide)&#123; wide = len; res_index = index; &#125; &#125; return s.substr(res_index, wide); &#125; int searchPalindrome(string s, int left, int right, int &amp;len)&#123; int index = 0; int flag = 0; while(left &gt; 0 &amp;&amp; right &lt; s.length()-1)&#123; left -= 1; right += 1; if(s[left] != s[right])&#123; flag = 1; break; &#125; &#125; if(flag == 1)&#123; len = right - left - 1; index = left + 1; &#125; else&#123; len = right - left + 1; index = left; &#125; return index; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
+        <category>string</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
@@ -84,6 +123,7 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/median-of-two-sorted-arrays/ 这道题的题意是给定两个已经排好序的数组，求这两个数组所有数字的中位数，要求时间复杂度是O(log(m+n))的（应该自然想到是二分法） 这道题感觉有点难，看了半天代码也看不懂是什么意思。。。，不过这样的题确实有意思。。。 思路： 在两个数组中找两个分解点i，j，保证0～i-1加0～j-1是两个数组的长度之和的一半，目标就是确定i和j的位置，使得i-1位置数字也小于j位置数字（i-1位置数字保证小于i位置数字）和j-1位置数字小于i位置数字，这样0～i-1和0～j-1位置所有数字都小于另一半部分的数字，中位数就是i-1和j-1位置数字的较大值和i位置和j位置数字的较小值的均值（两个数组所有数字个数是偶数的话），或者i-1和j-1位置数字的较大值 代码：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051class Solution &#123;public: double findMedianSortedArrays(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) &#123; int m = nums1.size(), n = nums2.size(); if(m &gt; n) return findMedianSortedArrays(nums2, nums1); int left = 0, right = m; int i = -1, j = -1; while(true)&#123; i = (left + right) / 2; j = (m + n + 1) / 2 - i; if((i == 0 || j == n || nums1[i - 1] &lt;= nums2[j]) &amp;&amp; (j == 0 || i == m || nums2[j - 1] &lt;= nums1[i]))&#123; break; &#125; else if(i &gt; 0 &amp;&amp; nums1[i-1] &gt; nums2[j])&#123; right = i - 1; &#125; else if(j &gt; 0 &amp;&amp; nums2[j-1] &gt; nums1[i])&#123; left = i + 1; &#125; &#125; int max_left = -1, min_right = -1; if(i == 0)&#123; max_left = nums2[j-1]; &#125; else if(j == 0)&#123; max_left = nums1[i-1]; &#125; else&#123; max_left = max(nums1[i - 1], nums2[j - 1]); &#125; if((m+n) % 2)&#123; return max_left; &#125; if(i == m) min_right = nums2[j]; else if(j == n) min_right = nums1[i]; else&#123; min_right = min(nums1[i], nums2[j]); &#125; return double(max_left + min_right) / 2; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
+        <category>二分查找</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
@@ -106,6 +146,7 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/check-completeness-of-a-binary-tree/ 这道题比较简单，利用树的层序遍历，当第一次遇到空节点时，设置flag，如果第二次再遇到，那就返回false。 代码：123456789101112131415161718192021222324252627282930313233343536373839/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: bool isCompleteTree(TreeNode* root) &#123; if(!root)&#123; return true; &#125; queue&lt;TreeNode*&gt; q; q.push(root); int flag = 0; while(!q.empty())&#123; TreeNode * temp = q.front(); q.pop(); if(!temp)&#123; flag = 1; &#125; else&#123; if(flag)&#123; return false; &#125; q.push(temp-&gt;left); q.push(temp-&gt;right); &#125; &#125; return true; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
+        <category>Tree</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
@@ -170,18 +211,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[POJ2251DungeonMaster]]></title>
-    <url>%2F2018%2F08%2F15%2FPOJ2251DungeonMaster%2F</url>
-    <content type="text"><![CDATA[kuangbin带你飞专题 题目POJ1321You are trapped in a 3D dungeon and need to find the quickest way out! The dungeon is composed of unit cubes which may or may not be filled with rock. It takes one minute to move one unit north, south, east, west, up or down. You cannot move diagonally and the maze is surrounded by solid rock on all sides. Is an escape possible? If yes, how long will it take? InputThe input consists of a number of dungeons. Each dungeon description starts with a line containing three integers L, R and C (all limited to 30 in size).L is the number of levels making up the dungeon.R and C are the number of rows and columns making up the plan of each level.Then there will follow L blocks of R lines each containing C characters. Each character describes one cell of the dungeon. A cell full of rock is indicated by a ‘#’ and empty cells are represented by a ‘.’. Your starting position is indicated by ‘S’ and the exit by the letter ‘E’. There’s a single blank line after each level. Input is terminated by three zeroes for L, R and C. OutputEach maze generates one line of output. If it is possible to reach the exit, print a line of the formEscaped in x minute(s). where x is replaced by the shortest time it takes to escape.If it is not possible to escape, print the lineTrapped! Sample Input123456789101112131415161718192021223 4 5S.....###..##..###.#############.####...###########.#######E1 3 3S###E####0 0 0 Sample Output12Escaped in 11 minute(s).Trapped! 思路题意大致是一个三层迷宫，从出发点S到终点E，求最少时间，考虑广搜求解最优解问题，使用队列保存每步的坐标，每次移动有6种情况可以用一个二维数组来表示，设一个visit数组来表示到每个位置的最少时间，每次都是以能够到达该位置的前一个位置的最少时间+1来更新。 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include &lt;iostream&gt;#include &lt;cstdio&gt;//#include &lt;memory.h&gt;using namespace std;int n, k;char pan[10][10];int row[10];int col[10];int sum;int res;void dfs(int sum, int a)&#123; if(sum == k)&#123; res++; return; &#125; for(int i = a; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(pan[i][j] == '#' &amp;&amp; !row[i] &amp;&amp; !col[j])&#123; row[i] = 1; col[j] = 1; dfs(sum+1, i+1); row[i] = 0; col[j] = 0; &#125; &#125; &#125;&#125;int main()&#123; while(scanf("%d %d", &amp;n, &amp;k) &amp;&amp; n != -1)&#123; //memset(row, 0, sizeof(row)); //memset(col, 0, sizeof(col)); for(int i = 0; i &lt; n; i++)&#123; row[i] = col[i] = 0; &#125; res = 0; for(int i = 0; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; scanf(" %c", &amp;pan[i][j]); &#125; &#125; dfs(0, 0); printf("%d\n", res); &#125; return 0;&#125;]]></content>
-      <categories>
-        <category>kuangbin带你飞 专题一 简单搜索</category>
-      </categories>
-      <tags>
-        <tag>acm</tag>
-        <tag>bfs</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[POJ1321棋盘问题]]></title>
     <url>%2F2018%2F08%2F15%2FPOJ1321%E6%A3%8B%E7%9B%98%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[kuangbin带你飞专题 题目POJ1321在一个给定形状的棋盘（形状可能是不规则的）上面摆放棋子，棋子没有区别。要求摆放时任意的两个棋子不能放在棋盘中的同一行或者同一列，请编程求解对于给定形状和大小的棋盘，摆放k个棋子的所有可行的摆放方案C。 Input输入含有多组测试数据。每组数据的第一行是两个正整数，n k，用一个空格隔开，表示了将在一个n*n的矩阵内描述棋盘，以及摆放棋子的数目。 n &lt;= 8 , k &lt;= n当为-1 -1时表示输入结束。随后的n行描述了棋盘的形状：每行有n个字符，其中 # 表示棋盘区域， . 表示空白区域（数据保证不出现多余的空白行或者空白列）。 Output对于每一组数据，给出一行输出，输出摆放的方案数目C （数据保证C&lt;2^31）。 Sample Input1234567892 1#..#4 4...#..#..#..#...-1 -1 Sample Output1221 思路深搜，回溯 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include &lt;iostream&gt;#include &lt;cstdio&gt;//#include &lt;memory.h&gt;using namespace std;int n, k;char pan[10][10];int row[10];int col[10];int sum;int res;void dfs(int sum, int a)&#123; if(sum == k)&#123; res++; return; &#125; for(int i = a; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(pan[i][j] == '#' &amp;&amp; !row[i] &amp;&amp; !col[j])&#123; row[i] = 1; col[j] = 1; dfs(sum+1, i+1); row[i] = 0; col[j] = 0; &#125; &#125; &#125;&#125;int main()&#123; while(scanf("%d %d", &amp;n, &amp;k) &amp;&amp; n != -1)&#123; //memset(row, 0, sizeof(row)); //memset(col, 0, sizeof(col)); for(int i = 0; i &lt; n; i++)&#123; row[i] = col[i] = 0; &#125; res = 0; for(int i = 0; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; scanf(" %c", &amp;pan[i][j]); &#125; &#125; dfs(0, 0); printf("%d\n", res); &#125; return 0;&#125;]]></content>
@@ -191,6 +220,18 @@
       <tags>
         <tag>acm</tag>
         <tag>dfs回溯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[POJ2251DungeonMaster]]></title>
+    <url>%2F2018%2F08%2F15%2FPOJ2251DungeonMaster%2F</url>
+    <content type="text"><![CDATA[kuangbin带你飞专题 题目POJ1321You are trapped in a 3D dungeon and need to find the quickest way out! The dungeon is composed of unit cubes which may or may not be filled with rock. It takes one minute to move one unit north, south, east, west, up or down. You cannot move diagonally and the maze is surrounded by solid rock on all sides. Is an escape possible? If yes, how long will it take? InputThe input consists of a number of dungeons. Each dungeon description starts with a line containing three integers L, R and C (all limited to 30 in size).L is the number of levels making up the dungeon.R and C are the number of rows and columns making up the plan of each level.Then there will follow L blocks of R lines each containing C characters. Each character describes one cell of the dungeon. A cell full of rock is indicated by a ‘#’ and empty cells are represented by a ‘.’. Your starting position is indicated by ‘S’ and the exit by the letter ‘E’. There’s a single blank line after each level. Input is terminated by three zeroes for L, R and C. OutputEach maze generates one line of output. If it is possible to reach the exit, print a line of the formEscaped in x minute(s). where x is replaced by the shortest time it takes to escape.If it is not possible to escape, print the lineTrapped! Sample Input123456789101112131415161718192021223 4 5S.....###..##..###.#############.####...###########.#######E1 3 3S###E####0 0 0 Sample Output12Escaped in 11 minute(s).Trapped! 思路题意大致是一个三层迷宫，从出发点S到终点E，求最少时间，考虑广搜求解最优解问题，使用队列保存每步的坐标，每次移动有6种情况可以用一个二维数组来表示，设一个visit数组来表示到每个位置的最少时间，每次都是以能够到达该位置的前一个位置的最少时间+1来更新。 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include &lt;iostream&gt;#include &lt;cstdio&gt;//#include &lt;memory.h&gt;using namespace std;int n, k;char pan[10][10];int row[10];int col[10];int sum;int res;void dfs(int sum, int a)&#123; if(sum == k)&#123; res++; return; &#125; for(int i = a; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(pan[i][j] == '#' &amp;&amp; !row[i] &amp;&amp; !col[j])&#123; row[i] = 1; col[j] = 1; dfs(sum+1, i+1); row[i] = 0; col[j] = 0; &#125; &#125; &#125;&#125;int main()&#123; while(scanf("%d %d", &amp;n, &amp;k) &amp;&amp; n != -1)&#123; //memset(row, 0, sizeof(row)); //memset(col, 0, sizeof(col)); for(int i = 0; i &lt; n; i++)&#123; row[i] = col[i] = 0; &#125; res = 0; for(int i = 0; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; scanf(" %c", &amp;pan[i][j]); &#125; &#125; dfs(0, 0); printf("%d\n", res); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>kuangbin带你飞 专题一 简单搜索</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+        <tag>bfs</tag>
       </tags>
   </entry>
   <entry>
