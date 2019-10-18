@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Leetcode 21. Merge Two Sorted Lists]]></title>
+    <url>%2F2019%2F10%2F18%2FLeetcode-21%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/merge-two-sorted-lists/submissions/ 题意：合并两个已经排好序的链表 代码：123456789101112131415161718192021222324252627282930# Definition for singly-linked list.# class ListNode(object):# def __init__(self, x):# self.val = x# self.next = Noneclass Solution(object): def mergeTwoLists(self, l1, l2): """ :type l1: ListNode :type l2: ListNode :rtype: ListNode """ temp = ListNode(0) temp.next = None p = temp while(l1 is not None and l2 is not None): if l1.val &lt; l2.val: p.next = l1 l1 = l1.next else: p.next = l2 l2 = l2.next p = p.next if l1 is not None: p.next = l1 else: p.next = l2 return temp.next]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 53. Maximum Subarray]]></title>
+    <url>%2F2019%2F10%2F18%2FLeetcode-53%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/maximum-subarray/ 题意：返回数组中连续和最大的和 代码：1234567891011class Solution(object): def maxSubArray(self, nums): """ :type nums: List[int] :rtype: int """ l = g = -10000000000000000 for n in nums: l = max(n,l+n) g = max(l,g) return g]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Leetcode 15. 3Sum]]></title>
     <url>%2F2019%2F10%2F18%2FLeetcode-15%2F</url>
     <content type="text"><![CDATA[https://leetcode.com/problems/3sum/ 题意：求一个数组中，三个数字相加为0的组合，要求不能重复 思路：先排序，然后遍历查找，找剩下两个数字的时候，因为排序好了，所以分别从头尾一起查找 代码：12345678910111213141516171819202122232425262728293031323334class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; threeSum(vector&lt;int&gt;&amp; nums) &#123; vector&lt;vector&lt;int&gt;&gt; res; sort(nums.begin(), nums.end()); for(int i = 0; i &lt; nums.size(); i++)&#123; if(nums[i] &gt; 0) break; if(i &gt; 0 &amp;&amp; nums[i] == nums[i-1]) continue; int a = i+1; int b = nums.size()-1; int target = 0 - nums[i]; while(a &lt; b)&#123; if(nums[a] + nums[b] == target)&#123; res.push_back(&#123;nums[i], nums[a], nums[b]&#125;); while(nums[a+1] == nums[a] &amp;&amp; a &lt; b) a++; while(nums[b-1] == nums[b] &amp;&amp; a &lt; b) b--; a++; b--; &#125; else if(nums[a]+nums[b] &lt; target)&#123; a++; &#125; else&#123; b--; &#125; &#125; &#125; return res; &#125;&#125;;]]></content>
