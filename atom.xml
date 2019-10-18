@@ -6,10 +6,36 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wazxser.github.io/"/>
-  <updated>2019-10-18T11:39:55.099Z</updated>
+  <updated>2019-10-18T11:50:27.002Z</updated>
   <id>https://wazxser.github.io/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode 15. 3Sum</title>
+    <link href="https://wazxser.github.io/2019/10/18/Leetcode-15/"/>
+    <id>https://wazxser.github.io/2019/10/18/Leetcode-15/</id>
+    <published>2019-10-18T11:47:35.000Z</published>
+    <updated>2019-10-18T11:50:27.002Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/3sum/" target="_blank" rel="noopener">https://leetcode.com/problems/3sum/</a></p><p>题意：求一个数组中，三个数字相加为0的组合，要求不能重复</p><p>思路：先排序，然后遍历查找，找剩下两个数字的时候，因为排序好了，所以分别从头尾一起查找</p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; threeSum(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; res;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; nums.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &gt; <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i<span class="number">-1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            int a = i+<span class="number">1</span>; </span><br><span class="line">            int b = nums.size()<span class="number">-1</span>;</span><br><span class="line">            int target = <span class="number">0</span> - nums[i];</span><br><span class="line">            <span class="keyword">while</span>(a &lt; b)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[a] + nums[b] == target)&#123;</span><br><span class="line">                    res.push_back(&#123;nums[i], nums[a], nums[b]&#125;);</span><br><span class="line">                    <span class="keyword">while</span>(nums[a+<span class="number">1</span>] == nums[a] &amp;&amp; a &lt; b)</span><br><span class="line">                        a++;</span><br><span class="line">                    <span class="keyword">while</span>(nums[b<span class="number">-1</span>] == nums[b] &amp;&amp; a &lt; b)</span><br><span class="line">                        b--;</span><br><span class="line">                    a++;</span><br><span class="line">                    b--;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(nums[a]+nums[b] &lt; target)&#123;</span><br><span class="line">                    a++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    b--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/3sum/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/3sum/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;题意：求一个数组中，三个数
+      
+    
+    </summary>
+    
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode 200. Number of Islands</title>
