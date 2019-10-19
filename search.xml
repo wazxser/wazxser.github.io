@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Leetcode 33.Search in Rotated Sorted Array]]></title>
+    <url>%2F2019%2F10%2F18%2FLeetcode-33%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/search-in-rotated-sorted-array/ 代码：123456789101112131415161718192021222324252627282930class Solution &#123;public: int search(vector&lt;int&gt;&amp; nums, int target) &#123; int l = 0, r = nums.size()-1; while(l &lt;= r)&#123; int m = (l+r)/2; if(nums[m] == target)&#123; return m; &#125; if(nums[l] &lt;= nums[m])&#123; if(target &lt; nums[m] &amp;&amp; target &gt;= nums[l])&#123; r = m-1; &#125; else&#123; l = m+1; &#125; &#125; else&#123; if(target &lt;= nums[r] &amp;&amp; target &gt; nums[m])&#123; l = m+1; &#125; else&#123; r = m-1; &#125; &#125; &#125; return -1; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Leetcode 56. Merge Intervals]]></title>
     <url>%2F2019%2F10%2F18%2FLeetcode-56%2F</url>
     <content type="text"><![CDATA[https://leetcode.com/problems/merge-intervals/ 代码：1234567891011121314151617181920212223242526272829303132333435363738/** * Definition for an interval. * struct Interval &#123; * int start; * int end; * Interval() : start(0), end(0) &#123;&#125; * Interval(int s, int e) : start(s), end(e) &#123;&#125; * &#125;; */class Solution &#123;public: static bool compare(Interval a, Interval b)&#123; return a.start &lt; b.start; &#125; vector&lt;Interval&gt; merge(vector&lt;Interval&gt;&amp; intervals) &#123; if(intervals.empty()) return &#123;&#125;; sort(intervals.begin(), intervals.end(), compare); vector&lt;Interval&gt; res; Interval temp(intervals[0].start, intervals[0].end); for(int i = 1; i &lt; intervals.size(); i++)&#123; if(temp.end &gt;= intervals[i].start)&#123; temp.end = max(temp.end, intervals[i].end); &#125; else&#123; res.push_back(temp); temp = intervals[i]; &#125; &#125; res.push_back(temp); return res; &#125;&#125;;]]></content>
