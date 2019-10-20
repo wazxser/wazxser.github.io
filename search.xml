@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Leetcode 22. Generate Parentheses]]></title>
+    <url>%2F2019%2F10%2F20%2FLeetcode-22%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/generate-parentheses/ 代码：123456789101112131415161718192021222324class Solution &#123;public: vector&lt;string&gt; generateParenthesis(int n) &#123; vector&lt;string&gt; res; if(n==0) return res; dfs(n, n, "", res); return res; &#125; void dfs(int a, int b, string out, vector&lt;string&gt;&amp; res)&#123; if(a &gt; b)&#123; return; &#125; if(a == 0 &amp;&amp; b == 0) res.push_back(out); else&#123; if(a &gt; 0) dfs(a-1, b, out+"(", res); if(b &gt; 0) dfs(a, b-1, out+")", res); &#125; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>DFS</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Leetcode 121. Best Time to Buy and Sell Stock]]></title>
     <url>%2F2019%2F10%2F20%2FLeetcode-121%2F</url>
     <content type="text"><![CDATA[https://leetcode.com/problems/best-time-to-buy-and-sell-stock/ 代码：12345678910111213141516class Solution &#123;public: int maxProfit(vector&lt;int&gt;&amp; prices) &#123; if(prices.size() == 0)&#123; return 0; &#125; int small = prices[0]; int res = 0; for(int i = 1; i &lt; prices.size(); i++)&#123; small = min(small, prices[i]); res = max(prices[i]-small, res); &#125; return res; &#125;&#125;; 1234567891011121314class Solution(object): def maxProfit(self, prices): """ :type prices: List[int] :rtype: int """ maxCur = 0 maxSoFar = 0 for i in xrange(1, len(prices)): maxCur += prices[i] - prices[i-1] maxCur = max(0, maxCur) maxSoFar = max(maxSoFar, maxCur) return maxSoFar]]></content>

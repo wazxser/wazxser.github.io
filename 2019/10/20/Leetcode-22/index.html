@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="https://leetcode.com/problems/reverse-linked-list/ 题意：反转链表 代码：1234567891011121314151617181920212223242526272829303132333435/** * Definition for singly-linked list. * struct ListNode &amp;#123; *     int v">
+<meta name="description" content="https://leetcode.com/problems/generate-parentheses/ 代码：123456789101112131415161718192021222324class Solution &amp;#123;public:    vector&amp;lt;string&amp;gt; generateParenthesis(int n) &amp;#123;        vector&amp;lt;st">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode 206. Reverse Linked List">
-<meta property="og:url" content="https://wazxser.github.io/2019/10/18/Leetcode-206/index.html">
+<meta property="og:title" content="Leetcode 22. Generate Parentheses">
+<meta property="og:url" content="https://wazxser.github.io/2019/10/20/Leetcode-22/index.html">
 <meta property="og:site_name" content="Moon">
-<meta property="og:description" content="https://leetcode.com/problems/reverse-linked-list/ 题意：反转链表 代码：1234567891011121314151617181920212223242526272829303132333435/** * Definition for singly-linked list. * struct ListNode &amp;#123; *     int v">
+<meta property="og:description" content="https://leetcode.com/problems/generate-parentheses/ 代码：123456789101112131415161718192021222324class Solution &amp;#123;public:    vector&amp;lt;string&amp;gt; generateParenthesis(int n) &amp;#123;        vector&amp;lt;st">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-18T12:14:03.213Z">
+<meta property="og:updated_time" content="2019-10-20T10:23:30.861Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode 206. Reverse Linked List">
-<meta name="twitter:description" content="https://leetcode.com/problems/reverse-linked-list/ 题意：反转链表 代码：1234567891011121314151617181920212223242526272829303132333435/** * Definition for singly-linked list. * struct ListNode &amp;#123; *     int v">
+<meta name="twitter:title" content="Leetcode 22. Generate Parentheses">
+<meta name="twitter:description" content="https://leetcode.com/problems/generate-parentheses/ 代码：123456789101112131415161718192021222324class Solution &amp;#123;public:    vector&amp;lt;string&amp;gt; generateParenthesis(int n) &amp;#123;        vector&amp;lt;st">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://wazxser.github.io/2019/10/18/Leetcode-206/"/>
+  <link rel="canonical" href="https://wazxser.github.io/2019/10/20/Leetcode-22/"/>
 
 
 
 
 
-  <title>Leetcode 206. Reverse Linked List | Moon</title>
+  <title>Leetcode 22. Generate Parentheses | Moon</title>
   
 
 
@@ -308,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wazxser.github.io/2019/10/18/Leetcode-206/">
+    <link itemprop="mainEntityOfPage" href="https://wazxser.github.io/2019/10/20/Leetcode-22/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -325,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode 206. Reverse Linked List</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode 22. Generate Parentheses</h1>
         
 
         <div class="post-meta">
@@ -337,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-18T20:09:12+08:00">
-                2019-10-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-20T18:21:20+08:00">
+                2019-10-20
               </time>
             
 
@@ -371,8 +371,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Online-Judge/List/" itemprop="url" rel="index">
-                    <span itemprop="name">List</span>
+                  <a href="/categories/Online-Judge/DFS/" itemprop="url" rel="index">
+                    <span itemprop="name">DFS</span>
                   </a>
                 </span>
 
@@ -407,9 +407,8 @@
       
 
       
-        <p><a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" rel="noopener">https://leetcode.com/problems/reverse-linked-list/</a></p>
-<p>题意：反转链表</p>
-<p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* reverseList(ListNode* head) &#123;</span><br><span class="line">        <span class="keyword">if</span>(!head)&#123;</span><br><span class="line">            <span class="keyword">return</span> NULL;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        if(!head-&gt;next)&#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        ListNode * ptr1, * ptr2, * ptr3;</span><br><span class="line">        ptr1 = head;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(ptr1)&#123;</span><br><span class="line">            ptr2 = ptr1-&gt;next;</span><br><span class="line">            ptr1-&gt;next = ptr3;</span><br><span class="line">            <span class="keyword">if</span>(!ptr2)&#123;</span><br><span class="line">                <span class="keyword">return</span> ptr1;</span><br><span class="line">            &#125;</span><br><span class="line">            ptr3 = ptr1;</span><br><span class="line">            ptr1 = ptr2;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ptr2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+        <p><a href="https://leetcode.com/problems/generate-parentheses/" target="_blank" rel="noopener">https://leetcode.com/problems/generate-parentheses/</a></p>
+<p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;string&gt; generateParenthesis(int n) &#123;</span><br><span class="line">        vector&lt;string&gt; res;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        dfs(n, n, <span class="string">""</span>, res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void dfs(int a, int b, string out, vector&lt;string&gt;&amp; res)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a &gt; b)&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a == <span class="number">0</span> &amp;&amp; b == <span class="number">0</span>)</span><br><span class="line">            res.push_back(out);</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(a &gt; <span class="number">0</span>)</span><br><span class="line">                dfs(a<span class="number">-1</span>, b, out+<span class="string">"("</span>, res);</span><br><span class="line">            <span class="keyword">if</span>(b &gt; <span class="number">0</span>)</span><br><span class="line">                dfs(a, b<span class="number">-1</span>, out+<span class="string">")"</span>, res);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -426,7 +425,7 @@
           </li>
           <li class="post-copyright-link">
             <strong>本文链接：</strong>
-            <a href="/2019/10/18/Leetcode-206/" title="Leetcode 206. Reverse Linked List">2019/10/18/Leetcode-206/</a>
+            <a href="/2019/10/20/Leetcode-22/" title="Leetcode 22. Generate Parentheses">2019/10/20/Leetcode-22/</a>
           </li>
           <li class="post-copyright-license">
             <strong>版权声明： </strong>
@@ -458,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/18/Leetcode-23/" rel="next" title="Leetcode 23. Merge k Sorted Lists">
-                <i class="fa fa-chevron-left"></i> Leetcode 23. Merge k Sorted Lists
+              <a href="/2019/10/20/Leetcode-121/" rel="next" title="Leetcode 121. Best Time to Buy and Sell Stock">
+                <i class="fa fa-chevron-left"></i> Leetcode 121. Best Time to Buy and Sell Stock
               </a>
             
           </div>
@@ -467,10 +466,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/18/Leetcode-56/" rel="prev" title="Leetcode 56. Merge Intervals">
-                Leetcode 56. Merge Intervals <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
