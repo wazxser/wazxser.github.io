@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Leetcode 146. LRU Cache]]></title>
+    <url>%2F2019%2F10%2F21%2FLeetcode-146%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/lru-cache/ 代码：1234567891011121314151617181920212223242526272829303132333435363738394041class LRUCache &#123;public: LRUCache(int capacity) &#123; cap = capacity; &#125; int get(int key) &#123; auto it = m.find(key); if(it == m.end()) return -1; l.splice(l.begin(), l, it-&gt;second); return it-&gt;second-&gt;second; &#125; void put(int key, int value) &#123; auto it = m.find(key); if(it != m.end())&#123; l.erase(it-&gt;second); &#125; l.push_front(make_pair(key, value)); m[key] = l.begin(); if(m.size() &gt; cap)&#123; int k = l.rbegin()-&gt;first; l.pop_back(); m.erase(k); &#125; &#125; int cap; unordered_map&lt;int, list&lt;pair&lt;int, int&gt;&gt;::iterator &gt; m; list&lt;pair&lt;int, int&gt;&gt; l;&#125;;/** * Your LRUCache object will be instantiated and called as such: * LRUCache* obj = new LRUCache(capacity); * int param_1 = obj-&gt;get(key); * obj-&gt;put(key,value); */]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>Data structure</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 344. Reverse String]]></title>
+    <url>%2F2019%2F10%2F21%2FLeetcode-344%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/reverse-string/ 代码：12345678910class Solution &#123;public: void reverseString(vector&lt;char&gt;&amp; s) &#123; for(int i = 0; i &lt; s.size() / 2; i++)&#123; char temp = s[i]; s[i] = s[s.size() - 1 - i]; s[s.size() - 1 - i] = temp; &#125; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 138. Copy List with Random Pointer]]></title>
+    <url>%2F2019%2F10%2F21%2FLeetcode-138%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/copy-list-with-random-pointer/ 代码：12345678910111213141516171819202122232425262728293031323334353637383940414243444546/*// Definition for a Node.class Node &#123;public: int val; Node* next; Node* random; Node() &#123;&#125; Node(int _val, Node* _next, Node* _random) &#123; val = _val; next = _next; random = _random; &#125;&#125;;*/class Solution &#123;public: Node* copyRandomList(Node* head) &#123; if(!head) return nullptr; Node* res = new Node(head-&gt;val, nullptr, nullptr); unordered_map&lt;Node*, Node*&gt; m; m[head] = res; Node* cur = head-&gt;next; Node* cur2 = res; while(cur)&#123; Node *node = new Node(cur-&gt;val, nullptr, nullptr); cur2-&gt;next = node; m[cur] = node; cur = cur-&gt;next; cur2 = cur2-&gt;next; &#125; cur = head; cur2 = res; while(cur)&#123; cur2-&gt;random = m[cur-&gt;random]; cur = cur-&gt;next; cur2 = cur2-&gt;next; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>List</category>
+        <category>Data structure</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 10. Regular Expression Matching]]></title>
+    <url>%2F2019%2F10%2F21%2FLeetcode-10%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/regular-expression-matching/ 题意：正则表达式匹配 代码：1234567891011121314151617181920212223242526class Solution &#123;public: bool isMatch(string s, string p) &#123; if(p.empty())&#123; return s.empty(); &#125; if(p.size() == 1)&#123; return (s.size() == 1 &amp;&amp; (s[0] == p[0] || p[0] == '.')); &#125; if(p[1] != '*')&#123; if(s.empty()) return false; return (s[0] == p[0] || p[0] == '.') &amp;&amp; isMatch(s.substr(1), p.substr(1)); &#125; while(!s.empty() &amp;&amp; (s[0] == p[0] || p[0] == '.'))&#123; if(isMatch(s, p.substr(2))) return true; s = s.substr(1); &#125; return isMatch(s, p.substr(2)); &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>DFS</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Leetcode 49. Group Anagrams]]></title>
     <url>%2F2019%2F10%2F21%2FLeetcode-49%2F</url>
     <content type="text"><![CDATA[https://leetcode.com/problems/group-anagrams/ 代码：123456789101112131415161718class Solution &#123;public: vector&lt;vector&lt;string&gt;&gt; groupAnagrams(vector&lt;string&gt;&amp; strs) &#123; vector&lt;vector&lt;string&gt;&gt; res; unordered_map&lt;string, vector&lt;string&gt;&gt; m; for(int i = 0; i &lt; strs.size(); i++)&#123; string temp = strs[i]; sort(temp.begin(), temp.end()); m[temp].push_back(strs[i]); &#125; for(auto i : m)&#123; res.push_back(i.second); &#125; return res; &#125;&#125;;]]></content>
