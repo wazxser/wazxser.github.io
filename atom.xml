@@ -6,10 +6,35 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wazxser.github.io/"/>
-  <updated>2019-10-20T10:23:30.861Z</updated>
+  <updated>2019-10-21T05:48:19.205Z</updated>
   <id>https://wazxser.github.io/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode 7.Reverse Integer</title>
+    <link href="https://wazxser.github.io/2019/10/21/Leetcode-7/"/>
+    <id>https://wazxser.github.io/2019/10/21/Leetcode-7/</id>
+    <published>2019-10-21T03:04:44.000Z</published>
+    <updated>2019-10-21T05:48:19.205Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/reverse-integer/" target="_blank" rel="noopener">https://leetcode.com/problems/reverse-integer/</a></p><p>题意：将整数的数字反转，注意溢出</p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type x: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        num = str(x)</span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> xrange(len(num)):</span><br><span class="line">            <span class="keyword">if</span> num[len(num)<span class="number">-1</span>-i].isdigit():</span><br><span class="line">                res = res*<span class="number">10</span> + int(num[len(num)<span class="number">-1</span>-i])</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res = <span class="number">0</span> - res</span><br><span class="line">            <span class="keyword">if</span> abs(res) &gt; <span class="number">2</span>**<span class="number">31</span><span class="number">-1</span>:</span><br><span class="line">                res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int reverse(int x) &#123;</span><br><span class="line">        int res = <span class="number">0</span>;</span><br><span class="line">        int num = x;</span><br><span class="line">        long long temp = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(num != <span class="number">0</span>)&#123;</span><br><span class="line">            temp = temp * <span class="number">10</span> + (num % <span class="number">10</span>);</span><br><span class="line">            num /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(temp &gt; pow(<span class="number">2</span>, <span class="number">31</span>) - <span class="number">1</span> || temp &lt; -pow(<span class="number">2</span>, <span class="number">31</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        res = static_cast&lt;int&gt;(temp);</span><br><span class="line">        //return x &gt; 0 ? res : res * -1;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/reverse-integer/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/reverse-integer/&lt;/a
+      
+    
+    </summary>
+    
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode 22. Generate Parentheses</title>
@@ -501,31 +526,6 @@
     
     
       <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ubuntu系统修复</title>
-    <link href="https://wazxser.github.io/2019/04/19/Ubuntu%E7%B3%BB%E7%BB%9F%E4%BF%AE%E5%A4%8D/"/>
-    <id>https://wazxser.github.io/2019/04/19/Ubuntu系统修复/</id>
-    <published>2019-04-19T06:52:53.000Z</published>
-    <updated>2019-04-19T07:48:18.513Z</updated>
-    
-    <content type="html"><![CDATA[<p>早上在毫无心理准备和几个月没备份的情况下，Ubuntu进不去了，内心十分崩溃。</p><p>交代环境：Ubuntu16.04+Windows10双系统，NVIDIA 1080Ti显卡。</p><p>具体表现为，开机出现Grub引导界面，进入Ubuntu只有长时间黑屏，Ctrl+Alt+F1进入命令行<br>也没有任何反应。可以进入Windows系统。</p><h1 id="修复步骤"><a href="#修复步骤" class="headerlink" title="修复步骤"></a>修复步骤</h1><ul><li>从Grub引导界面进入Ubuntu高级选项，选择recovery mode进入，会有一大堆的log不断<br>输出，最后停止时会看到/dev/sdb4文件系统有错误，requires a manual fsck</li><li>但是我在之后recovery mode的命令行模式没有办法修复（我只尝试输入了fsck命令，<br>没有指定/dev/sdb4，也许会有差别），这里不太确定。</li><li>从Ubuntu启动盘进入Try Ubuntu without install，这里可以看到之前Ubuntu系统<br>中的文件，如果系统不能修复，应该可以从这里把文件和代码抢救回来了。</li><li>打开命令行，输入<code>sudo fsck -f /dev/sdb4</code>，我这里一定要加/dev/sdb4，否则没效果。<br>执行完如果还有错误，重复执行上述命令直到没有错误为止。</li><li>重启电脑，从Grub正常进入Ubuntu，发现修复成功了，恢复正常了。</li></ul><h1 id="曲折之路"><a href="#曲折之路" class="headerlink" title="曲折之路"></a>曲折之路</h1><ul><li>综合大部分CSDN的说法，应该是内核在你不知觉的时候升级了，而新的内核没有NVIDIA显卡<br>驱动，所以会黑屏，尝试编辑Ubuntu内核命令行参数（在Grub界面上按<code>e</code>进入编辑），<br>（ro改为rw，加上nomodeset等参数），因为的确发现Ubuntu高级选项中有好几个内核的版本，<br>以为就是这个错误，但其实没有，应该我的内核和显卡驱动都是可以加载好的吧。</li><li>不明白为什么会有多个内核版本</li><li>不明白为什么我的电脑在跑稍大一点训练任务的时候就会重启，就是重启导致文件系统错误，<br>才会今天开不了机。</li></ul><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul><li>平时习惯照搬网上经验，还是要经过脑子思考才可以。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;早上在毫无心理准备和几个月没备份的情况下，Ubuntu进不去了，内心十分崩溃。&lt;/p&gt;
-&lt;p&gt;交代环境：Ubuntu16.04+Windows10双系统，NVIDIA 1080Ti显卡。&lt;/p&gt;
-&lt;p&gt;具体表现为，开机出现Grub引导界面，进入Ubuntu只有长时间黑屏，C
-      
-    
-    </summary>
-    
-    
-      <category term="Ubuntu" scheme="https://wazxser.github.io/tags/Ubuntu/"/>
     
   </entry>
   
