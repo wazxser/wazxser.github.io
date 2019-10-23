@@ -6,10 +6,68 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wazxser.github.io/"/>
-  <updated>2019-10-21T07:00:50.534Z</updated>
+  <updated>2019-10-23T13:33:56.428Z</updated>
   <id>https://wazxser.github.io/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode 160. Intersection of Two Linked Lists</title>
+    <link href="https://wazxser.github.io/2019/10/23/Leetcode-160/"/>
+    <id>https://wazxser.github.io/2019/10/23/Leetcode-160/</id>
+    <published>2019-10-23T13:27:57.000Z</published>
+    <updated>2019-10-23T13:33:56.428Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/intersection-of-two-linked-lists/" target="_blank" rel="noopener">https://leetcode.com/problems/intersection-of-two-linked-lists/</a></p><p>题意：找到两个交叉链表的公共节点</p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getIntersectionNode</span><span class="params">(self, headA, headB)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head1, head1: ListNode</span></span><br><span class="line"><span class="string">        :rtype: ListNode         </span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        p1 = headA</span><br><span class="line">        p2 = headB</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> p1 == p2:</span><br><span class="line">            p1 = p1.next <span class="keyword">if</span> p1 <span class="keyword">else</span> headB</span><br><span class="line">            p2 = p2.next <span class="keyword">if</span> p2 <span class="keyword">else</span> headA</span><br><span class="line">        <span class="keyword">return</span> p1</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/intersection-of-two-linked-lists/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/in
+      
+    
+    </summary>
+    
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+      <category term="List" scheme="https://wazxser.github.io/categories/Online-Judge/List/"/>
+    
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+      <category term="easy" scheme="https://wazxser.github.io/tags/easy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode 104. Maximum Depth of Binary Tree</title>
+    <link href="https://wazxser.github.io/2019/10/23/Leetcode-104/"/>
+    <id>https://wazxser.github.io/2019/10/23/Leetcode-104/</id>
+    <published>2019-10-23T13:24:21.000Z</published>
+    <updated>2019-10-23T13:25:29.456Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">https://leetcode.com/problems/maximum-depth-of-binary-tree/</a></p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxDepth</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type root: TreeNode</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> max(self.maxDepth(root.left), self.maxDepth(root.right)) + <span class="number">1</span> <span class="keyword">if</span> root <span class="keyword">else</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/maximum-depth-of-binary-tree/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/maximu
+      
+    
+    </summary>
+    
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+      <category term="Tree" scheme="https://wazxser.github.io/categories/Online-Judge/Tree/"/>
+    
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+      <category term="easy" scheme="https://wazxser.github.io/tags/easy/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode 146. LRU Cache</title>
@@ -481,60 +539,6 @@
       <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
     
       <category term="string" scheme="https://wazxser.github.io/categories/Online-Judge/string/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode 5. Longest Palindromic Substring</title>
-    <link href="https://wazxser.github.io/2019/10/18/Leetcode-5/"/>
-    <id>https://wazxser.github.io/2019/10/18/Leetcode-5/</id>
-    <published>2019-10-18T08:43:44.000Z</published>
-    <updated>2019-10-18T12:14:02.677Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/longest-palindromic-substring/" target="_blank" rel="noopener">https://leetcode.com/problems/longest-palindromic-substring/</a></p><p>题意：搜索一个字符串中最长的回文序列</p><p>思路：回文序列的搜索以中间一个单独一个字母和中间两个相同字符分为两类</p><p>代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    string longestPalindrome(string s) &#123;</span><br><span class="line">        <span class="keyword">if</span>(s.length() == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125;</span><br><span class="line">        int left = <span class="number">0</span>, right = <span class="number">0</span>, index = <span class="number">0</span>, len = <span class="number">0</span>, wide = <span class="number">0</span>, res_index = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; s.length()<span class="number">-1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] == s[i+<span class="number">1</span>])&#123;</span><br><span class="line">                index = searchPalindrome(s, i, i+<span class="number">1</span>, len);</span><br><span class="line">                <span class="keyword">if</span>(len &gt; wide)&#123;</span><br><span class="line">                    wide = len;</span><br><span class="line">                    res_index = index;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            index = searchPalindrome(s, i, i, len);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(len &gt; wide)&#123;</span><br><span class="line">                wide = len;</span><br><span class="line">                res_index = index;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> s.substr(res_index, wide);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int searchPalindrome(string s, int left, int right, int &amp;len)&#123;</span><br><span class="line">        int index = <span class="number">0</span>;</span><br><span class="line">        int flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(left &gt; <span class="number">0</span> &amp;&amp; right &lt; s.length()<span class="number">-1</span>)&#123;</span><br><span class="line">            left -= <span class="number">1</span>;</span><br><span class="line">            right += <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(s[left] != s[right])&#123;</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag == <span class="number">1</span>)&#123;</span><br><span class="line">            len = right - left - <span class="number">1</span>;</span><br><span class="line">            index = left + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            len = right - left + <span class="number">1</span>;</span><br><span class="line">            index = left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> index;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/longest-palindromic-substring/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/longe
-      
-    
-    </summary>
-    
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-      <category term="string" scheme="https://wazxser.github.io/categories/Online-Judge/string/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode 4. Median of Two Sorted Arrays</title>
-    <link href="https://wazxser.github.io/2019/10/18/Leetcode-4/"/>
-    <id>https://wazxser.github.io/2019/10/18/Leetcode-4/</id>
-    <published>2019-10-18T07:58:42.000Z</published>
-    <updated>2019-10-18T12:14:03.193Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/" target="_blank" rel="noopener">https://leetcode.com/problems/median-of-two-sorted-arrays/</a></p><p>这道题的题意是给定两个已经排好序的数组，求这两个数组所有数字的中位数，要求时间复杂度是O(log(m+n))的（应该自然想到<br>是二分法）</p><p>这道题感觉有点难，看了半天代码也看不懂是什么意思。。。，不过这样的题确实有意思。。。</p><p>思路： 在两个数组中找两个分解点i，j，保证0～i-1加0～j-1是两个数组的长度之和的一半，目标就是确定i和j的位置，使得<br>i-1位置数字也小于j位置数字（i-1位置数字保证小于i位置数字）和j-1位置数字小于i位置数字，这样0～i-1和0～j-1位置所有<br>数字都小于另一半部分的数字，中位数就是i-1和j-1位置数字的较大值和i位置和j位置数字的较小值的均值（两个数组所有数字<br>个数是偶数的话），或者i-1和j-1位置数字的较大值</p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    double findMedianSortedArrays(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) &#123;</span><br><span class="line">        int m = nums1.size(), n = nums2.size();</span><br><span class="line">        <span class="keyword">if</span>(m &gt; n)</span><br><span class="line">            <span class="keyword">return</span> findMedianSortedArrays(nums2, nums1);</span><br><span class="line">        </span><br><span class="line">        int left = <span class="number">0</span>, right = m;</span><br><span class="line">        int i = <span class="number">-1</span>, j = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(true)&#123;</span><br><span class="line">            i = (left + right) / <span class="number">2</span>;</span><br><span class="line">            j = (m + n + <span class="number">1</span>) / <span class="number">2</span> - i;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>((i == <span class="number">0</span> || j == n || nums1[i - <span class="number">1</span>] &lt;= nums2[j]) &amp;&amp; </span><br><span class="line">               (j == <span class="number">0</span> || i == m || nums2[j - <span class="number">1</span>] &lt;= nums1[i]))&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; nums1[i<span class="number">-1</span>] &gt; nums2[j])&#123;</span><br><span class="line">                right = i - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(j &gt; <span class="number">0</span> &amp;&amp; nums2[j<span class="number">-1</span>] &gt; nums1[i])&#123;</span><br><span class="line">                left = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int max_left = <span class="number">-1</span>, min_right = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(i == <span class="number">0</span>)&#123;</span><br><span class="line">            max_left = nums2[j<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(j == <span class="number">0</span>)&#123;</span><br><span class="line">            max_left = nums1[i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            max_left = max(nums1[i - <span class="number">1</span>], nums2[j - <span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>((m+n) % <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> max_left;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(i == m) </span><br><span class="line">            min_right = nums2[j];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(j == n) </span><br><span class="line">            min_right = nums1[i];</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            min_right = min(nums1[i], nums2[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> double(max_left + min_right) / <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/median-of-two-sorted-arrays/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/median-
-      
-    
-    </summary>
-    
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-      <category term="二分查找" scheme="https://wazxser.github.io/categories/Online-Judge/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
     
     
       <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>

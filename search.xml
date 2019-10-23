@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Leetcode 160. Intersection of Two Linked Lists]]></title>
+    <url>%2F2019%2F10%2F23%2FLeetcode-160%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/intersection-of-two-linked-lists/ 题意：找到两个交叉链表的公共节点 代码：12345678910111213141516171819# Definition for singly-linked list.# class ListNode(object):# def __init__(self, x):# self.val = x# self.next = Noneclass Solution(object): def getIntersectionNode(self, headA, headB): """ :type head1, head1: ListNode :rtype: ListNode """ p1 = headA p2 = headB while not p1 == p2: p1 = p1.next if p1 else headB p2 = p2.next if p2 else headA return p1]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>List</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>easy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 104. Maximum Depth of Binary Tree]]></title>
+    <url>%2F2019%2F10%2F23%2FLeetcode-104%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/maximum-depth-of-binary-tree/ 代码：1234567891011121314# Definition for a binary tree node.# class TreeNode(object):# def __init__(self, x):# self.val = x# self.left = None# self.right = Noneclass Solution(object): def maxDepth(self, root): """ :type root: TreeNode :rtype: int """ return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1 if root else 0]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>Tree</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>easy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Leetcode 146. LRU Cache]]></title>
     <url>%2F2019%2F10%2F21%2FLeetcode-146%2F</url>
     <content type="text"><![CDATA[https://leetcode.com/problems/lru-cache/ 代码：1234567891011121314151617181920212223242526272829303132333435363738394041class LRUCache &#123;public: LRUCache(int capacity) &#123; cap = capacity; &#125; int get(int key) &#123; auto it = m.find(key); if(it == m.end()) return -1; l.splice(l.begin(), l, it-&gt;second); return it-&gt;second-&gt;second; &#125; void put(int key, int value) &#123; auto it = m.find(key); if(it != m.end())&#123; l.erase(it-&gt;second); &#125; l.push_front(make_pair(key, value)); m[key] = l.begin(); if(m.size() &gt; cap)&#123; int k = l.rbegin()-&gt;first; l.pop_back(); m.erase(k); &#125; &#125; int cap; unordered_map&lt;int, list&lt;pair&lt;int, int&gt;&gt;::iterator &gt; m; list&lt;pair&lt;int, int&gt;&gt; l;&#125;;/** * Your LRUCache object will be instantiated and called as such: * LRUCache* obj = new LRUCache(capacity); * int param_1 = obj-&gt;get(key); * obj-&gt;put(key,value); */]]></content>
