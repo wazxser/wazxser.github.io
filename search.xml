@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Leetcode 94. Binary Tree Inorder Traversal]]></title>
+    <url>%2F2019%2F10%2F23%2FLeetcode-94%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/binary-tree-inorder-traversal/ 二叉树的中序遍历 递归：1234567891011121314151617181920212223/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: vector&lt;int&gt; res; vector&lt;int&gt; inorderTraversal(TreeNode* root) &#123; if(root != NULL)&#123; inorderTraversal(root-&gt;left); res.push_back(root-&gt;val); inorderTraversal(root-&gt;right); &#125; return res; &#125;&#125;; 非递归：123456789101112131415161718192021222324252627282930/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: vector&lt;int&gt; inorderTraversal(TreeNode* root) &#123; vector&lt;int&gt; res; stack&lt;TreeNode*&gt; tempStack; while(!tempStack.empty() || root != NULL)&#123; if(root != NULL)&#123; tempStack.push(root); root = root-&gt;left; &#125; else&#123; root = tempStack.top(); res.push_back(tempStack.top()-&gt;val); tempStack.pop(); root = root-&gt;right; &#125; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>Tree</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>medium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Leetcode 160. Intersection of Two Linked Lists]]></title>
     <url>%2F2019%2F10%2F23%2FLeetcode-160%2F</url>
     <content type="text"><![CDATA[https://leetcode.com/problems/intersection-of-two-linked-lists/ 题意：找到两个交叉链表的公共节点 代码：12345678910111213141516171819# Definition for singly-linked list.# class ListNode(object):# def __init__(self, x):# self.val = x# self.next = Noneclass Solution(object): def getIntersectionNode(self, headA, headB): """ :type head1, head1: ListNode :rtype: ListNode """ p1 = headA p2 = headB while not p1 == p2: p1 = p1.next if p1 else headB p2 = p2.next if p2 else headA return p1]]></content>
