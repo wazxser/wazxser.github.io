@@ -41,9 +41,16 @@
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[Leetcode_122]]></title>
+    <title><![CDATA[Leetcode 122. Best Time to Buy and Sell Stock II]]></title>
     <url>%2F2019%2F10%2F24%2FLeetcode-122%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/ 1234567class Solution(object): def maxProfit(self, prices): """ :type prices: List[int] :rtype: int """ return sum(max(prices[i + 1] - prices[i], 0) for i in range(len(prices) - 1))]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>easy</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Leetcode_45]]></title>
@@ -56,9 +63,16 @@
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[Leetcode_9]]></title>
+    <title><![CDATA[Leetcode 9. Palindrome Number]]></title>
     <url>%2F2019%2F10%2F24%2FLeetcode-9%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[https://leetcode.com/problems/palindrome-number/ 1234567891011class Solution(object): def isPalindrome(self, x): """ :type x: int :rtype: bool """ num = str(x) for i in xrange(len(num)/2): if num[i] != num[len(num)-1-i]: return False return True 1234567891011121314151617class Solution &#123;public: bool isPalindrome(int x) &#123; if(x &lt; 0)&#123; return false; &#125; string str = to_string(x); for(int i = 0; i &lt; str.size() / 2; i++)&#123; if(str[i] != str[str.size()-1-i])&#123; return false; &#125; &#125; return true; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>easy</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Leetcode_32]]></title>
