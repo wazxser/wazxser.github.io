@@ -1,6 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Leetcode 102. Binary Tree Level Order Traversal]]></title>
+    <url>%2F2019%2F10%2F23%2FLeetcode-102%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/binary-tree-level-order-traversal/ 题意：二叉树的层序遍历 代码： 12345678910111213141516171819202122232425262728293031323334353637/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; levelOrder(TreeNode* root) &#123; queue&lt;TreeNode*&gt; q; q.push(root); vector&lt;vector&lt;int&gt;&gt; res; int num = 1; while(!q.empty())&#123; vector&lt;int&gt; arr; int count = 0; for(int i = 0; i &lt; num; i++)&#123; TreeNode* temp = q.front(); q.pop(); if(temp)&#123; arr.push_back(temp-&gt;val); q.push(temp-&gt;left); q.push(temp-&gt;right); count += 2; &#125; &#125; if(!arr.empty()) res.push_back(arr); num = count; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>Tree</category>
+        <category>queue</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>medium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 173. Binary Search Tree Iterator]]></title>
+    <url>%2F2019%2F10%2F23%2FLeetcode-173%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/binary-search-tree-iterator/ 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class BSTIterator &#123;public: BSTIterator(TreeNode* root) &#123; cur = root; if(!cur)&#123; return; &#125; while(cur)&#123; s.push(cur); cur = cur-&gt;left; &#125; &#125; /** @return the next smallest number */ int next() &#123; TreeNode * ret = s.top(); s.pop(); int val = ret-&gt;val; ret = ret-&gt;right; while(ret)&#123; s.push(ret); ret = ret-&gt;left; &#125; return val; &#125; /** @return whether we have a next smallest number */ bool hasNext() &#123; return !s.empty(); &#125;private: TreeNode * cur; stack&lt;TreeNode*&gt; s;&#125;;/** * Your BSTIterator object will be instantiated and called as such: * BSTIterator* obj = new BSTIterator(root); * int param_1 = obj-&gt;next(); * bool param_2 = obj-&gt;hasNext(); */]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>Tree</category>
+        <category>stack</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>medium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 151. Reverse Words in a String]]></title>
+    <url>%2F2019%2F10%2F23%2FLeetcode-151%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/reverse-words-in-a-string/ 代码：1234567891011class Solution(object): def reverseWords(self, s): """ :type s: str :rtype: str """ arr = s.strip().split() arr.reverse() str= ' ' res = str.join(arr) return res]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>string</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>medium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 415. Add Strings]]></title>
+    <url>%2F2019%2F10%2F23%2FLeetcode-415%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/add-strings/ 代码：123456789101112131415161718192021222324252627282930313233343536373839404142434445class Solution &#123;public: string addStrings(string num1, string num2) &#123; if(num1.size() == 0 || num2.size() == 0)&#123; return num1.size() == 0 ? num2 : num1; &#125; string res; int add = 0; int add2 = 0; int i = num1.size() - 1; int j = num2.size() - 1; while(i &gt;= 0 &amp;&amp; j &gt;= 0)&#123; int temp = (num1[i] - '0') + (num2[j] - '0') + add; add = temp / 10; add2 = temp % 10; res.push_back(add2 + '0'); i--; j--; &#125; while(i &gt;= 0)&#123; int temp = num1[i] - '0' + add; res.push_back((temp % 10) + '0'); add = temp / 10; i--; &#125; while(j &gt;= 0)&#123; int temp = num2[j] - '0'+ add; res.push_back((temp % 10) + '0'); add = temp / 10; j--; &#125; if(add != 0)&#123; res.push_back(add + '0'); &#125; reverse(res.begin(), res.end()); return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>string</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>easy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 169. Majority Element]]></title>
+    <url>%2F2019%2F10%2F23%2FLeetcode-169%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/majority-element/ 1234567891011121314151617class Solution(object): def majorityElement(self, nums): """ :type nums: List[int] :rtype: int """ res = nums[0] cnt = 1 for i in xrange(1, len(nums)): if res == nums[i]: cnt += 1 elif cnt == 0: cnt += 1 res = nums[i] else: cnt -= 1 return res]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>easy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 62. Unique Paths]]></title>
+    <url>%2F2019%2F10%2F23%2FLeetcode-62%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/unique-paths/ 题意：机器人从矩阵的左上角开始走，终点为右下角，机器人只能向右或者向下走，输出共有多少条不重复的路径使得机器人能够到达终点 代码：123456789101112class Solution &#123;public: int uniquePaths(int m, int n) &#123; vector&lt;int&gt; dp(n, 1); for (int i = 1; i &lt; m; ++i) &#123; for (int j = 1; j &lt; n; ++j) &#123; dp[j] += dp[j - 1]; &#125; &#125; return dp[n - 1]; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>DP</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>medium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 136. Single Number]]></title>
+    <url>%2F2019%2F10%2F23%2FLeetcode-136%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/single-number/ 1234567891011class Solution &#123;public: int singleNumber(vector&lt;int&gt;&amp; nums) &#123; int res = 0; for(int i = 0; i &lt; nums.size(); i++)&#123; res ^= nums[i]; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>easy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 141. Linked List Cycle]]></title>
+    <url>%2F2019%2F10%2F23%2FLeetcode-141%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/linked-list-cycle/ 题意：判断链表中是否有环 代码：1234567891011121314151617181920212223# Definition for singly-linked list.# class ListNode(object):# def __init__(self, x):# self.val = x# self.next = Noneclass Solution(object): def hasCycle(self, head): """ :type head: ListNode :rtype: bool """ if head == None: return False one = head two = head.next try: while not one == two: one = one.next two = two.next.next return True except: return False]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>List</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>easy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Leetcode 94. Binary Tree Inorder Traversal]]></title>
     <url>%2F2019%2F10%2F23%2FLeetcode-94%2F</url>
     <content type="text"><![CDATA[https://leetcode.com/problems/binary-tree-inorder-traversal/ 二叉树的中序遍历 递归：1234567891011121314151617181920212223/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: vector&lt;int&gt; res; vector&lt;int&gt; inorderTraversal(TreeNode* root) &#123; if(root != NULL)&#123; inorderTraversal(root-&gt;left); res.push_back(root-&gt;val); inorderTraversal(root-&gt;right); &#125; return res; &#125;&#125;; 非递归：123456789101112131415161718192021222324252627282930/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: vector&lt;int&gt; inorderTraversal(TreeNode* root) &#123; vector&lt;int&gt; res; stack&lt;TreeNode*&gt; tempStack; while(!tempStack.empty() || root != NULL)&#123; if(root != NULL)&#123; tempStack.push(root); root = root-&gt;left; &#125; else&#123; root = tempStack.top(); res.push_back(tempStack.top()-&gt;val); tempStack.pop(); root = root-&gt;right; &#125; &#125; return res; &#125;&#125;;]]></content>
