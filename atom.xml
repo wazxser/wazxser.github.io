@@ -6,567 +6,288 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wazxser.github.io/"/>
-  <updated>2019-10-24T06:11:18.306Z</updated>
+  <updated>2019-10-24T08:01:30.531Z</updated>
   <id>https://wazxser.github.io/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Leetcode 102. Binary Tree Level Order Traversal</title>
-    <link href="https://wazxser.github.io/2019/10/23/Leetcode-102/"/>
-    <id>https://wazxser.github.io/2019/10/23/Leetcode-102/</id>
-    <published>2019-10-23T14:20:41.000Z</published>
-    <updated>2019-10-24T06:11:18.306Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/" target="_blank" rel="noopener">https://leetcode.com/problems/binary-tree-level-order-traversal/</a></p><p>题意：二叉树的层序遍历</p><p>代码：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * struct TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left;</span><br><span class="line"> *     TreeNode *right;</span><br><span class="line"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;vector&lt;int&gt;&gt; levelOrder(TreeNode* root) &#123;</span><br><span class="line">        queue&lt;TreeNode*&gt; q;</span><br><span class="line">        q.push(root);</span><br><span class="line">        vector&lt;vector&lt;int&gt;&gt; res;</span><br><span class="line">        int num = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">            vector&lt;int&gt; arr;</span><br><span class="line">            int count = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; num; i++)&#123;</span><br><span class="line">                TreeNode* temp = q.front();</span><br><span class="line">                q.pop();</span><br><span class="line">                <span class="keyword">if</span>(temp)&#123;</span><br><span class="line">                    arr.push_back(temp-&gt;val);</span><br><span class="line">                    q.push(temp-&gt;left);</span><br><span class="line">                    q.push(temp-&gt;right);</span><br><span class="line">                    count += <span class="number">2</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!arr.empty())</span><br><span class="line">                res.push_back(arr);</span><br><span class="line">            num = count;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    <title>Leetcode_666</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-666/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-666/</id>
+    <published>2019-10-24T08:01:30.000Z</published>
+    <updated>2019-10-24T08:01:30.531Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/binary-tree-level-order-traversal/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/b
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-      <category term="Tree" scheme="https://wazxser.github.io/categories/Online-Judge/Tree/"/>
-    
-      <category term="queue" scheme="https://wazxser.github.io/categories/Online-Judge/Tree/queue/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-      <category term="medium" scheme="https://wazxser.github.io/tags/medium/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 173. Binary Search Tree Iterator</title>
-    <link href="https://wazxser.github.io/2019/10/23/Leetcode-173/"/>
-    <id>https://wazxser.github.io/2019/10/23/Leetcode-173/</id>
-    <published>2019-10-23T14:20:36.000Z</published>
-    <updated>2019-10-24T06:08:04.794Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/binary-search-tree-iterator/" target="_blank" rel="noopener">https://leetcode.com/problems/binary-search-tree-iterator/</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * struct TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left;</span><br><span class="line"> *     TreeNode *right;</span><br><span class="line"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class BSTIterator &#123;</span><br><span class="line">public:</span><br><span class="line">    BSTIterator(TreeNode* root) &#123;</span><br><span class="line">        cur = root;</span><br><span class="line">        <span class="keyword">if</span>(!cur)&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(cur)&#123;</span><br><span class="line">            s.push(cur);</span><br><span class="line">            cur = cur-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** @<span class="keyword">return</span> the next smallest number */</span><br><span class="line">    int next() &#123;</span><br><span class="line">        TreeNode * ret = s.top();</span><br><span class="line">        s.pop();</span><br><span class="line">        int val = ret-&gt;val;</span><br><span class="line">        ret = ret-&gt;right;</span><br><span class="line">        <span class="keyword">while</span>(ret)&#123;</span><br><span class="line">            s.push(ret);</span><br><span class="line">            ret = ret-&gt;left;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> val;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /** @<span class="keyword">return</span> whether we have a next smallest number */</span><br><span class="line">    bool hasNext() &#123;</span><br><span class="line">        <span class="keyword">return</span> !s.empty();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    TreeNode * cur;</span><br><span class="line">    stack&lt;TreeNode*&gt; s;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Your BSTIterator object will be instantiated <span class="keyword">and</span> called <span class="keyword">as</span> such:</span><br><span class="line"> * BSTIterator* obj = new BSTIterator(root);</span><br><span class="line"> * int param_1 = obj-&gt;next();</span><br><span class="line"> * bool param_2 = obj-&gt;hasNext();</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>]]></content>
+    <title>Leetcode_548</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-548/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-548/</id>
+    <published>2019-10-24T08:01:26.000Z</published>
+    <updated>2019-10-24T08:01:26.392Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/binary-search-tree-iterator/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/binary-
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-      <category term="Tree" scheme="https://wazxser.github.io/categories/Online-Judge/Tree/"/>
-    
-      <category term="stack" scheme="https://wazxser.github.io/categories/Online-Judge/Tree/stack/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-      <category term="medium" scheme="https://wazxser.github.io/tags/medium/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 151. Reverse Words in a String</title>
-    <link href="https://wazxser.github.io/2019/10/23/Leetcode-151/"/>
-    <id>https://wazxser.github.io/2019/10/23/Leetcode-151/</id>
-    <published>2019-10-23T14:20:28.000Z</published>
-    <updated>2019-10-24T02:06:42.432Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/reverse-words-in-a-string/" target="_blank" rel="noopener">https://leetcode.com/problems/reverse-words-in-a-string/</a></p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseWords</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        arr = s.strip().split()</span><br><span class="line">        arr.reverse()</span><br><span class="line">        str= <span class="string">' '</span></span><br><span class="line">        res = str.join(arr)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></p>]]></content>
+    <title>Leetcode_555</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-555/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-555/</id>
+    <published>2019-10-24T08:01:21.000Z</published>
+    <updated>2019-10-24T08:01:21.154Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/reverse-words-in-a-string/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/reverse-w
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-      <category term="string" scheme="https://wazxser.github.io/categories/Online-Judge/string/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-      <category term="medium" scheme="https://wazxser.github.io/tags/medium/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 415. Add Strings</title>
-    <link href="https://wazxser.github.io/2019/10/23/Leetcode-415/"/>
-    <id>https://wazxser.github.io/2019/10/23/Leetcode-415/</id>
-    <published>2019-10-23T14:20:22.000Z</published>
-    <updated>2019-10-24T02:03:48.007Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/add-strings/" target="_blank" rel="noopener">https://leetcode.com/problems/add-strings/</a></p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    string addStrings(string num1, string num2) &#123;</span><br><span class="line">        <span class="keyword">if</span>(num1.size() == <span class="number">0</span> || num2.size() == <span class="number">0</span>)&#123;</span><br><span class="line">            return num1.size() == 0 ? num2 : num1;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        string res;</span><br><span class="line">        int add = <span class="number">0</span>;</span><br><span class="line">        int add2 = <span class="number">0</span>;</span><br><span class="line">        int i = num1.size() - <span class="number">1</span>;</span><br><span class="line">        int j = num2.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &gt;= <span class="number">0</span> &amp;&amp; j &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">            int temp = (num1[i] - <span class="string">'0'</span>) + (num2[j] - <span class="string">'0'</span>) + add;</span><br><span class="line">            add = temp / <span class="number">10</span>;</span><br><span class="line">            add2 = temp % <span class="number">10</span>;</span><br><span class="line">            res.push_back(add2 + <span class="string">'0'</span>);</span><br><span class="line">            i--;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(i &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">            int temp = num1[i] - <span class="string">'0'</span> + add;</span><br><span class="line">            res.push_back((temp % <span class="number">10</span>) + <span class="string">'0'</span>);</span><br><span class="line">            add = temp / <span class="number">10</span>;</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(j &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">            int temp = num2[j] - <span class="string">'0'</span>+ add;</span><br><span class="line">            res.push_back((temp % <span class="number">10</span>) + <span class="string">'0'</span>);</span><br><span class="line">            add = temp / <span class="number">10</span>;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(add != <span class="number">0</span>)&#123;</span><br><span class="line">            res.push_back(add + <span class="string">'0'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        reverse(res.begin(), res.end());</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
+    <title>Leetcode_446</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-446/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-446/</id>
+    <published>2019-10-24T08:01:16.000Z</published>
+    <updated>2019-10-24T08:01:16.541Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/add-strings/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/add-strings/&lt;/a&gt;&lt;/p&gt;
-&lt;p
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-      <category term="string" scheme="https://wazxser.github.io/categories/Online-Judge/string/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-      <category term="easy" scheme="https://wazxser.github.io/tags/easy/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 169. Majority Element</title>
-    <link href="https://wazxser.github.io/2019/10/23/Leetcode-169/"/>
-    <id>https://wazxser.github.io/2019/10/23/Leetcode-169/</id>
-    <published>2019-10-23T14:20:13.000Z</published>
-    <updated>2019-10-23T14:45:53.896Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/majority-element/" target="_blank" rel="noopener">https://leetcode.com/problems/majority-element/</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">majorityElement</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        res = nums[<span class="number">0</span>]</span><br><span class="line">        cnt = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">1</span>, len(nums)):</span><br><span class="line">            <span class="keyword">if</span> res == nums[i]:</span><br><span class="line">                cnt += <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> cnt == <span class="number">0</span>:</span><br><span class="line">                cnt += <span class="number">1</span></span><br><span class="line">                res = nums[i]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                cnt -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>]]></content>
+    <title>Leetcode_678</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-678/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-678/</id>
+    <published>2019-10-24T08:01:10.000Z</published>
+    <updated>2019-10-24T08:01:10.800Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/majority-element/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/majority-element/&lt;
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-      <category term="easy" scheme="https://wazxser.github.io/tags/easy/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 62. Unique Paths</title>
-    <link href="https://wazxser.github.io/2019/10/23/Leetcode-62/"/>
-    <id>https://wazxser.github.io/2019/10/23/Leetcode-62/</id>
-    <published>2019-10-23T14:20:04.000Z</published>
-    <updated>2019-10-23T14:24:53.020Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/unique-paths/" target="_blank" rel="noopener">https://leetcode.com/problems/unique-paths/</a></p><p>题意：机器人从矩阵的左上角开始走，终点为右下角，机器人只能向右或者向下走，输出共有多少条不重复的路径使得机器人能够<br>到达终点</p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int uniquePaths(int m, int n) &#123;</span><br><span class="line">       vector&lt;int&gt; dp(n, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (int i = <span class="number">1</span>; i &lt; m; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (int j = <span class="number">1</span>; j &lt; n; ++j) &#123;</span><br><span class="line">                dp[j] += dp[j - <span class="number">1</span>]; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
+    <title>Leetcode_132</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-132/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-132/</id>
+    <published>2019-10-24T08:01:04.000Z</published>
+    <updated>2019-10-24T08:01:04.740Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/unique-paths/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/unique-paths/&lt;/a&gt;&lt;/p&gt;
-
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-      <category term="DP" scheme="https://wazxser.github.io/categories/Online-Judge/DP/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-      <category term="medium" scheme="https://wazxser.github.io/tags/medium/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 136. Single Number</title>
-    <link href="https://wazxser.github.io/2019/10/23/Leetcode-136/"/>
-    <id>https://wazxser.github.io/2019/10/23/Leetcode-136/</id>
-    <published>2019-10-23T13:49:47.000Z</published>
-    <updated>2019-10-23T14:19:46.334Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/single-number/" target="_blank" rel="noopener">https://leetcode.com/problems/single-number/</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int singleNumber(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; nums.size(); i++)&#123;</span><br><span class="line">            res ^= nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    <title>Leetcode_437</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-437/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-437/</id>
+    <published>2019-10-24T08:00:59.000Z</published>
+    <updated>2019-10-24T08:00:59.469Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/single-number/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/single-number/&lt;/a&gt;&lt;/p
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-      <category term="easy" scheme="https://wazxser.github.io/tags/easy/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 141. Linked List Cycle</title>
-    <link href="https://wazxser.github.io/2019/10/23/Leetcode-141/"/>
-    <id>https://wazxser.github.io/2019/10/23/Leetcode-141/</id>
-    <published>2019-10-23T13:49:41.000Z</published>
-    <updated>2019-10-23T14:17:54.237Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/linked-list-cycle/" target="_blank" rel="noopener">https://leetcode.com/problems/linked-list-cycle/</a></p><p>题意：判断链表中是否有环</p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hasCycle</span><span class="params">(self, head)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head: ListNode</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> head == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        one = head</span><br><span class="line">        two = head.next</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">while</span> <span class="keyword">not</span> one == two:</span><br><span class="line">                one = one.next</span><br><span class="line">                two = two.next.next</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br></pre></td></tr></table></figure></p>]]></content>
+    <title>Leetcode_992</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-992/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-992/</id>
+    <published>2019-10-24T08:00:53.000Z</published>
+    <updated>2019-10-24T08:00:53.964Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/linked-list-cycle/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/linked-list-cycle
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-      <category term="List" scheme="https://wazxser.github.io/categories/Online-Judge/List/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-      <category term="easy" scheme="https://wazxser.github.io/tags/easy/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 94. Binary Tree Inorder Traversal</title>
-    <link href="https://wazxser.github.io/2019/10/23/Leetcode-94/"/>
-    <id>https://wazxser.github.io/2019/10/23/Leetcode-94/</id>
-    <published>2019-10-23T13:34:55.000Z</published>
-    <updated>2019-10-23T13:37:27.675Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/binary-tree-inorder-traversal/" target="_blank" rel="noopener">https://leetcode.com/problems/binary-tree-inorder-traversal/</a></p><p>二叉树的中序遍历</p><p>递归：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * struct TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left;</span><br><span class="line"> *     TreeNode *right;</span><br><span class="line"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; res;</span><br><span class="line">    </span><br><span class="line">    vector&lt;int&gt; inorderTraversal(TreeNode* root) &#123;</span><br><span class="line">        <span class="keyword">if</span>(root != NULL)&#123;</span><br><span class="line">            inorderTraversal(root-&gt;left);</span><br><span class="line">            res.push_back(root-&gt;val);</span><br><span class="line">            inorderTraversal(root-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><p>非递归：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * struct TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left;</span><br><span class="line"> *     TreeNode *right;</span><br><span class="line"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; inorderTraversal(TreeNode* root) &#123;</span><br><span class="line">        vector&lt;int&gt; res;</span><br><span class="line">        stack&lt;TreeNode*&gt; tempStack;</span><br><span class="line">        <span class="keyword">while</span>(!tempStack.empty() || root != NULL)&#123;</span><br><span class="line">            <span class="keyword">if</span>(root != NULL)&#123;</span><br><span class="line">                tempStack.push(root);</span><br><span class="line">                root = root-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                root = tempStack.top();</span><br><span class="line">                res.push_back(tempStack.top()-&gt;val);</span><br><span class="line">                tempStack.pop();</span><br><span class="line">                root = root-&gt;right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
+    <title>Leetcode_122</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-122/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-122/</id>
+    <published>2019-10-24T08:00:48.000Z</published>
+    <updated>2019-10-24T08:00:48.638Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/binary-tree-inorder-traversal/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/binar
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-      <category term="Tree" scheme="https://wazxser.github.io/categories/Online-Judge/Tree/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-      <category term="medium" scheme="https://wazxser.github.io/tags/medium/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 160. Intersection of Two Linked Lists</title>
-    <link href="https://wazxser.github.io/2019/10/23/Leetcode-160/"/>
-    <id>https://wazxser.github.io/2019/10/23/Leetcode-160/</id>
-    <published>2019-10-23T13:27:57.000Z</published>
-    <updated>2019-10-23T13:33:56.428Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/intersection-of-two-linked-lists/" target="_blank" rel="noopener">https://leetcode.com/problems/intersection-of-two-linked-lists/</a></p><p>题意：找到两个交叉链表的公共节点</p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getIntersectionNode</span><span class="params">(self, headA, headB)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head1, head1: ListNode</span></span><br><span class="line"><span class="string">        :rtype: ListNode         </span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        p1 = headA</span><br><span class="line">        p2 = headB</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> p1 == p2:</span><br><span class="line">            p1 = p1.next <span class="keyword">if</span> p1 <span class="keyword">else</span> headB</span><br><span class="line">            p2 = p2.next <span class="keyword">if</span> p2 <span class="keyword">else</span> headA</span><br><span class="line">        <span class="keyword">return</span> p1</span><br></pre></td></tr></table></figure></p>]]></content>
+    <title>Leetcode_45</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-45/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-45/</id>
+    <published>2019-10-24T08:00:09.000Z</published>
+    <updated>2019-10-24T08:00:09.227Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/intersection-of-two-linked-lists/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/in
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-      <category term="List" scheme="https://wazxser.github.io/categories/Online-Judge/List/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-      <category term="easy" scheme="https://wazxser.github.io/tags/easy/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 104. Maximum Depth of Binary Tree</title>
-    <link href="https://wazxser.github.io/2019/10/23/Leetcode-104/"/>
-    <id>https://wazxser.github.io/2019/10/23/Leetcode-104/</id>
-    <published>2019-10-23T13:24:21.000Z</published>
-    <updated>2019-10-23T13:25:29.456Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="noopener">https://leetcode.com/problems/maximum-depth-of-binary-tree/</a></p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxDepth</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type root: TreeNode</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> max(self.maxDepth(root.left), self.maxDepth(root.right)) + <span class="number">1</span> <span class="keyword">if</span> root <span class="keyword">else</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></p>]]></content>
+    <title>Leetcode_215</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-215/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-215/</id>
+    <published>2019-10-24T07:59:39.000Z</published>
+    <updated>2019-10-24T07:59:39.956Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/maximum-depth-of-binary-tree/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/maximu
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-      <category term="Tree" scheme="https://wazxser.github.io/categories/Online-Judge/Tree/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-      <category term="easy" scheme="https://wazxser.github.io/tags/easy/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 146. LRU Cache</title>
-    <link href="https://wazxser.github.io/2019/10/21/Leetcode-146/"/>
-    <id>https://wazxser.github.io/2019/10/21/Leetcode-146/</id>
-    <published>2019-10-21T06:59:23.000Z</published>
-    <updated>2019-10-21T07:00:50.534Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/lru-cache/" target="_blank" rel="noopener">https://leetcode.com/problems/lru-cache/</a></p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">class LRUCache &#123;</span><br><span class="line">public:</span><br><span class="line">    LRUCache(int capacity) &#123;</span><br><span class="line">        cap = capacity;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int get(int key) &#123;</span><br><span class="line">        auto it = m.find(key);</span><br><span class="line">        <span class="keyword">if</span>(it == m.end())</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        l.splice(l.begin(), l, it-&gt;second);</span><br><span class="line">        return it-&gt;second-&gt;second;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void put(int key, int value) &#123;</span><br><span class="line">        auto it = m.find(key);</span><br><span class="line">        <span class="keyword">if</span>(it != m.end())&#123;</span><br><span class="line">            l.erase(it-&gt;second);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        l.push_front(make_pair(key, value));</span><br><span class="line">        m[key] = l.begin();</span><br><span class="line">        <span class="keyword">if</span>(m.size() &gt; cap)&#123;</span><br><span class="line">            int k = l.rbegin()-&gt;first;</span><br><span class="line">            l.pop_back();</span><br><span class="line">            m.erase(k);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int cap;</span><br><span class="line">    unordered_map&lt;int, list&lt;pair&lt;int, int&gt;&gt;::iterator &gt; m;</span><br><span class="line">    list&lt;pair&lt;int, int&gt;&gt; l;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Your LRUCache object will be instantiated <span class="keyword">and</span> called <span class="keyword">as</span> such:</span><br><span class="line"> * LRUCache* obj = new LRUCache(capacity);</span><br><span class="line"> * int param_1 = obj-&gt;get(key);</span><br><span class="line"> * obj-&gt;put(key,value);</span><br><span class="line"> */</span><br></pre></td></tr></table></figure></p>]]></content>
+    <title>Leetcode_9</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-9/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-9/</id>
+    <published>2019-10-24T07:59:35.000Z</published>
+    <updated>2019-10-24T07:59:35.516Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/lru-cache/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/lru-cache/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;代码：
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-      <category term="Data structure" scheme="https://wazxser.github.io/categories/Online-Judge/Data-structure/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 344. Reverse String</title>
-    <link href="https://wazxser.github.io/2019/10/21/Leetcode-344/"/>
-    <id>https://wazxser.github.io/2019/10/21/Leetcode-344/</id>
-    <published>2019-10-21T06:33:05.000Z</published>
-    <updated>2019-10-21T06:34:18.648Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/reverse-string/" target="_blank" rel="noopener">https://leetcode.com/problems/reverse-string/</a></p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    void reverseString(vector&lt;char&gt;&amp; s) &#123;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; s.size() / <span class="number">2</span>; i++)&#123;</span><br><span class="line">            char temp = s[i];</span><br><span class="line">            s[i] = s[s.size() - <span class="number">1</span> - i];</span><br><span class="line">            s[s.size() - <span class="number">1</span> - i] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
+    <title>Leetcode_32</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-32/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-32/</id>
+    <published>2019-10-24T07:59:26.000Z</published>
+    <updated>2019-10-24T07:59:26.698Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/reverse-string/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/reverse-string/&lt;/a&gt;&lt;
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 138. Copy List with Random Pointer</title>
-    <link href="https://wazxser.github.io/2019/10/21/Leetcode-138/"/>
-    <id>https://wazxser.github.io/2019/10/21/Leetcode-138/</id>
-    <published>2019-10-21T06:19:36.000Z</published>
-    <updated>2019-10-21T06:21:18.747Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/copy-list-with-random-pointer/" target="_blank" rel="noopener">https://leetcode.com/problems/copy-list-with-random-pointer/</a></p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">// Definition <span class="keyword">for</span> a Node.</span><br><span class="line">class Node &#123;</span><br><span class="line">public:</span><br><span class="line">    int val;</span><br><span class="line">    Node* next;</span><br><span class="line">    Node* random;</span><br><span class="line"></span><br><span class="line">    Node() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    Node(int _val, Node* _next, Node* _random) &#123;</span><br><span class="line">        val = _val;</span><br><span class="line">        next = _next;</span><br><span class="line">        random = _random;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">*/</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    Node* copyRandomList(Node* head) &#123;</span><br><span class="line">        <span class="keyword">if</span>(!head)</span><br><span class="line">            <span class="keyword">return</span> nullptr;</span><br><span class="line">        Node* res = new Node(head-&gt;val, nullptr, nullptr);</span><br><span class="line">        unordered_map&lt;Node*, Node*&gt; m;</span><br><span class="line">        m[head] = res;</span><br><span class="line">        Node* cur = head-&gt;next;</span><br><span class="line">        Node* cur2 = res;</span><br><span class="line">        <span class="keyword">while</span>(cur)&#123;</span><br><span class="line">            Node *node = new Node(cur-&gt;val, nullptr, nullptr);</span><br><span class="line">            cur2-&gt;next = node;</span><br><span class="line">            m[cur] = node;</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">            cur2 = cur2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        cur = head;</span><br><span class="line">        cur2 = res;</span><br><span class="line">        <span class="keyword">while</span>(cur)&#123;</span><br><span class="line">            cur2-&gt;random = m[cur-&gt;random];</span><br><span class="line">            cur = cur-&gt;next;</span><br><span class="line">            cur2 = cur2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
+    <title>Leetcode_124</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-124/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-124/</id>
+    <published>2019-10-24T07:58:50.000Z</published>
+    <updated>2019-10-24T07:58:50.064Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/copy-list-with-random-pointer/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/copy-
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-      <category term="List" scheme="https://wazxser.github.io/categories/Online-Judge/List/"/>
-    
-      <category term="Data structure" scheme="https://wazxser.github.io/categories/Online-Judge/List/Data-structure/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 10. Regular Expression Matching</title>
-    <link href="https://wazxser.github.io/2019/10/21/Leetcode-10/"/>
-    <id>https://wazxser.github.io/2019/10/21/Leetcode-10/</id>
-    <published>2019-10-21T05:58:18.000Z</published>
-    <updated>2019-10-21T05:59:39.364Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/regular-expression-matching/" target="_blank" rel="noopener">https://leetcode.com/problems/regular-expression-matching/</a></p><p>题意：正则表达式匹配</p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool isMatch(string s, string p) &#123;</span><br><span class="line">        <span class="keyword">if</span>(p.empty())&#123;</span><br><span class="line">            <span class="keyword">return</span> s.empty();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(p.size() == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> (s.size() == <span class="number">1</span> &amp;&amp; (s[<span class="number">0</span>] == p[<span class="number">0</span>] || p[<span class="number">0</span>] == <span class="string">'.'</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(p[<span class="number">1</span>] != <span class="string">'*'</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.empty())</span><br><span class="line">                <span class="keyword">return</span> false;</span><br><span class="line">            <span class="keyword">return</span> (s[<span class="number">0</span>] == p[<span class="number">0</span>] || p[<span class="number">0</span>] == <span class="string">'.'</span>) &amp;&amp; isMatch(s.substr(<span class="number">1</span>), p.substr(<span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(!s.empty() &amp;&amp; (s[<span class="number">0</span>] == p[<span class="number">0</span>] || p[<span class="number">0</span>] == <span class="string">'.'</span>))&#123;</span><br><span class="line">            <span class="keyword">if</span>(isMatch(s, p.substr(<span class="number">2</span>)))</span><br><span class="line">                <span class="keyword">return</span> true;</span><br><span class="line">            s = s.substr(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> isMatch(s, p.substr(<span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
+    <title>Leetcode_70</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-70/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-70/</id>
+    <published>2019-10-24T07:58:43.000Z</published>
+    <updated>2019-10-24T07:58:44.006Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/regular-expression-matching/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/regular
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-      <category term="DFS" scheme="https://wazxser.github.io/categories/Online-Judge/DFS/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 49. Group Anagrams</title>
-    <link href="https://wazxser.github.io/2019/10/21/Leetcode-49/"/>
-    <id>https://wazxser.github.io/2019/10/21/Leetcode-49/</id>
-    <published>2019-10-21T05:52:41.000Z</published>
-    <updated>2019-10-21T05:53:55.027Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/group-anagrams/" target="_blank" rel="noopener">https://leetcode.com/problems/group-anagrams/</a></p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; groupAnagrams(vector&lt;string&gt;&amp; strs) &#123;</span><br><span class="line">        vector&lt;vector&lt;string&gt;&gt; res;</span><br><span class="line">        unordered_map&lt;string, vector&lt;string&gt;&gt; m;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; strs.size(); i++)&#123;</span><br><span class="line">            string temp = strs[i];</span><br><span class="line">            sort(temp.begin(), temp.end());</span><br><span class="line">            m[temp].push_back(strs[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(auto i : m)&#123;</span><br><span class="line">            res.push_back(i.second);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
+    <title>Leetcode_149</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-149/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-149/</id>
+    <published>2019-10-24T07:58:40.000Z</published>
+    <updated>2019-10-24T07:58:40.542Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/group-anagrams/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/group-anagrams/&lt;/a&gt;&lt;
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-      <category term="Data structure" scheme="https://wazxser.github.io/categories/Online-Judge/Data-structure/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 7.Reverse Integer</title>
-    <link href="https://wazxser.github.io/2019/10/21/Leetcode-7/"/>
-    <id>https://wazxser.github.io/2019/10/21/Leetcode-7/</id>
-    <published>2019-10-21T03:04:44.000Z</published>
-    <updated>2019-10-21T05:48:19.205Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/reverse-integer/" target="_blank" rel="noopener">https://leetcode.com/problems/reverse-integer/</a></p><p>题意：将整数的数字反转，注意溢出</p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type x: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        num = str(x)</span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> xrange(len(num)):</span><br><span class="line">            <span class="keyword">if</span> num[len(num)<span class="number">-1</span>-i].isdigit():</span><br><span class="line">                res = res*<span class="number">10</span> + int(num[len(num)<span class="number">-1</span>-i])</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res = <span class="number">0</span> - res</span><br><span class="line">            <span class="keyword">if</span> abs(res) &gt; <span class="number">2</span>**<span class="number">31</span><span class="number">-1</span>:</span><br><span class="line">                res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int reverse(int x) &#123;</span><br><span class="line">        int res = <span class="number">0</span>;</span><br><span class="line">        int num = x;</span><br><span class="line">        long long temp = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(num != <span class="number">0</span>)&#123;</span><br><span class="line">            temp = temp * <span class="number">10</span> + (num % <span class="number">10</span>);</span><br><span class="line">            num /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(temp &gt; pow(<span class="number">2</span>, <span class="number">31</span>) - <span class="number">1</span> || temp &lt; -pow(<span class="number">2</span>, <span class="number">31</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        res = static_cast&lt;int&gt;(temp);</span><br><span class="line">        //return x &gt; 0 ? res : res * -1;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    <title>Leetcode_14</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-14/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-14/</id>
+    <published>2019-10-24T07:58:26.000Z</published>
+    <updated>2019-10-24T07:58:26.886Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/reverse-integer/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/reverse-integer/&lt;/a
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 22. Generate Parentheses</title>
-    <link href="https://wazxser.github.io/2019/10/20/Leetcode-22/"/>
-    <id>https://wazxser.github.io/2019/10/20/Leetcode-22/</id>
-    <published>2019-10-20T10:21:20.000Z</published>
-    <updated>2019-10-20T10:23:30.861Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/generate-parentheses/" target="_blank" rel="noopener">https://leetcode.com/problems/generate-parentheses/</a></p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;string&gt; generateParenthesis(int n) &#123;</span><br><span class="line">        vector&lt;string&gt; res;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        dfs(n, n, <span class="string">""</span>, res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void dfs(int a, int b, string out, vector&lt;string&gt;&amp; res)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a &gt; b)&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a == <span class="number">0</span> &amp;&amp; b == <span class="number">0</span>)</span><br><span class="line">            res.push_back(out);</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(a &gt; <span class="number">0</span>)</span><br><span class="line">                dfs(a<span class="number">-1</span>, b, out+<span class="string">"("</span>, res);</span><br><span class="line">            <span class="keyword">if</span>(b &gt; <span class="number">0</span>)</span><br><span class="line">                dfs(a, b<span class="number">-1</span>, out+<span class="string">")"</span>, res);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
+    <title>Leetcode_771</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-771/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-771/</id>
+    <published>2019-10-24T07:58:18.000Z</published>
+    <updated>2019-10-24T07:58:18.681Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/generate-parentheses/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/generate-paren
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-      <category term="DFS" scheme="https://wazxser.github.io/categories/Online-Judge/DFS/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 121. Best Time to Buy and Sell Stock</title>
-    <link href="https://wazxser.github.io/2019/10/20/Leetcode-121/"/>
-    <id>https://wazxser.github.io/2019/10/20/Leetcode-121/</id>
-    <published>2019-10-20T10:03:51.000Z</published>
-    <updated>2019-10-20T10:05:08.451Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">https://leetcode.com/problems/best-time-to-buy-and-sell-stock/</a></p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxProfit(vector&lt;int&gt;&amp; prices) &#123;</span><br><span class="line">        <span class="keyword">if</span>(prices.size() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        int small = prices[<span class="number">0</span>];</span><br><span class="line">        int res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">1</span>; i &lt; prices.size(); i++)&#123;</span><br><span class="line">            small = min(small, prices[i]);</span><br><span class="line">            res = max(prices[i]-small, res);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxProfit</span><span class="params">(self, prices)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type prices: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        maxCur = <span class="number">0</span></span><br><span class="line">        maxSoFar = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">1</span>, len(prices)):</span><br><span class="line">            maxCur += prices[i] - prices[i<span class="number">-1</span>] </span><br><span class="line">            maxCur = max(<span class="number">0</span>, maxCur)</span><br><span class="line">            maxSoFar = max(maxSoFar, maxCur)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> maxSoFar</span><br></pre></td></tr></table></figure>]]></content>
+    <title>Leetcode_67</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-67/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-67/</id>
+    <published>2019-10-24T07:58:14.000Z</published>
+    <updated>2019-10-24T07:58:14.136Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/best-time-to-buy-and-sell-stock/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/bes
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode 33.Search in Rotated Sorted Array</title>
-    <link href="https://wazxser.github.io/2019/10/18/Leetcode-33/"/>
-    <id>https://wazxser.github.io/2019/10/18/Leetcode-33/</id>
-    <published>2019-10-18T12:18:26.000Z</published>
-    <updated>2019-10-18T12:20:11.077Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/search-in-rotated-sorted-array/" target="_blank" rel="noopener">https://leetcode.com/problems/search-in-rotated-sorted-array/</a></p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int search(vector&lt;int&gt;&amp; nums, int target) &#123;</span><br><span class="line">        int l = <span class="number">0</span>, r = nums.size()<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt;= r)&#123;</span><br><span class="line">            int m = (l+r)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[m] == target)&#123;</span><br><span class="line">                <span class="keyword">return</span> m;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(nums[l] &lt;= nums[m])&#123;</span><br><span class="line">                <span class="keyword">if</span>(target &lt; nums[m] &amp;&amp; target &gt;= nums[l])&#123;</span><br><span class="line">                    r = m<span class="number">-1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    l = m+<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(target &lt;= nums[r] &amp;&amp; target &gt; nums[m])&#123;</span><br><span class="line">                    l = m+<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    r = m<span class="number">-1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
+    <title>Leetcode_8</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-8/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-8/</id>
+    <published>2019-10-24T07:58:05.000Z</published>
+    <updated>2019-10-24T07:58:05.215Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/search-in-rotated-sorted-array/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/sear
-      
-    
     </summary>
     
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
     
   </entry>
   

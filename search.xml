@@ -1,6 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Leetcode_666]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-666%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_548]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-548%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_555]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-555%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_446]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-446%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_678]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-678%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_132]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-132%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_437]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-437%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_992]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-992%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_122]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-122%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_45]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-45%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_215]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-215%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_9]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-9%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_32]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-32%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_124]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-124%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_70]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-70%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_149]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-149%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_14]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-14%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_771]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-771%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_67]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-67%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_8]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-8%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_92]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-92%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode_152]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-152%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 239. Sliding Window Maximum]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-239%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/sliding-window-maximum/ 题意： 给出每个滑动窗口的最大值 思路：用原始暴力的方法可以AC 1234567891011121314151617181920class Solution &#123;public: vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;&amp; nums, int k) &#123; vector&lt;int&gt; res; if(nums.size() == 0 || k == 0)&#123; return res; &#125; for(int i = 0; i &lt;= nums.size() - k; i++)&#123; int temp = nums[i]; for(int j = i; j &lt; i + k; j++)&#123; temp = max(temp, nums[j]); &#125; res.push_back(temp); &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>hard</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 695. Max Area of Island]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-695%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/max-area-of-island/ 类似200 12345678910111213141516171819202122232425262728293031class Solution &#123;public: int maxAreaOfIsland(vector&lt;vector&lt;int&gt;&gt;&amp; grid) &#123; if (grid.empty() || grid[0].empty()) return 0; int m = grid.size(), n = grid[0].size(); int res = 0; for(int i = 0; i &lt; m; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(grid[i][j] == 1)&#123; int temp = dfs(i, j, grid); res = max(temp, res); &#125; &#125; &#125; return res; &#125; int dfs(int i, int j, vector&lt;vector&lt;int&gt;&gt; &amp; grid)&#123; int m = grid.size(), n = grid[0].size(); if(i &lt; 0 || i &gt;= m || j &lt; 0 || j &gt;= n || grid[i][j] == 0)&#123; return 0; &#125; grid[i][j] = 0; return 1 + dfs(i-1, j, grid) + dfs(i+1, j, grid) + dfs(i, j-1, grid) + dfs(i, j+1, grid); &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>DFS</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>medium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 198. House Robber]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-198%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/house-robber/ 题意：抢劫，返回能抢到的最大数值，但是如果连续抢两个的话就会报警 思路：不会做伤心。。。 动态规划问题，遍历数组，对每一个元素考虑两种情况，抢它和不抢它 123456789101112131415class Solution &#123;public: int rob(vector&lt;int&gt;&amp; nums) &#123; int preRob = 0, preNotRob = 0; int rob = 0, notRob = 0; for(int i = 0; i &lt; nums.size(); i++)&#123; preRob = rob; preNotRob = notRob; rob = preNotRob + nums[i]; notRob = max(preRob, preNotRob); &#125; return max(rob, notRob); &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+        <category>DP</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>easy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 128. Longest Consecutive Sequence]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-128%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/longest-consecutive-sequence/ 题意：要求给出数组中存在的连续数字的个数，（这些数字数组中不一定连续），时间复杂度O(n) 思路：不能用排序算法，那就是空间换时间了，但是我也并不会。。。伤心 使用Hashset来实现去重，并且提高访问效率 还有个hashmap没看懂。。。 代码1：Hashset12345678910111213141516171819202122232425262728293031323334class Solution &#123;public: int longestConsecutive(vector&lt;int&gt;&amp; nums) &#123; int res = 0; int cnt = 0; unordered_set&lt;int&gt; s(nums.begin(), nums.end()); for(int i = 0; i &lt; nums.size(); i++)&#123; if(!s.count(nums[i]))&#123; continue; &#125; cnt = 0; s.erase(nums[i]); cnt++; int val = nums[i]; while(s.count(--val))&#123; s.erase(val); cnt++; &#125; val = nums[i]; while(s.count(++val))&#123; s.erase(val); cnt++; &#125; res = max(cnt, res); &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>hard</tag>
+        <tag>Data structure</tag>
+        <tag>arr</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Leetcode 102. Binary Tree Level Order Traversal]]></title>
     <url>%2F2019%2F10%2F23%2FLeetcode-102%2F</url>
     <content type="text"><![CDATA[https://leetcode.com/problems/binary-tree-level-order-traversal/ 题意：二叉树的层序遍历 代码： 12345678910111213141516171819202122232425262728293031323334353637/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; levelOrder(TreeNode* root) &#123; queue&lt;TreeNode*&gt; q; q.push(root); vector&lt;vector&lt;int&gt;&gt; res; int num = 1; while(!q.empty())&#123; vector&lt;int&gt; arr; int count = 0; for(int i = 0; i &lt; num; i++)&#123; TreeNode* temp = q.front(); q.pop(); if(temp)&#123; arr.push_back(temp-&gt;val); q.push(temp-&gt;left); q.push(temp-&gt;right); count += 2; &#125; &#125; if(!arr.empty()) res.push_back(arr); num = count; &#125; return res; &#125;&#125;;]]></content>
@@ -459,18 +621,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[POJ1321棋盘问题]]></title>
-    <url>%2F2018%2F08%2F15%2FPOJ1321%E6%A3%8B%E7%9B%98%E9%97%AE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[kuangbin带你飞专题 题目POJ1321在一个给定形状的棋盘（形状可能是不规则的）上面摆放棋子，棋子没有区别。要求摆放时任意的两个棋子不能放在棋盘中的同一行或者同一列，请编程求解对于给定形状和大小的棋盘，摆放k个棋子的所有可行的摆放方案C。 Input输入含有多组测试数据。每组数据的第一行是两个正整数，n k，用一个空格隔开，表示了将在一个n*n的矩阵内描述棋盘，以及摆放棋子的数目。 n &lt;= 8 , k &lt;= n当为-1 -1时表示输入结束。随后的n行描述了棋盘的形状：每行有n个字符，其中 # 表示棋盘区域， . 表示空白区域（数据保证不出现多余的空白行或者空白列）。 Output对于每一组数据，给出一行输出，输出摆放的方案数目C （数据保证C&lt;2^31）。 Sample Input1234567892 1#..#4 4...#..#..#..#...-1 -1 Sample Output1221 思路深搜，回溯 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include &lt;iostream&gt;#include &lt;cstdio&gt;//#include &lt;memory.h&gt;using namespace std;int n, k;char pan[10][10];int row[10];int col[10];int sum;int res;void dfs(int sum, int a)&#123; if(sum == k)&#123; res++; return; &#125; for(int i = a; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(pan[i][j] == '#' &amp;&amp; !row[i] &amp;&amp; !col[j])&#123; row[i] = 1; col[j] = 1; dfs(sum+1, i+1); row[i] = 0; col[j] = 0; &#125; &#125; &#125;&#125;int main()&#123; while(scanf("%d %d", &amp;n, &amp;k) &amp;&amp; n != -1)&#123; //memset(row, 0, sizeof(row)); //memset(col, 0, sizeof(col)); for(int i = 0; i &lt; n; i++)&#123; row[i] = col[i] = 0; &#125; res = 0; for(int i = 0; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; scanf(" %c", &amp;pan[i][j]); &#125; &#125; dfs(0, 0); printf("%d\n", res); &#125; return 0;&#125;]]></content>
-      <categories>
-        <category>kuangbin带你飞 专题一 简单搜索</category>
-      </categories>
-      <tags>
-        <tag>acm</tag>
-        <tag>dfs回溯</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[POJ2251DungeonMaster]]></title>
     <url>%2F2018%2F08%2F15%2FPOJ2251DungeonMaster%2F</url>
     <content type="text"><![CDATA[kuangbin带你飞专题 题目POJ1321You are trapped in a 3D dungeon and need to find the quickest way out! The dungeon is composed of unit cubes which may or may not be filled with rock. It takes one minute to move one unit north, south, east, west, up or down. You cannot move diagonally and the maze is surrounded by solid rock on all sides. Is an escape possible? If yes, how long will it take? InputThe input consists of a number of dungeons. Each dungeon description starts with a line containing three integers L, R and C (all limited to 30 in size).L is the number of levels making up the dungeon.R and C are the number of rows and columns making up the plan of each level.Then there will follow L blocks of R lines each containing C characters. Each character describes one cell of the dungeon. A cell full of rock is indicated by a ‘#’ and empty cells are represented by a ‘.’. Your starting position is indicated by ‘S’ and the exit by the letter ‘E’. There’s a single blank line after each level. Input is terminated by three zeroes for L, R and C. OutputEach maze generates one line of output. If it is possible to reach the exit, print a line of the formEscaped in x minute(s). where x is replaced by the shortest time it takes to escape.If it is not possible to escape, print the lineTrapped! Sample Input123456789101112131415161718192021223 4 5S.....###..##..###.#############.####...###########.#######E1 3 3S###E####0 0 0 Sample Output12Escaped in 11 minute(s).Trapped! 思路题意大致是一个三层迷宫，从出发点S到终点E，求最少时间，考虑广搜求解最优解问题，使用队列保存每步的坐标，每次移动有6种情况可以用一个二维数组来表示，设一个visit数组来表示到每个位置的最少时间，每次都是以能够到达该位置的前一个位置的最少时间+1来更新。 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include &lt;iostream&gt;#include &lt;cstdio&gt;//#include &lt;memory.h&gt;using namespace std;int n, k;char pan[10][10];int row[10];int col[10];int sum;int res;void dfs(int sum, int a)&#123; if(sum == k)&#123; res++; return; &#125; for(int i = a; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(pan[i][j] == '#' &amp;&amp; !row[i] &amp;&amp; !col[j])&#123; row[i] = 1; col[j] = 1; dfs(sum+1, i+1); row[i] = 0; col[j] = 0; &#125; &#125; &#125;&#125;int main()&#123; while(scanf("%d %d", &amp;n, &amp;k) &amp;&amp; n != -1)&#123; //memset(row, 0, sizeof(row)); //memset(col, 0, sizeof(col)); for(int i = 0; i &lt; n; i++)&#123; row[i] = col[i] = 0; &#125; res = 0; for(int i = 0; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; scanf(" %c", &amp;pan[i][j]); &#125; &#125; dfs(0, 0); printf("%d\n", res); &#125; return 0;&#125;]]></content>
@@ -480,6 +630,18 @@
       <tags>
         <tag>acm</tag>
         <tag>bfs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[POJ1321棋盘问题]]></title>
+    <url>%2F2018%2F08%2F15%2FPOJ1321%E6%A3%8B%E7%9B%98%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[kuangbin带你飞专题 题目POJ1321在一个给定形状的棋盘（形状可能是不规则的）上面摆放棋子，棋子没有区别。要求摆放时任意的两个棋子不能放在棋盘中的同一行或者同一列，请编程求解对于给定形状和大小的棋盘，摆放k个棋子的所有可行的摆放方案C。 Input输入含有多组测试数据。每组数据的第一行是两个正整数，n k，用一个空格隔开，表示了将在一个n*n的矩阵内描述棋盘，以及摆放棋子的数目。 n &lt;= 8 , k &lt;= n当为-1 -1时表示输入结束。随后的n行描述了棋盘的形状：每行有n个字符，其中 # 表示棋盘区域， . 表示空白区域（数据保证不出现多余的空白行或者空白列）。 Output对于每一组数据，给出一行输出，输出摆放的方案数目C （数据保证C&lt;2^31）。 Sample Input1234567892 1#..#4 4...#..#..#..#...-1 -1 Sample Output1221 思路深搜，回溯 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include &lt;iostream&gt;#include &lt;cstdio&gt;//#include &lt;memory.h&gt;using namespace std;int n, k;char pan[10][10];int row[10];int col[10];int sum;int res;void dfs(int sum, int a)&#123; if(sum == k)&#123; res++; return; &#125; for(int i = a; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(pan[i][j] == '#' &amp;&amp; !row[i] &amp;&amp; !col[j])&#123; row[i] = 1; col[j] = 1; dfs(sum+1, i+1); row[i] = 0; col[j] = 0; &#125; &#125; &#125;&#125;int main()&#123; while(scanf("%d %d", &amp;n, &amp;k) &amp;&amp; n != -1)&#123; //memset(row, 0, sizeof(row)); //memset(col, 0, sizeof(col)); for(int i = 0; i &lt; n; i++)&#123; row[i] = col[i] = 0; &#125; res = 0; for(int i = 0; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; scanf(" %c", &amp;pan[i][j]); &#125; &#125; dfs(0, 0); printf("%d\n", res); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>kuangbin带你飞 专题一 简单搜索</category>
+      </categories>
+      <tags>
+        <tag>acm</tag>
+        <tag>dfs回溯</tag>
       </tags>
   </entry>
   <entry>
