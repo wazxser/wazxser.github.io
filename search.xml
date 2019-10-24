@@ -66,60 +66,135 @@
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[Leetcode_124]]></title>
+    <title><![CDATA[Leetcode 124. Binary Tree Maximum Path Sum]]></title>
     <url>%2F2019%2F10%2F24%2FLeetcode-124%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode_70]]></title>
-    <url>%2F2019%2F10%2F24%2FLeetcode-70%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode_149]]></title>
-    <url>%2F2019%2F10%2F24%2FLeetcode-149%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode_14]]></title>
-    <url>%2F2019%2F10%2F24%2FLeetcode-14%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode_771]]></title>
-    <url>%2F2019%2F10%2F24%2FLeetcode-771%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode_67]]></title>
-    <url>%2F2019%2F10%2F24%2FLeetcode-67%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode_8]]></title>
-    <url>%2F2019%2F10%2F24%2FLeetcode-8%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode_92]]></title>
-    <url>%2F2019%2F10%2F24%2FLeetcode-92%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode_152]]></title>
-    <url>%2F2019%2F10%2F24%2FLeetcode-152%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode 239. Sliding Window Maximum]]></title>
-    <url>%2F2019%2F10%2F24%2FLeetcode-239%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/sliding-window-maximum/ 题意： 给出每个滑动窗口的最大值 思路：用原始暴力的方法可以AC 1234567891011121314151617181920class Solution &#123;public: vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;&amp; nums, int k) &#123; vector&lt;int&gt; res; if(nums.size() == 0 || k == 0)&#123; return res; &#125; for(int i = 0; i &lt;= nums.size() - k; i++)&#123; int temp = nums[i]; for(int j = i; j &lt; i + k; j++)&#123; temp = max(temp, nums[j]); &#125; res.push_back(temp); &#125; return res; &#125;&#125;;]]></content>
+    <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: int maxPathSum(TreeNode* root) &#123; int res = INT_MIN; dfs(root, res); return res; &#125; int dfs(TreeNode * root, int &amp; res)&#123; if(!root)&#123; return 0; &#125; int left = max(dfs(root-&gt;left, res), 0); int right = max(dfs(root-&gt;right, res), 0); res = max(res, left+right+root-&gt;val); return max(left, right) + root-&gt;val; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
         <tag>hard</tag>
+        <tag>Tree</tag>
+        <tag>more solutions</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 70. Climbing Stairs]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-70%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/climbing-stairs/ 123456789101112131415class Solution(object): def climbStairs(self, n): """ :type n: int :rtype: int """ dp = [0 for i in xrange(n+1)] dp[1] = 1 if n &gt; 1: dp[2] = 2 for i in xrange(3, n+1): dp[i] = dp[i-1] + dp[i-2] return dp[n]]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>easy</tag>
+        <tag>DP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 149. Max Points on a Line]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-149%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/max-points-on-a-line/ 12]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>hard</tag>
+        <tag>more solutions</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 14. Longest Common Prefix]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-14%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/longest-common-prefix/ 123456789101112131415161718class Solution(object): def longestCommonPrefix(self, strs): """ :type strs: List[str] :rtype: str """ res = '' if len(strs) &gt; 0: res = strs[0] for str in strs: temp = '' num = min(len(res), len(str)) for i in xrange(num): if res[i] != str[i]: break temp += res[i] res = temp return res]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>easy</tag>
+        <tag>string</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 771. Jewels and Stones]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-771%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/jewels-and-stones/ 1234567891011121314151617class Solution &#123;public: int numJewelsInStones(string J, string S) &#123; int res = 0; vector&lt;char&gt; arr; for(int i = 0; i &lt; J.size(); i++)&#123; arr.push_back(J[i]); &#125; for(int i = 0; i &lt; S.size(); i++)&#123; if(count(arr.begin(), arr.end(), S[i]))&#123; res++; &#125; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>easy</tag>
+        <tag>string</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 67. Add Binary]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-67%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/add-binary/ 12345678910111213class Solution(object): def addBinary(self, a, b): """ :type a: str :type b: str :rtype: str """ num1 = int(a, 2) num2 = int(b, 2) res = num1 + num2 return bin(res)[2:]]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>easy</tag>
+        <tag>string</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 8. String to Integer (atoi)]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-8%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/string-to-integer-atoi/ 12345678910class Solution &#123;public: int myAtoi(string str) &#123; int res = 0; stringstream ss; ss &lt;&lt; str; ss &gt;&gt; res; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>medium</tag>
+        <tag>string</tag>
+        <tag>more solutions</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 92. Reverse Linked List II]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-92%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/reverse-linked-list-ii/ 12345678910111213141516171819202122232425262728/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* reverseBetween(ListNode* head, int m, int n) &#123; ListNode *dummy = new ListNode(-1); ListNode *pre = dummy; dummy-&gt;next = head; for(int i = 0; i &lt; m-1; i++)&#123; pre = pre-&gt;next; &#125; ListNode *cur = pre-&gt;next; for(int i = m; i &lt; n; i++)&#123; ListNode*t = cur-&gt;next; cur-&gt;next = t-&gt;next; t-&gt;next = pre-&gt;next; pre-&gt;next = t; &#125; return dummy-&gt;next; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>medium</tag>
+        <tag>List</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 152. Maximum Product Subarray]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-152%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/maximum-product-subarray/ 题意：求数组中连续最大的乘积，和连续最大的和相似，但是要考虑到负号的问题 思路：这里解法是正着和倒着各遍历一遍，就是最终的结果 12345678910111213141516171819202122class Solution &#123;public: int maxProduct(vector&lt;int&gt;&amp; nums) &#123; int res = nums[0], prod = 1; for(int i = 0; i &lt; nums.size(); i++)&#123; res = max(res, prod *= nums[i]); if(nums[i] == 0)&#123; prod = 1; &#125; &#125; prod = 1; for(int i = nums.size()-1; i &gt;= 0; i--)&#123; res = max(res, prod *= nums[i]); if(nums[i] == 0)&#123; prod = 1; &#125; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>medium</tag>
+        <tag>more solutions</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 239. Sliding Window Maximum]]></title>
+    <url>%2F2019%2F10%2F24%2FLeetcode-239%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/sliding-window-maximum/ 题意： 给出每个滑动窗口的最大值 思路：用原始暴力的方法可以AC。。。 这道题还有很多解法，堆，栈等。。。 1234567891011121314151617181920class Solution &#123;public: vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;&amp; nums, int k) &#123; vector&lt;int&gt; res; if(nums.size() == 0 || k == 0)&#123; return res; &#125; for(int i = 0; i &lt;= nums.size() - k; i++)&#123; int temp = nums[i]; for(int j = i; j &lt; i + k; j++)&#123; temp = max(temp, nums[j]); &#125; res.push_back(temp); &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>hard</tag>
+        <tag>more solutions</tag>
       </tags>
   </entry>
   <entry>
@@ -128,11 +203,11 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/max-area-of-island/ 类似200 12345678910111213141516171819202122232425262728293031class Solution &#123;public: int maxAreaOfIsland(vector&lt;vector&lt;int&gt;&gt;&amp; grid) &#123; if (grid.empty() || grid[0].empty()) return 0; int m = grid.size(), n = grid[0].size(); int res = 0; for(int i = 0; i &lt; m; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(grid[i][j] == 1)&#123; int temp = dfs(i, j, grid); res = max(temp, res); &#125; &#125; &#125; return res; &#125; int dfs(int i, int j, vector&lt;vector&lt;int&gt;&gt; &amp; grid)&#123; int m = grid.size(), n = grid[0].size(); if(i &lt; 0 || i &gt;= m || j &lt; 0 || j &gt;= n || grid[i][j] == 0)&#123; return 0; &#125; grid[i][j] = 0; return 1 + dfs(i-1, j, grid) + dfs(i+1, j, grid) + dfs(i, j-1, grid) + dfs(i, j+1, grid); &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>DFS</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
         <tag>medium</tag>
+        <tag>DFS</tag>
       </tags>
   </entry>
   <entry>
@@ -141,11 +216,11 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/house-robber/ 题意：抢劫，返回能抢到的最大数值，但是如果连续抢两个的话就会报警 思路：不会做伤心。。。 动态规划问题，遍历数组，对每一个元素考虑两种情况，抢它和不抢它 123456789101112131415class Solution &#123;public: int rob(vector&lt;int&gt;&amp; nums) &#123; int preRob = 0, preNotRob = 0; int rob = 0, notRob = 0; for(int i = 0; i &lt; nums.size(); i++)&#123; preRob = rob; preNotRob = notRob; rob = preNotRob + nums[i]; notRob = max(preRob, preNotRob); &#125; return max(rob, notRob); &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>DP</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
         <tag>easy</tag>
+        <tag>DP</tag>
       </tags>
   </entry>
   <entry>
@@ -159,7 +234,7 @@
         <tag>leetcode</tag>
         <tag>hard</tag>
         <tag>Data structure</tag>
-        <tag>arr</tag>
+        <tag>more solutions</tag>
       </tags>
   </entry>
   <entry>
@@ -168,12 +243,12 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/binary-tree-level-order-traversal/ 题意：二叉树的层序遍历 代码： 12345678910111213141516171819202122232425262728293031323334353637/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; levelOrder(TreeNode* root) &#123; queue&lt;TreeNode*&gt; q; q.push(root); vector&lt;vector&lt;int&gt;&gt; res; int num = 1; while(!q.empty())&#123; vector&lt;int&gt; arr; int count = 0; for(int i = 0; i &lt; num; i++)&#123; TreeNode* temp = q.front(); q.pop(); if(temp)&#123; arr.push_back(temp-&gt;val); q.push(temp-&gt;left); q.push(temp-&gt;right); count += 2; &#125; &#125; if(!arr.empty()) res.push_back(arr); num = count; &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>Tree</category>
-        <category>queue</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
         <tag>medium</tag>
+        <tag>Tree</tag>
+        <tag>queue</tag>
       </tags>
   </entry>
   <entry>
@@ -182,12 +257,12 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/binary-search-tree-iterator/ 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class BSTIterator &#123;public: BSTIterator(TreeNode* root) &#123; cur = root; if(!cur)&#123; return; &#125; while(cur)&#123; s.push(cur); cur = cur-&gt;left; &#125; &#125; /** @return the next smallest number */ int next() &#123; TreeNode * ret = s.top(); s.pop(); int val = ret-&gt;val; ret = ret-&gt;right; while(ret)&#123; s.push(ret); ret = ret-&gt;left; &#125; return val; &#125; /** @return whether we have a next smallest number */ bool hasNext() &#123; return !s.empty(); &#125;private: TreeNode * cur; stack&lt;TreeNode*&gt; s;&#125;;/** * Your BSTIterator object will be instantiated and called as such: * BSTIterator* obj = new BSTIterator(root); * int param_1 = obj-&gt;next(); * bool param_2 = obj-&gt;hasNext(); */]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>Tree</category>
-        <category>stack</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
         <tag>medium</tag>
+        <tag>Tree</tag>
+        <tag>stack</tag>
       </tags>
   </entry>
   <entry>
@@ -196,11 +271,11 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/reverse-words-in-a-string/ 代码：1234567891011class Solution(object): def reverseWords(self, s): """ :type s: str :rtype: str """ arr = s.strip().split() arr.reverse() str= ' ' res = str.join(arr) return res]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>string</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
         <tag>medium</tag>
+        <tag>string</tag>
       </tags>
   </entry>
   <entry>
@@ -209,11 +284,11 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/add-strings/ 代码：123456789101112131415161718192021222324252627282930313233343536373839404142434445class Solution &#123;public: string addStrings(string num1, string num2) &#123; if(num1.size() == 0 || num2.size() == 0)&#123; return num1.size() == 0 ? num2 : num1; &#125; string res; int add = 0; int add2 = 0; int i = num1.size() - 1; int j = num2.size() - 1; while(i &gt;= 0 &amp;&amp; j &gt;= 0)&#123; int temp = (num1[i] - '0') + (num2[j] - '0') + add; add = temp / 10; add2 = temp % 10; res.push_back(add2 + '0'); i--; j--; &#125; while(i &gt;= 0)&#123; int temp = num1[i] - '0' + add; res.push_back((temp % 10) + '0'); add = temp / 10; i--; &#125; while(j &gt;= 0)&#123; int temp = num2[j] - '0'+ add; res.push_back((temp % 10) + '0'); add = temp / 10; j--; &#125; if(add != 0)&#123; res.push_back(add + '0'); &#125; reverse(res.begin(), res.end()); return res; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>string</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
         <tag>easy</tag>
+        <tag>string</tag>
       </tags>
   </entry>
   <entry>
@@ -234,11 +309,11 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/unique-paths/ 题意：机器人从矩阵的左上角开始走，终点为右下角，机器人只能向右或者向下走，输出共有多少条不重复的路径使得机器人能够到达终点 代码：123456789101112class Solution &#123;public: int uniquePaths(int m, int n) &#123; vector&lt;int&gt; dp(n, 1); for (int i = 1; i &lt; m; ++i) &#123; for (int j = 1; j &lt; n; ++j) &#123; dp[j] += dp[j - 1]; &#125; &#125; return dp[n - 1]; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>DP</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
         <tag>medium</tag>
+        <tag>DP</tag>
       </tags>
   </entry>
   <entry>
@@ -259,11 +334,11 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/linked-list-cycle/ 题意：判断链表中是否有环 代码：1234567891011121314151617181920212223# Definition for singly-linked list.# class ListNode(object):# def __init__(self, x):# self.val = x# self.next = Noneclass Solution(object): def hasCycle(self, head): """ :type head: ListNode :rtype: bool """ if head == None: return False one = head two = head.next try: while not one == two: one = one.next two = two.next.next return True except: return False]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>List</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
         <tag>easy</tag>
+        <tag>List</tag>
       </tags>
   </entry>
   <entry>
@@ -272,11 +347,11 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/binary-tree-inorder-traversal/ 二叉树的中序遍历 递归：1234567891011121314151617181920212223/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: vector&lt;int&gt; res; vector&lt;int&gt; inorderTraversal(TreeNode* root) &#123; if(root != NULL)&#123; inorderTraversal(root-&gt;left); res.push_back(root-&gt;val); inorderTraversal(root-&gt;right); &#125; return res; &#125;&#125;; 非递归：123456789101112131415161718192021222324252627282930/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: vector&lt;int&gt; inorderTraversal(TreeNode* root) &#123; vector&lt;int&gt; res; stack&lt;TreeNode*&gt; tempStack; while(!tempStack.empty() || root != NULL)&#123; if(root != NULL)&#123; tempStack.push(root); root = root-&gt;left; &#125; else&#123; root = tempStack.top(); res.push_back(tempStack.top()-&gt;val); tempStack.pop(); root = root-&gt;right; &#125; &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>Tree</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
         <tag>medium</tag>
+        <tag>Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -285,11 +360,11 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/intersection-of-two-linked-lists/ 题意：找到两个交叉链表的公共节点 代码：12345678910111213141516171819# Definition for singly-linked list.# class ListNode(object):# def __init__(self, x):# self.val = x# self.next = Noneclass Solution(object): def getIntersectionNode(self, headA, headB): """ :type head1, head1: ListNode :rtype: ListNode """ p1 = headA p2 = headB while not p1 == p2: p1 = p1.next if p1 else headB p2 = p2.next if p2 else headA return p1]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>List</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
         <tag>easy</tag>
+        <tag>List</tag>
       </tags>
   </entry>
   <entry>
@@ -298,11 +373,11 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/maximum-depth-of-binary-tree/ 代码：1234567891011121314# Definition for a binary tree node.# class TreeNode(object):# def __init__(self, x):# self.val = x# self.left = None# self.right = Noneclass Solution(object): def maxDepth(self, root): """ :type root: TreeNode :rtype: int """ return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1 if root else 0]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>Tree</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
         <tag>easy</tag>
+        <tag>Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -311,10 +386,10 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/lru-cache/ 代码：1234567891011121314151617181920212223242526272829303132333435363738394041class LRUCache &#123;public: LRUCache(int capacity) &#123; cap = capacity; &#125; int get(int key) &#123; auto it = m.find(key); if(it == m.end()) return -1; l.splice(l.begin(), l, it-&gt;second); return it-&gt;second-&gt;second; &#125; void put(int key, int value) &#123; auto it = m.find(key); if(it != m.end())&#123; l.erase(it-&gt;second); &#125; l.push_front(make_pair(key, value)); m[key] = l.begin(); if(m.size() &gt; cap)&#123; int k = l.rbegin()-&gt;first; l.pop_back(); m.erase(k); &#125; &#125; int cap; unordered_map&lt;int, list&lt;pair&lt;int, int&gt;&gt;::iterator &gt; m; list&lt;pair&lt;int, int&gt;&gt; l;&#125;;/** * Your LRUCache object will be instantiated and called as such: * LRUCache* obj = new LRUCache(capacity); * int param_1 = obj-&gt;get(key); * obj-&gt;put(key,value); */]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>Data structure</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>Data structure</tag>
       </tags>
   </entry>
   <entry>
@@ -334,11 +409,11 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/copy-list-with-random-pointer/ 代码：12345678910111213141516171819202122232425262728293031323334353637383940414243444546/*// Definition for a Node.class Node &#123;public: int val; Node* next; Node* random; Node() &#123;&#125; Node(int _val, Node* _next, Node* _random) &#123; val = _val; next = _next; random = _random; &#125;&#125;;*/class Solution &#123;public: Node* copyRandomList(Node* head) &#123; if(!head) return nullptr; Node* res = new Node(head-&gt;val, nullptr, nullptr); unordered_map&lt;Node*, Node*&gt; m; m[head] = res; Node* cur = head-&gt;next; Node* cur2 = res; while(cur)&#123; Node *node = new Node(cur-&gt;val, nullptr, nullptr); cur2-&gt;next = node; m[cur] = node; cur = cur-&gt;next; cur2 = cur2-&gt;next; &#125; cur = head; cur2 = res; while(cur)&#123; cur2-&gt;random = m[cur-&gt;random]; cur = cur-&gt;next; cur2 = cur2-&gt;next; &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>List</category>
-        <category>Data structure</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>Data structure</tag>
+        <tag>List</tag>
       </tags>
   </entry>
   <entry>
@@ -347,10 +422,10 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/regular-expression-matching/ 题意：正则表达式匹配 代码：1234567891011121314151617181920212223242526class Solution &#123;public: bool isMatch(string s, string p) &#123; if(p.empty())&#123; return s.empty(); &#125; if(p.size() == 1)&#123; return (s.size() == 1 &amp;&amp; (s[0] == p[0] || p[0] == '.')); &#125; if(p[1] != '*')&#123; if(s.empty()) return false; return (s[0] == p[0] || p[0] == '.') &amp;&amp; isMatch(s.substr(1), p.substr(1)); &#125; while(!s.empty() &amp;&amp; (s[0] == p[0] || p[0] == '.'))&#123; if(isMatch(s, p.substr(2))) return true; s = s.substr(1); &#125; return isMatch(s, p.substr(2)); &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>DFS</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>DFS</tag>
       </tags>
   </entry>
   <entry>
@@ -359,10 +434,10 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/group-anagrams/ 代码：123456789101112131415161718class Solution &#123;public: vector&lt;vector&lt;string&gt;&gt; groupAnagrams(vector&lt;string&gt;&amp; strs) &#123; vector&lt;vector&lt;string&gt;&gt; res; unordered_map&lt;string, vector&lt;string&gt;&gt; m; for(int i = 0; i &lt; strs.size(); i++)&#123; string temp = strs[i]; sort(temp.begin(), temp.end()); m[temp].push_back(strs[i]); &#125; for(auto i : m)&#123; res.push_back(i.second); &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>Data structure</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>Data structure</tag>
       </tags>
   </entry>
   <entry>
@@ -382,10 +457,10 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/generate-parentheses/ 代码：123456789101112131415161718192021222324class Solution &#123;public: vector&lt;string&gt; generateParenthesis(int n) &#123; vector&lt;string&gt; res; if(n==0) return res; dfs(n, n, "", res); return res; &#125; void dfs(int a, int b, string out, vector&lt;string&gt;&amp; res)&#123; if(a &gt; b)&#123; return; &#125; if(a == 0 &amp;&amp; b == 0) res.push_back(out); else&#123; if(a &gt; 0) dfs(a-1, b, out+"(", res); if(b &gt; 0) dfs(a, b-1, out+")", res); &#125; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>DFS</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>DFS</tag>
       </tags>
   </entry>
   <entry>
@@ -427,10 +502,10 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/reverse-linked-list/ 题意：反转链表 代码：1234567891011121314151617181920212223242526272829303132333435/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* reverseList(ListNode* head) &#123; if(!head)&#123; return NULL; &#125; if(!head-&gt;next)&#123; return head; &#125; ListNode * ptr1, * ptr2, * ptr3; ptr1 = head; while(ptr1)&#123; ptr2 = ptr1-&gt;next; ptr1-&gt;next = ptr3; if(!ptr2)&#123; return ptr1; &#125; ptr3 = ptr1; ptr1 = ptr2; &#125; return ptr2; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>List</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>List</tag>
       </tags>
   </entry>
   <entry>
@@ -439,10 +514,10 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/merge-k-sorted-lists/ 题意：合并k个已排好序的链表 代码：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* mergeKLists(vector&lt;ListNode*&gt;&amp; lists) &#123; if(lists.size() == 0)&#123; return NULL; &#125; ListNode* temp = new ListNode(-1); temp-&gt;next = lists[0]; ListNode * ptr1, *ptr2, *ptr3; for(int i = 1; i &lt; lists.size(); i++)&#123; if(!lists[i])&#123; continue; &#125; ptr1 = lists[i]; ptr2 = temp; ptr3 = temp-&gt;next; while(ptr1 &amp;&amp; ptr3)&#123; if(ptr1-&gt;val &lt;= ptr3-&gt;val)&#123; ListNode * temp2 = ptr1-&gt;next; ptr2-&gt;next = ptr1; ptr1-&gt;next = ptr3; ptr2 = ptr2-&gt;next; ptr1 = temp2; &#125; else&#123; ptr3 = ptr3-&gt;next; ptr2 = ptr2-&gt;next; &#125; &#125; if(ptr1)&#123; ptr2-&gt;next = ptr1; &#125; &#125; return temp-&gt;next; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>List</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>List</tag>
       </tags>
   </entry>
   <entry>
@@ -451,10 +526,10 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/valid-parentheses/ 题意：括号匹配，栈的典型题 代码： 123456789101112131415161718class Solution(object): def isValid(self, s): """ :type s: str :rtype: bool """ stack = [] for ch in s: if len(stack) == 0: stack.append(ch) elif (stack[-1] == '[' and ch == ']') or (stack[-1] == '&#123;' and ch == '&#125;') or (stack[-1] == '(' and ch == ')'): stack.pop() else: stack.append(ch) if(len(stack) &gt; 0): return False return True]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>stack</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>stack</tag>
       </tags>
   </entry>
   <entry>
@@ -463,10 +538,10 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/merge-two-sorted-lists/submissions/ 题意：合并两个已经排好序的链表 代码：123456789101112131415161718192021222324252627282930# Definition for singly-linked list.# class ListNode(object):# def __init__(self, x):# self.val = x# self.next = Noneclass Solution(object): def mergeTwoLists(self, l1, l2): """ :type l1: ListNode :type l2: ListNode :rtype: ListNode """ temp = ListNode(0) temp.next = None p = temp while(l1 is not None and l2 is not None): if l1.val &lt; l2.val: p.next = l1 l1 = l1.next else: p.next = l2 l2 = l2.next p = p.next if l1 is not None: p.next = l1 else: p.next = l2 return temp.next]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>List</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>List</tag>
       </tags>
   </entry>
   <entry>
@@ -497,10 +572,10 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/number-of-islands/ 题意：典型的DFS题目，题目给出一个由0和1组成的矩阵，0代表水，1代表陆地。求矩阵中小岛的个数。 代码：12345678910111213141516171819202122232425262728293031323334353637383940class Solution &#123;public: int numIslands(vector&lt;vector&lt;char&gt;&gt;&amp; grid) &#123; if (grid.empty() || grid[0].empty()) return 0; int m = grid.size(), n = grid[0].size(); int res = 0; for(int i = 0; i &lt; m; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(grid[i][j] == '1')&#123; res++; dfs(i, j, grid); &#125; &#125; &#125; return res; &#125; void dfs(int i, int j, vector&lt;vector&lt;char&gt;&gt; &amp; grid)&#123; int m = grid.size(), n = grid[0].size(); grid[i][j] = '0'; if(i - 1 &gt;= 0 &amp;&amp; grid[i-1][j] == '1')&#123; dfs(i-1, j, grid); &#125; if(i + 1 &lt; m &amp;&amp; grid[i+1][j] == '1')&#123; dfs(i+1, j, grid); &#125; if(j - 1 &gt;= 0 &amp;&amp; grid[i][j-1] == '1')&#123; dfs(i, j-1, grid); &#125; if(j + 1 &lt; n &amp;&amp; grid[i][j+1] == '1')&#123; dfs(i, j+1, grid); &#125; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>DFS</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>DFS</tag>
       </tags>
   </entry>
   <entry>
@@ -509,10 +584,10 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/longest-substring-without-repeating-characters/ 题意：给定一个字符串，返回这个字符串中最长的不包含重复字母的子串的长度 思路：设置一个数组记录每个字符出现的最后位置，left左指针到当前位置为滑动窗口 代码：1234567891011121314151617181920class Solution &#123;public: int lengthOfLongestSubstring(string s) &#123; int len = s.length(); int left = 0; int last[255]; int res = 0; memset(last, -1, sizeof last); for(int i = 0; i &lt; len; i++)&#123; if(last[s[i]] &gt;= left)&#123; left = last[s[i]] + 1; &#125; last[s[i]] = i; res = max(res, i-left+1); &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>string</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>string</tag>
       </tags>
   </entry>
   <entry>
@@ -521,10 +596,10 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/longest-palindromic-substring/ 题意：搜索一个字符串中最长的回文序列 思路：回文序列的搜索以中间一个单独一个字母和中间两个相同字符分为两类 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849class Solution &#123;public: string longestPalindrome(string s) &#123; if(s.length() == 1)&#123; return s; &#125; int left = 0, right = 0, index = 0, len = 0, wide = 0, res_index = 0; for(int i = 0; i &lt; s.length()-1; i++)&#123; if(s[i] == s[i+1])&#123; index = searchPalindrome(s, i, i+1, len); if(len &gt; wide)&#123; wide = len; res_index = index; &#125; &#125; index = searchPalindrome(s, i, i, len); if(len &gt; wide)&#123; wide = len; res_index = index; &#125; &#125; return s.substr(res_index, wide); &#125; int searchPalindrome(string s, int left, int right, int &amp;len)&#123; int index = 0; int flag = 0; while(left &gt; 0 &amp;&amp; right &lt; s.length()-1)&#123; left -= 1; right += 1; if(s[left] != s[right])&#123; flag = 1; break; &#125; &#125; if(flag == 1)&#123; len = right - left - 1; index = left + 1; &#125; else&#123; len = right - left + 1; index = left; &#125; return index; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>string</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>string</tag>
       </tags>
   </entry>
   <entry>
@@ -533,10 +608,10 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/median-of-two-sorted-arrays/ 这道题的题意是给定两个已经排好序的数组，求这两个数组所有数字的中位数，要求时间复杂度是O(log(m+n))的（应该自然想到是二分法） 这道题感觉有点难，看了半天代码也看不懂是什么意思。。。，不过这样的题确实有意思。。。 思路： 在两个数组中找两个分解点i，j，保证0～i-1加0～j-1是两个数组的长度之和的一半，目标就是确定i和j的位置，使得i-1位置数字也小于j位置数字（i-1位置数字保证小于i位置数字）和j-1位置数字小于i位置数字，这样0～i-1和0～j-1位置所有数字都小于另一半部分的数字，中位数就是i-1和j-1位置数字的较大值和i位置和j位置数字的较小值的均值（两个数组所有数字个数是偶数的话），或者i-1和j-1位置数字的较大值 代码：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051class Solution &#123;public: double findMedianSortedArrays(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) &#123; int m = nums1.size(), n = nums2.size(); if(m &gt; n) return findMedianSortedArrays(nums2, nums1); int left = 0, right = m; int i = -1, j = -1; while(true)&#123; i = (left + right) / 2; j = (m + n + 1) / 2 - i; if((i == 0 || j == n || nums1[i - 1] &lt;= nums2[j]) &amp;&amp; (j == 0 || i == m || nums2[j - 1] &lt;= nums1[i]))&#123; break; &#125; else if(i &gt; 0 &amp;&amp; nums1[i-1] &gt; nums2[j])&#123; right = i - 1; &#125; else if(j &gt; 0 &amp;&amp; nums2[j-1] &gt; nums1[i])&#123; left = i + 1; &#125; &#125; int max_left = -1, min_right = -1; if(i == 0)&#123; max_left = nums2[j-1]; &#125; else if(j == 0)&#123; max_left = nums1[i-1]; &#125; else&#123; max_left = max(nums1[i - 1], nums2[j - 1]); &#125; if((m+n) % 2)&#123; return max_left; &#125; if(i == m) min_right = nums2[j]; else if(j == n) min_right = nums1[i]; else&#123; min_right = min(nums1[i], nums2[j]); &#125; return double(max_left + min_right) / 2; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>二分查找</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>二分查找</tag>
       </tags>
   </entry>
   <entry>
@@ -556,10 +631,10 @@
     <content type="text"><![CDATA[https://leetcode.com/problems/check-completeness-of-a-binary-tree/ 这道题比较简单，利用树的层序遍历，当第一次遇到空节点时，设置flag，如果第二次再遇到，那就返回false。 代码：123456789101112131415161718192021222324252627282930313233343536373839/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: bool isCompleteTree(TreeNode* root) &#123; if(!root)&#123; return true; &#125; queue&lt;TreeNode*&gt; q; q.push(root); int flag = 0; while(!q.empty())&#123; TreeNode * temp = q.front(); q.pop(); if(!temp)&#123; flag = 1; &#125; else&#123; if(flag)&#123; return false; &#125; q.push(temp-&gt;left); q.push(temp-&gt;right); &#125; &#125; return true; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
-        <category>Tree</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>Tree</tag>
       </tags>
   </entry>
   <entry>

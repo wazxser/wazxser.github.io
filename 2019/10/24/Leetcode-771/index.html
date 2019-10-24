@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="leetcode,easy,string," />
 
 
 
@@ -88,17 +88,18 @@
 
 
 
-<meta name="description" content="wazxser">
+<meta name="description" content="https://leetcode.com/problems/jewels-and-stones/ 1234567891011121314151617class Solution &amp;#123;public:    int numJewelsInStones(string J, string S) &amp;#123;        int res = 0;        vector&amp;lt;char&amp;gt;">
+<meta name="keywords" content="leetcode,easy,string">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode_771">
+<meta property="og:title" content="Leetcode 771. Jewels and Stones">
 <meta property="og:url" content="https://wazxser.github.io/2019/10/24/Leetcode-771/index.html">
 <meta property="og:site_name" content="Moon">
-<meta property="og:description" content="wazxser">
+<meta property="og:description" content="https://leetcode.com/problems/jewels-and-stones/ 1234567891011121314151617class Solution &amp;#123;public:    int numJewelsInStones(string J, string S) &amp;#123;        int res = 0;        vector&amp;lt;char&amp;gt;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-24T07:58:18.681Z">
+<meta property="og:updated_time" content="2019-10-24T12:06:30.564Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode_771">
-<meta name="twitter:description" content="wazxser">
+<meta name="twitter:title" content="Leetcode 771. Jewels and Stones">
+<meta name="twitter:description" content="https://leetcode.com/problems/jewels-and-stones/ 1234567891011121314151617class Solution &amp;#123;public:    int numJewelsInStones(string J, string S) &amp;#123;        int res = 0;        vector&amp;lt;char&amp;gt;">
 
 
 
@@ -134,7 +135,7 @@
 
 
 
-  <title>Leetcode_771 | Moon</title>
+  <title>Leetcode 771. Jewels and Stones | Moon</title>
   
 
 
@@ -324,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode_771</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode 771. Jewels and Stones</h1>
         
 
         <div class="post-meta">
@@ -346,6 +347,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Online-Judge/" itemprop="url" rel="index">
+                    <span itemprop="name">Online Judge</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,7 +396,9 @@
       
 
       
-        
+        <p><a href="https://leetcode.com/problems/jewels-and-stones/" target="_blank" rel="noopener">https://leetcode.com/problems/jewels-and-stones/</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int numJewelsInStones(string J, string S) &#123;</span><br><span class="line">        int res = <span class="number">0</span>;</span><br><span class="line">        vector&lt;char&gt; arr;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; J.size(); i++)&#123;</span><br><span class="line">            arr.push_back(J[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; S.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(count(arr.begin(), arr.end(), S[i]))&#123;</span><br><span class="line">                res++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -389,7 +414,7 @@
           </li>
           <li class="post-copyright-link">
             <strong>本文链接：</strong>
-            <a href="/2019/10/24/Leetcode-771/" title="Leetcode_771">2019/10/24/Leetcode-771/</a>
+            <a href="/2019/10/24/Leetcode-771/" title="Leetcode 771. Jewels and Stones">2019/10/24/Leetcode-771/</a>
           </li>
           <li class="post-copyright-license">
             <strong>版权声明： </strong>
@@ -406,6 +431,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+            <a href="/tags/easy/" rel="tag"># easy</a>
+          
+            <a href="/tags/string/" rel="tag"># string</a>
+          
+        </div>
+      
 
       
       
@@ -415,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/24/Leetcode-67/" rel="next" title="Leetcode_67">
-                <i class="fa fa-chevron-left"></i> Leetcode_67
+              <a href="/2019/10/24/Leetcode-67/" rel="next" title="Leetcode 67. Add Binary">
+                <i class="fa fa-chevron-left"></i> Leetcode 67. Add Binary
               </a>
             
           </div>
@@ -425,8 +460,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/24/Leetcode-14/" rel="prev" title="Leetcode_14">
-                Leetcode_14 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/10/24/Leetcode-14/" rel="prev" title="Leetcode 14. Longest Common Prefix">
+                Leetcode 14. Longest Common Prefix <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -521,7 +556,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

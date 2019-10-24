@@ -194,100 +194,210 @@
   </entry>
   
   <entry>
-    <title>Leetcode_124</title>
+    <title>Leetcode 124. Binary Tree Maximum Path Sum</title>
     <link href="https://wazxser.github.io/2019/10/24/Leetcode-124/"/>
     <id>https://wazxser.github.io/2019/10/24/Leetcode-124/</id>
     <published>2019-10-24T07:58:50.000Z</published>
-    <updated>2019-10-24T07:58:50.064Z</updated>
+    <updated>2019-10-24T12:19:31.865Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * struct TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left;</span><br><span class="line"> *     TreeNode *right;</span><br><span class="line"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxPathSum(TreeNode* root) &#123;</span><br><span class="line">        int res = INT_MIN;</span><br><span class="line">        dfs(root, res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int dfs(TreeNode * root, int &amp; res)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int left = max(dfs(root-&gt;left, res), 0);</span><br><span class="line">        int right = max(dfs(root-&gt;right, res), 0);</span><br><span class="line">        </span><br><span class="line">        res = max(res, left+right+root-&gt;val);</span><br><span class="line">        return max(left, right) + root-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span clas
+      
+    
     </summary>
     
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+      <category term="hard" scheme="https://wazxser.github.io/tags/hard/"/>
+    
+      <category term="Tree" scheme="https://wazxser.github.io/tags/Tree/"/>
+    
+      <category term="more solutions" scheme="https://wazxser.github.io/tags/more-solutions/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode_70</title>
+    <title>Leetcode 70. Climbing Stairs</title>
     <link href="https://wazxser.github.io/2019/10/24/Leetcode-70/"/>
     <id>https://wazxser.github.io/2019/10/24/Leetcode-70/</id>
     <published>2019-10-24T07:58:43.000Z</published>
-    <updated>2019-10-24T07:58:44.006Z</updated>
+    <updated>2019-10-24T12:16:18.004Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/climbing-stairs/" target="_blank" rel="noopener">https://leetcode.com/problems/climbing-stairs/</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">climbStairs</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        dp = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> xrange(n+<span class="number">1</span>)]</span><br><span class="line">        </span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> n &gt; <span class="number">1</span>:</span><br><span class="line">            dp[<span class="number">2</span>] = <span class="number">2</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">3</span>, n+<span class="number">1</span>):</span><br><span class="line">                dp[i] = dp[i<span class="number">-1</span>] + dp[i<span class="number">-2</span>]</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> dp[n]</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/climbing-stairs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/climbing-stairs/&lt;/a
+      
+    
     </summary>
     
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+      <category term="easy" scheme="https://wazxser.github.io/tags/easy/"/>
+    
+      <category term="DP" scheme="https://wazxser.github.io/tags/DP/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode_149</title>
+    <title>Leetcode 149. Max Points on a Line</title>
     <link href="https://wazxser.github.io/2019/10/24/Leetcode-149/"/>
     <id>https://wazxser.github.io/2019/10/24/Leetcode-149/</id>
     <published>2019-10-24T07:58:40.000Z</published>
-    <updated>2019-10-24T07:58:40.542Z</updated>
+    <updated>2019-10-24T12:15:13.541Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/max-points-on-a-line/" target="_blank" rel="noopener">https://leetcode.com/problems/max-points-on-a-line/</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/max-points-on-a-line/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/max-points-on-
+      
+    
     </summary>
     
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+      <category term="hard" scheme="https://wazxser.github.io/tags/hard/"/>
+    
+      <category term="more solutions" scheme="https://wazxser.github.io/tags/more-solutions/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode_14</title>
+    <title>Leetcode 14. Longest Common Prefix</title>
     <link href="https://wazxser.github.io/2019/10/24/Leetcode-14/"/>
     <id>https://wazxser.github.io/2019/10/24/Leetcode-14/</id>
     <published>2019-10-24T07:58:26.000Z</published>
-    <updated>2019-10-24T07:58:26.886Z</updated>
+    <updated>2019-10-24T12:08:44.388Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/longest-common-prefix/" target="_blank" rel="noopener">https://leetcode.com/problems/longest-common-prefix/</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestCommonPrefix</span><span class="params">(self, strs)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type strs: List[str]</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        res = <span class="string">''</span></span><br><span class="line">        <span class="keyword">if</span> len(strs) &gt; <span class="number">0</span>:</span><br><span class="line">            res = strs[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">for</span> str <span class="keyword">in</span> strs:</span><br><span class="line">                temp = <span class="string">''</span></span><br><span class="line">                num = min(len(res), len(str))</span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> xrange(num):</span><br><span class="line">                    <span class="keyword">if</span> res[i] != str[i]:</span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                    temp += res[i]</span><br><span class="line">                res = temp</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/longest-common-prefix/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/longest-commo
+      
+    
     </summary>
     
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+      <category term="easy" scheme="https://wazxser.github.io/tags/easy/"/>
+    
+      <category term="string" scheme="https://wazxser.github.io/tags/string/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode_771</title>
+    <title>Leetcode 771. Jewels and Stones</title>
     <link href="https://wazxser.github.io/2019/10/24/Leetcode-771/"/>
     <id>https://wazxser.github.io/2019/10/24/Leetcode-771/</id>
     <published>2019-10-24T07:58:18.000Z</published>
-    <updated>2019-10-24T07:58:18.681Z</updated>
+    <updated>2019-10-24T12:06:30.564Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/jewels-and-stones/" target="_blank" rel="noopener">https://leetcode.com/problems/jewels-and-stones/</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int numJewelsInStones(string J, string S) &#123;</span><br><span class="line">        int res = <span class="number">0</span>;</span><br><span class="line">        vector&lt;char&gt; arr;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; J.size(); i++)&#123;</span><br><span class="line">            arr.push_back(J[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; S.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(count(arr.begin(), arr.end(), S[i]))&#123;</span><br><span class="line">                res++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/jewels-and-stones/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/jewels-and-stones
+      
+    
     </summary>
     
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+      <category term="easy" scheme="https://wazxser.github.io/tags/easy/"/>
+    
+      <category term="string" scheme="https://wazxser.github.io/tags/string/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode_67</title>
+    <title>Leetcode 67. Add Binary</title>
     <link href="https://wazxser.github.io/2019/10/24/Leetcode-67/"/>
     <id>https://wazxser.github.io/2019/10/24/Leetcode-67/</id>
     <published>2019-10-24T07:58:14.000Z</published>
-    <updated>2019-10-24T07:58:14.136Z</updated>
+    <updated>2019-10-24T11:35:43.787Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/add-binary/" target="_blank" rel="noopener">https://leetcode.com/problems/add-binary/</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addBinary</span><span class="params">(self, a, b)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type a: str</span></span><br><span class="line"><span class="string">        :type b: str</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        num1 = int(a, <span class="number">2</span>)</span><br><span class="line">        num2 = int(b, <span class="number">2</span>)</span><br><span class="line">        </span><br><span class="line">        res = num1 + num2</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> bin(res)[<span class="number">2</span>:]</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/add-binary/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/add-binary/&lt;/a&gt;&lt;/p&gt;
+&lt;fig
+      
+    
     </summary>
     
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+      <category term="easy" scheme="https://wazxser.github.io/tags/easy/"/>
+    
+      <category term="string" scheme="https://wazxser.github.io/tags/string/"/>
     
   </entry>
   
   <entry>
-    <title>Leetcode_8</title>
+    <title>Leetcode 8. String to Integer (atoi)</title>
     <link href="https://wazxser.github.io/2019/10/24/Leetcode-8/"/>
     <id>https://wazxser.github.io/2019/10/24/Leetcode-8/</id>
     <published>2019-10-24T07:58:05.000Z</published>
-    <updated>2019-10-24T07:58:05.215Z</updated>
+    <updated>2019-10-24T11:33:19.502Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/string-to-integer-atoi/" target="_blank" rel="noopener">https://leetcode.com/problems/string-to-integer-atoi/</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int myAtoi(string str) &#123;</span><br><span class="line">        int res = <span class="number">0</span>;</span><br><span class="line">        stringstream ss;</span><br><span class="line">        ss &lt;&lt; str;</span><br><span class="line">        ss &gt;&gt; res;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/string-to-integer-atoi/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/string-to-in
+      
+    
     </summary>
     
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+      <category term="medium" scheme="https://wazxser.github.io/tags/medium/"/>
+    
+      <category term="string" scheme="https://wazxser.github.io/tags/string/"/>
+    
+      <category term="more solutions" scheme="https://wazxser.github.io/tags/more-solutions/"/>
     
   </entry>
   

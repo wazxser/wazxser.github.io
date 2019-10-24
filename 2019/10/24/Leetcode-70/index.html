@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="leetcode,easy,DP," />
 
 
 
@@ -88,17 +88,18 @@
 
 
 
-<meta name="description" content="wazxser">
+<meta name="description" content="https://leetcode.com/problems/climbing-stairs/ 123456789101112131415class Solution(object):    def climbStairs(self, n):        &quot;&quot;&quot;        :type n: int        :rtype: int        &quot;&quot;&quot;        dp = [0 for">
+<meta name="keywords" content="leetcode,easy,DP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode_70">
+<meta property="og:title" content="Leetcode 70. Climbing Stairs">
 <meta property="og:url" content="https://wazxser.github.io/2019/10/24/Leetcode-70/index.html">
 <meta property="og:site_name" content="Moon">
-<meta property="og:description" content="wazxser">
+<meta property="og:description" content="https://leetcode.com/problems/climbing-stairs/ 123456789101112131415class Solution(object):    def climbStairs(self, n):        &quot;&quot;&quot;        :type n: int        :rtype: int        &quot;&quot;&quot;        dp = [0 for">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-24T07:58:44.006Z">
+<meta property="og:updated_time" content="2019-10-24T12:16:18.004Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode_70">
-<meta name="twitter:description" content="wazxser">
+<meta name="twitter:title" content="Leetcode 70. Climbing Stairs">
+<meta name="twitter:description" content="https://leetcode.com/problems/climbing-stairs/ 123456789101112131415class Solution(object):    def climbStairs(self, n):        &quot;&quot;&quot;        :type n: int        :rtype: int        &quot;&quot;&quot;        dp = [0 for">
 
 
 
@@ -134,7 +135,7 @@
 
 
 
-  <title>Leetcode_70 | Moon</title>
+  <title>Leetcode 70. Climbing Stairs | Moon</title>
   
 
 
@@ -324,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode_70</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode 70. Climbing Stairs</h1>
         
 
         <div class="post-meta">
@@ -346,6 +347,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Online-Judge/" itemprop="url" rel="index">
+                    <span itemprop="name">Online Judge</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,7 +396,9 @@
       
 
       
-        
+        <p><a href="https://leetcode.com/problems/climbing-stairs/" target="_blank" rel="noopener">https://leetcode.com/problems/climbing-stairs/</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">climbStairs</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        dp = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> xrange(n+<span class="number">1</span>)]</span><br><span class="line">        </span><br><span class="line">        dp[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> n &gt; <span class="number">1</span>:</span><br><span class="line">            dp[<span class="number">2</span>] = <span class="number">2</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">3</span>, n+<span class="number">1</span>):</span><br><span class="line">                dp[i] = dp[i<span class="number">-1</span>] + dp[i<span class="number">-2</span>]</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> dp[n]</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -389,7 +414,7 @@
           </li>
           <li class="post-copyright-link">
             <strong>本文链接：</strong>
-            <a href="/2019/10/24/Leetcode-70/" title="Leetcode_70">2019/10/24/Leetcode-70/</a>
+            <a href="/2019/10/24/Leetcode-70/" title="Leetcode 70. Climbing Stairs">2019/10/24/Leetcode-70/</a>
           </li>
           <li class="post-copyright-license">
             <strong>版权声明： </strong>
@@ -406,6 +431,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+            <a href="/tags/easy/" rel="tag"># easy</a>
+          
+            <a href="/tags/DP/" rel="tag"># DP</a>
+          
+        </div>
+      
 
       
       
@@ -415,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/24/Leetcode-149/" rel="next" title="Leetcode_149">
-                <i class="fa fa-chevron-left"></i> Leetcode_149
+              <a href="/2019/10/24/Leetcode-149/" rel="next" title="Leetcode 149. Max Points on a Line">
+                <i class="fa fa-chevron-left"></i> Leetcode 149. Max Points on a Line
               </a>
             
           </div>
@@ -425,8 +460,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/24/Leetcode-124/" rel="prev" title="Leetcode_124">
-                Leetcode_124 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/10/24/Leetcode-124/" rel="prev" title="Leetcode 124. Binary Tree Maximum Path Sum">
+                Leetcode 124. Binary Tree Maximum Path Sum <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -521,7 +556,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

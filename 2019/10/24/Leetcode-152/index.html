@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="leetcode,medium,more solutions," />
 
 
 
@@ -88,17 +88,18 @@
 
 
 
-<meta name="description" content="wazxser">
+<meta name="description" content="https://leetcode.com/problems/maximum-product-subarray/ 题意：求数组中连续最大的乘积，和连续最大的和相似，但是要考虑到负号的问题 思路：这里解法是正着和倒着各遍历一遍，就是最终的结果 12345678910111213141516171819202122class Solution &amp;#123;public:    int maxProduc">
+<meta name="keywords" content="leetcode,medium,more solutions">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode_152">
+<meta property="og:title" content="Leetcode 152. Maximum Product Subarray">
 <meta property="og:url" content="https://wazxser.github.io/2019/10/24/Leetcode-152/index.html">
 <meta property="og:site_name" content="Moon">
-<meta property="og:description" content="wazxser">
+<meta property="og:description" content="https://leetcode.com/problems/maximum-product-subarray/ 题意：求数组中连续最大的乘积，和连续最大的和相似，但是要考虑到负号的问题 思路：这里解法是正着和倒着各遍历一遍，就是最终的结果 12345678910111213141516171819202122class Solution &amp;#123;public:    int maxProduc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-24T07:57:51.739Z">
+<meta property="og:updated_time" content="2019-10-24T11:20:21.013Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode_152">
-<meta name="twitter:description" content="wazxser">
+<meta name="twitter:title" content="Leetcode 152. Maximum Product Subarray">
+<meta name="twitter:description" content="https://leetcode.com/problems/maximum-product-subarray/ 题意：求数组中连续最大的乘积，和连续最大的和相似，但是要考虑到负号的问题 思路：这里解法是正着和倒着各遍历一遍，就是最终的结果 12345678910111213141516171819202122class Solution &amp;#123;public:    int maxProduc">
 
 
 
@@ -134,7 +135,7 @@
 
 
 
-  <title>Leetcode_152 | Moon</title>
+  <title>Leetcode 152. Maximum Product Subarray | Moon</title>
   
 
 
@@ -324,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode_152</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode 152. Maximum Product Subarray</h1>
         
 
         <div class="post-meta">
@@ -346,6 +347,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Online-Judge/" itemprop="url" rel="index">
+                    <span itemprop="name">Online Judge</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,7 +396,10 @@
       
 
       
-        
+        <p><a href="https://leetcode.com/problems/maximum-product-subarray/" target="_blank" rel="noopener">https://leetcode.com/problems/maximum-product-subarray/</a></p>
+<p>题意：求数组中连续最大的乘积，和连续最大的和相似，但是要考虑到负号的问题</p>
+<p>思路：这里解法是正着和倒着各遍历一遍，就是最终的结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxProduct(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int res = nums[<span class="number">0</span>], prod = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; nums.size(); i++)&#123;</span><br><span class="line">            res = max(res, prod *= nums[i]);</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == <span class="number">0</span>)&#123;</span><br><span class="line">                prod = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        prod = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(int i = nums.size()<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">            res = max(res, prod *= nums[i]);</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == <span class="number">0</span>)&#123;</span><br><span class="line">                prod = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -389,7 +415,7 @@
           </li>
           <li class="post-copyright-link">
             <strong>本文链接：</strong>
-            <a href="/2019/10/24/Leetcode-152/" title="Leetcode_152">2019/10/24/Leetcode-152/</a>
+            <a href="/2019/10/24/Leetcode-152/" title="Leetcode 152. Maximum Product Subarray">2019/10/24/Leetcode-152/</a>
           </li>
           <li class="post-copyright-license">
             <strong>版权声明： </strong>
@@ -405,6 +431,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+            <a href="/tags/medium/" rel="tag"># medium</a>
+          
+            <a href="/tags/more-solutions/" rel="tag"># more solutions</a>
+          
+        </div>
       
 
       
@@ -425,8 +461,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/24/Leetcode-92/" rel="prev" title="Leetcode_92">
-                Leetcode_92 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/10/24/Leetcode-92/" rel="prev" title="Leetcode 92. Reverse Linked List II">
+                Leetcode 92. Reverse Linked List II <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -521,7 +557,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

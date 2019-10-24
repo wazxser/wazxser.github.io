@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="leetcode,hard,Tree,more solutions," />
 
 
 
@@ -88,17 +88,18 @@
 
 
 
-<meta name="description" content="wazxser">
+<meta name="description" content="1234567891011121314151617181920212223242526272829/** * Definition for a binary tree node. * struct TreeNode &amp;#123; *     int val; *     TreeNode *left; *     TreeNode *right; *     TreeNode(int x) : v">
+<meta name="keywords" content="leetcode,hard,Tree,more solutions">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode_124">
+<meta property="og:title" content="Leetcode 124. Binary Tree Maximum Path Sum">
 <meta property="og:url" content="https://wazxser.github.io/2019/10/24/Leetcode-124/index.html">
 <meta property="og:site_name" content="Moon">
-<meta property="og:description" content="wazxser">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829/** * Definition for a binary tree node. * struct TreeNode &amp;#123; *     int val; *     TreeNode *left; *     TreeNode *right; *     TreeNode(int x) : v">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-24T07:58:50.064Z">
+<meta property="og:updated_time" content="2019-10-24T12:19:31.865Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode_124">
-<meta name="twitter:description" content="wazxser">
+<meta name="twitter:title" content="Leetcode 124. Binary Tree Maximum Path Sum">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829/** * Definition for a binary tree node. * struct TreeNode &amp;#123; *     int val; *     TreeNode *left; *     TreeNode *right; *     TreeNode(int x) : v">
 
 
 
@@ -134,7 +135,7 @@
 
 
 
-  <title>Leetcode_124 | Moon</title>
+  <title>Leetcode 124. Binary Tree Maximum Path Sum | Moon</title>
   
 
 
@@ -324,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode_124</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode 124. Binary Tree Maximum Path Sum</h1>
         
 
         <div class="post-meta">
@@ -346,6 +347,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Online-Judge/" itemprop="url" rel="index">
+                    <span itemprop="name">Online Judge</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,7 +396,7 @@
       
 
       
-        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * struct TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left;</span><br><span class="line"> *     TreeNode *right;</span><br><span class="line"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxPathSum(TreeNode* root) &#123;</span><br><span class="line">        int res = INT_MIN;</span><br><span class="line">        dfs(root, res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int dfs(TreeNode * root, int &amp; res)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int left = max(dfs(root-&gt;left, res), 0);</span><br><span class="line">        int right = max(dfs(root-&gt;right, res), 0);</span><br><span class="line">        </span><br><span class="line">        res = max(res, left+right+root-&gt;val);</span><br><span class="line">        return max(left, right) + root-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -389,7 +412,7 @@
           </li>
           <li class="post-copyright-link">
             <strong>本文链接：</strong>
-            <a href="/2019/10/24/Leetcode-124/" title="Leetcode_124">2019/10/24/Leetcode-124/</a>
+            <a href="/2019/10/24/Leetcode-124/" title="Leetcode 124. Binary Tree Maximum Path Sum">2019/10/24/Leetcode-124/</a>
           </li>
           <li class="post-copyright-license">
             <strong>版权声明： </strong>
@@ -406,6 +429,18 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+            <a href="/tags/hard/" rel="tag"># hard</a>
+          
+            <a href="/tags/Tree/" rel="tag"># Tree</a>
+          
+            <a href="/tags/more-solutions/" rel="tag"># more solutions</a>
+          
+        </div>
+      
 
       
       
@@ -415,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/24/Leetcode-70/" rel="next" title="Leetcode_70">
-                <i class="fa fa-chevron-left"></i> Leetcode_70
+              <a href="/2019/10/24/Leetcode-70/" rel="next" title="Leetcode 70. Climbing Stairs">
+                <i class="fa fa-chevron-left"></i> Leetcode 70. Climbing Stairs
               </a>
             
           </div>
@@ -521,7 +556,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

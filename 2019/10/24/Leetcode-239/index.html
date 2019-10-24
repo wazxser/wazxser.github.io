@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="leetcode,hard," />
+  <meta name="keywords" content="leetcode,hard,more solutions," />
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="https://leetcode.com/problems/sliding-window-maximum/ 题意： 给出每个滑动窗口的最大值 思路：用原始暴力的方法可以AC 1234567891011121314151617181920class Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; maxSlidingWindow(vector&amp;lt;int&amp;g">
-<meta name="keywords" content="leetcode,hard">
+<meta name="description" content="https://leetcode.com/problems/sliding-window-maximum/ 题意： 给出每个滑动窗口的最大值 思路：用原始暴力的方法可以AC。。。 这道题还有很多解法，堆，栈等。。。 1234567891011121314151617181920class Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; maxSlidingW">
+<meta name="keywords" content="leetcode,hard,more solutions">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Leetcode 239. Sliding Window Maximum">
 <meta property="og:url" content="https://wazxser.github.io/2019/10/24/Leetcode-239/index.html">
 <meta property="og:site_name" content="Moon">
-<meta property="og:description" content="https://leetcode.com/problems/sliding-window-maximum/ 题意： 给出每个滑动窗口的最大值 思路：用原始暴力的方法可以AC 1234567891011121314151617181920class Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; maxSlidingWindow(vector&amp;lt;int&amp;g">
+<meta property="og:description" content="https://leetcode.com/problems/sliding-window-maximum/ 题意： 给出每个滑动窗口的最大值 思路：用原始暴力的方法可以AC。。。 这道题还有很多解法，堆，栈等。。。 1234567891011121314151617181920class Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; maxSlidingW">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-24T08:34:14.406Z">
+<meta property="og:updated_time" content="2019-10-24T10:55:42.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode 239. Sliding Window Maximum">
-<meta name="twitter:description" content="https://leetcode.com/problems/sliding-window-maximum/ 题意： 给出每个滑动窗口的最大值 思路：用原始暴力的方法可以AC 1234567891011121314151617181920class Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; maxSlidingWindow(vector&amp;lt;int&amp;g">
+<meta name="twitter:description" content="https://leetcode.com/problems/sliding-window-maximum/ 题意： 给出每个滑动窗口的最大值 思路：用原始暴力的方法可以AC。。。 这道题还有很多解法，堆，栈等。。。 1234567891011121314151617181920class Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; maxSlidingW">
 
 
 
@@ -398,7 +398,8 @@
       
         <p><a href="https://leetcode.com/problems/sliding-window-maximum/" target="_blank" rel="noopener">https://leetcode.com/problems/sliding-window-maximum/</a></p>
 <p>题意： 给出每个滑动窗口的最大值</p>
-<p>思路：用原始暴力的方法可以AC</p>
+<p>思路：用原始暴力的方法可以AC。。。</p>
+<p>这道题还有很多解法，堆，栈等。。。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;&amp; nums, int k) &#123;</span><br><span class="line">        vector&lt;int&gt; res;</span><br><span class="line">        <span class="keyword">if</span>(nums.size() == <span class="number">0</span> || k == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt;= nums.size() - k; i++)&#123;</span><br><span class="line">            int temp = nums[i];</span><br><span class="line">            <span class="keyword">for</span>(int j = i; j &lt; i + k; j++)&#123;</span><br><span class="line">                temp = max(temp, nums[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            res.push_back(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -438,6 +439,8 @@
           
             <a href="/tags/hard/" rel="tag"># hard</a>
           
+            <a href="/tags/more-solutions/" rel="tag"># more solutions</a>
+          
         </div>
       
 
@@ -459,8 +462,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/24/Leetcode-152/" rel="prev" title="Leetcode_152">
-                Leetcode_152 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/10/24/Leetcode-152/" rel="prev" title="Leetcode 152. Maximum Product Subarray">
+                Leetcode 152. Maximum Product Subarray <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -555,7 +558,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
