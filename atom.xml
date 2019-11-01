@@ -6,52 +6,10 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wazxser.github.io/"/>
-  <updated>2019-10-24T08:01:30.531Z</updated>
+  <updated>2019-10-24T08:01:16.541Z</updated>
   <id>https://wazxser.github.io/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Leetcode_666</title>
-    <link href="https://wazxser.github.io/2019/10/24/Leetcode-666/"/>
-    <id>https://wazxser.github.io/2019/10/24/Leetcode-666/</id>
-    <published>2019-10-24T08:01:30.000Z</published>
-    <updated>2019-10-24T08:01:30.531Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode_548</title>
-    <link href="https://wazxser.github.io/2019/10/24/Leetcode-548/"/>
-    <id>https://wazxser.github.io/2019/10/24/Leetcode-548/</id>
-    <published>2019-10-24T08:01:26.000Z</published>
-    <updated>2019-10-24T08:01:26.392Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode_555</title>
-    <link href="https://wazxser.github.io/2019/10/24/Leetcode-555/"/>
-    <id>https://wazxser.github.io/2019/10/24/Leetcode-555/</id>
-    <published>2019-10-24T08:01:21.000Z</published>
-    <updated>2019-10-24T08:01:21.154Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Leetcode_446</title>
@@ -424,6 +382,93 @@
       <category term="more solutions" scheme="https://wazxser.github.io/tags/more-solutions/"/>
     
       <category term="string" scheme="https://wazxser.github.io/tags/string/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode 92. Reverse Linked List II</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-92/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-92/</id>
+    <published>2019-10-24T07:58:02.000Z</published>
+    <updated>2019-10-24T11:30:52.865Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/reverse-linked-list-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/reverse-linked-list-ii/</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* reverseBetween(ListNode* head, int m, int n) &#123;</span><br><span class="line">        ListNode *dummy = new ListNode(<span class="number">-1</span>);</span><br><span class="line">        ListNode *pre = dummy;</span><br><span class="line">        dummy-&gt;next = head;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; m<span class="number">-1</span>; i++)&#123;</span><br><span class="line">            pre = pre-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode *cur = pre-&gt;next;</span><br><span class="line">        <span class="keyword">for</span>(int i = m; i &lt; n; i++)&#123;</span><br><span class="line">            ListNode*t = cur-&gt;next;</span><br><span class="line">            cur-&gt;next = t-&gt;next;</span><br><span class="line">            t-&gt;next = pre-&gt;next;</span><br><span class="line">            pre-&gt;next = t;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/reverse-linked-list-ii/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/reverse-link
+      
+    
+    </summary>
+    
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+      <category term="medium" scheme="https://wazxser.github.io/tags/medium/"/>
+    
+      <category term="List" scheme="https://wazxser.github.io/tags/List/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode 152. Maximum Product Subarray</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-152/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-152/</id>
+    <published>2019-10-24T07:57:51.000Z</published>
+    <updated>2019-10-24T11:20:21.013Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/maximum-product-subarray/" target="_blank" rel="noopener">https://leetcode.com/problems/maximum-product-subarray/</a></p><p>题意：求数组中连续最大的乘积，和连续最大的和相似，但是要考虑到负号的问题</p><p>思路：这里解法是正着和倒着各遍历一遍，就是最终的结果</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxProduct(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int res = nums[<span class="number">0</span>], prod = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; nums.size(); i++)&#123;</span><br><span class="line">            res = max(res, prod *= nums[i]);</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == <span class="number">0</span>)&#123;</span><br><span class="line">                prod = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        prod = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(int i = nums.size()<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">            res = max(res, prod *= nums[i]);</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == <span class="number">0</span>)&#123;</span><br><span class="line">                prod = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/maximum-product-subarray/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/maximum-pr
+      
+    
+    </summary>
+    
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+      <category term="medium" scheme="https://wazxser.github.io/tags/medium/"/>
+    
+      <category term="more solutions" scheme="https://wazxser.github.io/tags/more-solutions/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode 239. Sliding Window Maximum</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-239/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-239/</id>
+    <published>2019-10-24T07:57:43.000Z</published>
+    <updated>2019-10-24T10:55:42.158Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/sliding-window-maximum/" target="_blank" rel="noopener">https://leetcode.com/problems/sliding-window-maximum/</a></p><p>题意： 给出每个滑动窗口的最大值</p><p>思路：用原始暴力的方法可以AC。。。</p><p>这道题还有很多解法，堆，栈等。。。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;&amp; nums, int k) &#123;</span><br><span class="line">        vector&lt;int&gt; res;</span><br><span class="line">        <span class="keyword">if</span>(nums.size() == <span class="number">0</span> || k == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt;= nums.size() - k; i++)&#123;</span><br><span class="line">            int temp = nums[i];</span><br><span class="line">            <span class="keyword">for</span>(int j = i; j &lt; i + k; j++)&#123;</span><br><span class="line">                temp = max(temp, nums[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            res.push_back(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/sliding-window-maximum/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/sliding-wind
+      
+    
+    </summary>
+    
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+      <category term="hard" scheme="https://wazxser.github.io/tags/hard/"/>
+    
+      <category term="more solutions" scheme="https://wazxser.github.io/tags/more-solutions/"/>
     
   </entry>
   
