@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="leetcode,medium,string," />
 
 
 
@@ -88,17 +88,18 @@
 
 
 
-<meta name="description" content="wazxser">
+<meta name="description" content="https://leetcode.com/problems/valid-parenthesis-string/ 题意：括号匹配，增加了星号可以作为左括号、右括号或者星号 代码： 1234567891011121314151617181920212223242526272829303132class Solution &amp;#123;public:    bool checkValidString(st">
+<meta name="keywords" content="leetcode,medium,string">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode_678">
+<meta property="og:title" content="Leetcode 678. Valid Parenthesis String">
 <meta property="og:url" content="https://wazxser.github.io/2019/10/24/Leetcode-678/index.html">
 <meta property="og:site_name" content="Moon">
-<meta property="og:description" content="wazxser">
+<meta property="og:description" content="https://leetcode.com/problems/valid-parenthesis-string/ 题意：括号匹配，增加了星号可以作为左括号、右括号或者星号 代码： 1234567891011121314151617181920212223242526272829303132class Solution &amp;#123;public:    bool checkValidString(st">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-24T08:01:10.800Z">
+<meta property="og:updated_time" content="2019-11-02T02:56:17.288Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode_678">
-<meta name="twitter:description" content="wazxser">
+<meta name="twitter:title" content="Leetcode 678. Valid Parenthesis String">
+<meta name="twitter:description" content="https://leetcode.com/problems/valid-parenthesis-string/ 题意：括号匹配，增加了星号可以作为左括号、右括号或者星号 代码： 1234567891011121314151617181920212223242526272829303132class Solution &amp;#123;public:    bool checkValidString(st">
 
 
 
@@ -134,7 +135,7 @@
 
 
 
-  <title>Leetcode_678 | Moon</title>
+  <title>Leetcode 678. Valid Parenthesis String | Moon</title>
   
 
 
@@ -324,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode_678</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode 678. Valid Parenthesis String</h1>
         
 
         <div class="post-meta">
@@ -346,6 +347,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Online-Judge/" itemprop="url" rel="index">
+                    <span itemprop="name">Online Judge</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,7 +396,12 @@
       
 
       
-        
+        <p><a href="https://leetcode.com/problems/valid-parenthesis-string/" target="_blank" rel="noopener">https://leetcode.com/problems/valid-parenthesis-string/</a></p>
+<p>题意：括号匹配，增加了星号可以作为左括号、右括号或者星号</p>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool checkValidString(string s) &#123;</span><br><span class="line">        <span class="keyword">if</span>(s.size() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> true;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; s.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] == <span class="string">'('</span> || s[i] == <span class="string">'*'</span>)</span><br><span class="line">                left++;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                left--;</span><br><span class="line">            <span class="keyword">if</span>(left &lt; <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> false;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(left == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> true;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(int i = s.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] == <span class="string">')'</span> || s[i] == <span class="string">'*'</span>)</span><br><span class="line">                right++;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                right--;</span><br><span class="line">            <span class="keyword">if</span>(right &lt; <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> false;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>下面这个代码真的好难理解，一个人刷题太难了，心累。。。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool checkValidString(string s) &#123;</span><br><span class="line">        <span class="keyword">if</span>(s.size() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> true;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; s.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] == <span class="string">'('</span>)&#123;</span><br><span class="line">                left++;</span><br><span class="line">                right++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i] == <span class="string">')'</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(left &gt; <span class="number">0</span>)</span><br><span class="line">                    left--;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(left &gt; <span class="number">0</span>)</span><br><span class="line">                    left--;</span><br><span class="line">                right++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(right &lt; <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> false;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> left == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -389,7 +417,7 @@
           </li>
           <li class="post-copyright-link">
             <strong>本文链接：</strong>
-            <a href="/2019/10/24/Leetcode-678/" title="Leetcode_678">2019/10/24/Leetcode-678/</a>
+            <a href="/2019/10/24/Leetcode-678/" title="Leetcode 678. Valid Parenthesis String">2019/10/24/Leetcode-678/</a>
           </li>
           <li class="post-copyright-license">
             <strong>版权声明： </strong>
@@ -405,6 +433,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+            <a href="/tags/medium/" rel="tag"># medium</a>
+          
+            <a href="/tags/string/" rel="tag"># string</a>
+          
+        </div>
       
 
       

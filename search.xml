@@ -6,9 +6,17 @@
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[Leetcode_678]]></title>
+    <title><![CDATA[Leetcode 678. Valid Parenthesis String]]></title>
     <url>%2F2019%2F10%2F24%2FLeetcode-678%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[https://leetcode.com/problems/valid-parenthesis-string/ 题意：括号匹配，增加了星号可以作为左括号、右括号或者星号 代码： 1234567891011121314151617181920212223242526272829303132class Solution &#123;public: bool checkValidString(string s) &#123; if(s.size() == 0)&#123; return true; &#125; int left = 0, right = 0; for(int i = 0; i &lt; s.size(); i++)&#123; if(s[i] == '(' || s[i] == '*') left++; else left--; if(left &lt; 0) return false; &#125; if(left == 0) return true; for(int i = s.size() - 1; i &gt;= 0; i--)&#123; if(s[i] == ')' || s[i] == '*') right++; else right--; if(right &lt; 0) return false; &#125; return true; &#125;&#125;; 下面这个代码真的好难理解，一个人刷题太难了，心累。。。123456789101112131415161718192021222324252627282930class Solution &#123;public: bool checkValidString(string s) &#123; if(s.size() == 0)&#123; return true; &#125; int left = 0, right = 0; for(int i = 0; i &lt; s.size(); i++)&#123; if(s[i] == '(')&#123; left++; right++; &#125; else if(s[i] == ')')&#123; if(left &gt; 0) left--; right--; &#125; else&#123; if(left &gt; 0) left--; right++; &#125; if(right &lt; 0) return false; &#125; return left == 0; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>medium</tag>
+        <tag>string</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Leetcode_132]]></title>
