@@ -6,10 +6,35 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wazxser.github.io/"/>
-  <updated>2019-11-03T14:28:11.907Z</updated>
+  <updated>2019-11-04T13:40:08.572Z</updated>
   <id>https://wazxser.github.io/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2019_被3整除</title>
+    <link href="https://wazxser.github.io/2019/11/04/2019-%E8%A2%AB3%E6%95%B4%E9%99%A4/"/>
+    <id>https://wazxser.github.io/2019/11/04/2019-被3整除/</id>
+    <published>2019-11-04T13:35:35.000Z</published>
+    <updated>2019-11-04T13:40:08.572Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://www.nowcoder.com/practice/51dcb4eef6004f6f8f44d927463ad5e8?tpId=98&amp;tqId=32825&amp;tPage=1&amp;rp=1&amp;ru=/ta/2019test&amp;qru=/ta/2019test/question-ranking" target="_blank" rel="noopener">https://www.nowcoder.com/practice/51dcb4eef6004f6f8f44d927463ad5e8?tpId=98&amp;tqId=32825&amp;tPage=1&amp;rp=1&amp;ru=/ta/2019test&amp;qru=/ta/2019test/question-ranking</a></p><p>如果一个数各个位上的数字之和能被3整除，那么这个数就能被3整除<br>严格来水，应该是求每位数字相加的和，但是这样做会复杂度过大，通过率70%<br>下面的代码是将组成该数字的每个字符串的数字相加，可以通过，不懂原因<br>还有各种找规律的解法。。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include &lt;cstdio&gt;</span></span><br><span class="line"><span class="comment">#include &lt;stdlib.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;string&gt;</span></span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">long long num(int i)&#123;</span><br><span class="line">    long long sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i)&#123;</span><br><span class="line">        sum += i % <span class="number">10</span>;</span><br><span class="line">        i = i / <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int l, r;</span><br><span class="line">    scanf(<span class="string">"%d %d"</span>, &amp;l, &amp;r);</span><br><span class="line">    int res = <span class="number">0</span>;</span><br><span class="line">    long long sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(int i = <span class="number">1</span>; i &lt; l; i++)&#123;</span><br><span class="line">        sum += i;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(int i = l; i &lt;= r; i++)&#123;</span><br><span class="line">        sum += i;</span><br><span class="line">        <span class="keyword">if</span>(!(sum % <span class="number">3</span>))&#123;</span><br><span class="line">            res++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(<span class="string">"%d\n"</span>, res);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://www.nowcoder.com/practice/51dcb4eef6004f6f8f44d927463ad5e8?tpId=98&amp;amp;tqId=32825&amp;amp;tPage=1&amp;amp;rp=1&amp;amp;ru=/ta/2019te
+      
+    
+    </summary>
+    
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="nowcoder" scheme="https://wazxser.github.io/tags/nowcoder/"/>
+    
+  </entry>
   
   <entry>
     <title>Hdu 2045. 涂色问题</title>
@@ -470,35 +495,6 @@
       <category term="more solutions" scheme="https://wazxser.github.io/tags/more-solutions/"/>
     
       <category term="string" scheme="https://wazxser.github.io/tags/string/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode 92. Reverse Linked List II</title>
-    <link href="https://wazxser.github.io/2019/10/24/Leetcode-92/"/>
-    <id>https://wazxser.github.io/2019/10/24/Leetcode-92/</id>
-    <published>2019-10-24T07:58:02.000Z</published>
-    <updated>2019-10-24T11:30:52.865Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/reverse-linked-list-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/reverse-linked-list-ii/</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> singly-linked list.</span><br><span class="line"> * struct ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode *next;</span><br><span class="line"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    ListNode* reverseBetween(ListNode* head, int m, int n) &#123;</span><br><span class="line">        ListNode *dummy = new ListNode(<span class="number">-1</span>);</span><br><span class="line">        ListNode *pre = dummy;</span><br><span class="line">        dummy-&gt;next = head;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; m<span class="number">-1</span>; i++)&#123;</span><br><span class="line">            pre = pre-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode *cur = pre-&gt;next;</span><br><span class="line">        <span class="keyword">for</span>(int i = m; i &lt; n; i++)&#123;</span><br><span class="line">            ListNode*t = cur-&gt;next;</span><br><span class="line">            cur-&gt;next = t-&gt;next;</span><br><span class="line">            t-&gt;next = pre-&gt;next;</span><br><span class="line">            pre-&gt;next = t;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        return dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/reverse-linked-list-ii/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/reverse-link
-      
-    
-    </summary>
-    
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-      <category term="medium" scheme="https://wazxser.github.io/tags/medium/"/>
-    
-      <category term="List" scheme="https://wazxser.github.io/tags/List/"/>
     
   </entry>
   
