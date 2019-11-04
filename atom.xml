@@ -6,22 +6,95 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wazxser.github.io/"/>
-  <updated>2019-10-24T08:01:16.541Z</updated>
+  <updated>2019-11-03T14:28:11.907Z</updated>
   <id>https://wazxser.github.io/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Leetcode_446</title>
-    <link href="https://wazxser.github.io/2019/10/24/Leetcode-446/"/>
-    <id>https://wazxser.github.io/2019/10/24/Leetcode-446/</id>
-    <published>2019-10-24T08:01:16.000Z</published>
-    <updated>2019-10-24T08:01:16.541Z</updated>
+    <title>Hdu 2045. 涂色问题</title>
+    <link href="https://wazxser.github.io/2019/11/03/Hdu-2045/"/>
+    <id>https://wazxser.github.io/2019/11/03/Hdu-2045/</id>
+    <published>2019-11-03T14:26:39.000Z</published>
+    <updated>2019-11-03T14:28:11.907Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=2045" target="_blank" rel="noopener">http://acm.hdu.edu.cn/showproblem.php?pid=2045</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;cstdio&gt;</span></span><br><span class="line"></span><br><span class="line">//题意：三种颜色涂色，相邻不同颜色，首尾不同色，多少种涂色方案</span><br><span class="line">//看成一个环，相邻不同色</span><br><span class="line"></span><br><span class="line">typedef long long ll;</span><br><span class="line">ll dp[<span class="number">55</span>];</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    dp[<span class="number">1</span>] = <span class="number">3</span>;</span><br><span class="line">    dp[<span class="number">2</span>] = <span class="number">6</span>;</span><br><span class="line">    dp[<span class="number">3</span>] = <span class="number">6</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(int i = <span class="number">4</span>; i &lt; <span class="number">55</span>; i++)&#123;</span><br><span class="line">        dp[i] = dp[i<span class="number">-1</span>] + <span class="number">2</span>*dp[i<span class="number">-2</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    int n;</span><br><span class="line">    <span class="keyword">while</span>(~scanf(<span class="string">"%d"</span>, &amp;n))&#123;</span><br><span class="line">        printf(<span class="string">"%lld\n"</span>, dp[n]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;&lt;a href=&quot;http://acm.hdu.edu.cn/showproblem.php?pid=2045&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://acm.hdu.edu.cn/showproblem.php?pid=2045&lt;/a
+      
+    
     </summary>
     
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="hdu" scheme="https://wazxser.github.io/tags/hdu/"/>
+    
+      <category term="DP" scheme="https://wazxser.github.io/tags/DP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode 413. Arithmetic Slices</title>
+    <link href="https://wazxser.github.io/2019/11/03/Leetcode-413/"/>
+    <id>https://wazxser.github.io/2019/11/03/Leetcode-413/</id>
+    <published>2019-11-03T07:25:20.000Z</published>
+    <updated>2019-11-03T09:22:24.765Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/arithmetic-slices/" target="_blank" rel="noopener">https://leetcode.com/problems/arithmetic-slices/</a></p><p>题意：给定一个数组，求该数组中等差数列的子数组的个数</p><p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int numberOfArithmeticSlices(vector&lt;int&gt;&amp; A) &#123;</span><br><span class="line">        <span class="keyword">if</span>(A.size() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int res = <span class="number">0</span>, cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">2</span>; i &lt; A.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(A[i] - A[i<span class="number">-1</span>] == A[i<span class="number">-1</span>] - A[i<span class="number">-2</span>])&#123;</span><br><span class="line">                cnt++;</span><br><span class="line">                res += cnt;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                cnt = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/arithmetic-slices/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/arithmetic-slices
+      
+    
+    </summary>
+    
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="DP" scheme="https://wazxser.github.io/tags/DP/"/>
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+      <category term="medium" scheme="https://wazxser.github.io/tags/medium/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode 446. Arithmetic Slices II - Subsequence</title>
+    <link href="https://wazxser.github.io/2019/10/24/Leetcode-446/"/>
+    <id>https://wazxser.github.io/2019/10/24/Leetcode-446/</id>
+    <published>2019-10-24T08:01:16.000Z</published>
+    <updated>2019-11-03T14:10:59.896Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/arithmetic-slices-ii-subsequence/" target="_blank" rel="noopener">https://leetcode.com/problems/arithmetic-slices-ii-subsequence/</a></p><p>题意：求一个数组中能够组成等差数列的的组合的个数</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int numberOfArithmeticSlices(vector&lt;int&gt;&amp; A) &#123;</span><br><span class="line">        int res = <span class="number">0</span>, size = A.size();</span><br><span class="line">        vector&lt;unordered_map&lt;int, int&gt; &gt; dp(size);</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; size; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(int j = <span class="number">0</span>; j &lt; i; j++)&#123;</span><br><span class="line">                long delta = (long) A[i] - (long) A[j];</span><br><span class="line">                <span class="keyword">if</span>(delta &gt; INT_MAX || delta &lt; INT_MIN)</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                int diff = (int) delta;</span><br><span class="line">                ++dp[i][diff];</span><br><span class="line">                <span class="keyword">if</span>(dp[j].count(diff))&#123;</span><br><span class="line">                    res += dp[j][diff];</span><br><span class="line">                    dp[i][diff] += dp[j][diff];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/arithmetic-slices-ii-subsequence/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/ar
+      
+    
+    </summary>
+    
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="DP" scheme="https://wazxser.github.io/tags/DP/"/>
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+      <category term="medium" scheme="https://wazxser.github.io/tags/medium/"/>
+    
+      <category term="hard" scheme="https://wazxser.github.io/tags/hard/"/>
     
   </entry>
   
@@ -244,11 +317,11 @@
       <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
     
     
+      <category term="DP" scheme="https://wazxser.github.io/tags/DP/"/>
+    
       <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
     
       <category term="easy" scheme="https://wazxser.github.io/tags/easy/"/>
-    
-      <category term="DP" scheme="https://wazxser.github.io/tags/DP/"/>
     
   </entry>
   
@@ -426,64 +499,6 @@
       <category term="medium" scheme="https://wazxser.github.io/tags/medium/"/>
     
       <category term="List" scheme="https://wazxser.github.io/tags/List/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode 152. Maximum Product Subarray</title>
-    <link href="https://wazxser.github.io/2019/10/24/Leetcode-152/"/>
-    <id>https://wazxser.github.io/2019/10/24/Leetcode-152/</id>
-    <published>2019-10-24T07:57:51.000Z</published>
-    <updated>2019-10-24T11:20:21.013Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/maximum-product-subarray/" target="_blank" rel="noopener">https://leetcode.com/problems/maximum-product-subarray/</a></p><p>题意：求数组中连续最大的乘积，和连续最大的和相似，但是要考虑到负号的问题</p><p>思路：这里解法是正着和倒着各遍历一遍，就是最终的结果</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int maxProduct(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int res = nums[<span class="number">0</span>], prod = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; nums.size(); i++)&#123;</span><br><span class="line">            res = max(res, prod *= nums[i]);</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == <span class="number">0</span>)&#123;</span><br><span class="line">                prod = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        prod = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(int i = nums.size()<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">            res = max(res, prod *= nums[i]);</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == <span class="number">0</span>)&#123;</span><br><span class="line">                prod = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/maximum-product-subarray/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/maximum-pr
-      
-    
-    </summary>
-    
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-      <category term="medium" scheme="https://wazxser.github.io/tags/medium/"/>
-    
-      <category term="more solutions" scheme="https://wazxser.github.io/tags/more-solutions/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode 239. Sliding Window Maximum</title>
-    <link href="https://wazxser.github.io/2019/10/24/Leetcode-239/"/>
-    <id>https://wazxser.github.io/2019/10/24/Leetcode-239/</id>
-    <published>2019-10-24T07:57:43.000Z</published>
-    <updated>2019-10-24T10:55:42.158Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/sliding-window-maximum/" target="_blank" rel="noopener">https://leetcode.com/problems/sliding-window-maximum/</a></p><p>题意： 给出每个滑动窗口的最大值</p><p>思路：用原始暴力的方法可以AC。。。</p><p>这道题还有很多解法，堆，栈等。。。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;&amp; nums, int k) &#123;</span><br><span class="line">        vector&lt;int&gt; res;</span><br><span class="line">        <span class="keyword">if</span>(nums.size() == <span class="number">0</span> || k == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt;= nums.size() - k; i++)&#123;</span><br><span class="line">            int temp = nums[i];</span><br><span class="line">            <span class="keyword">for</span>(int j = i; j &lt; i + k; j++)&#123;</span><br><span class="line">                temp = max(temp, nums[j]);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            res.push_back(temp);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/sliding-window-maximum/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/sliding-wind
-      
-    
-    </summary>
-    
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-      <category term="hard" scheme="https://wazxser.github.io/tags/hard/"/>
-    
-      <category term="more solutions" scheme="https://wazxser.github.io/tags/more-solutions/"/>
     
   </entry>
   
