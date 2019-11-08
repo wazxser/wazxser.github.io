@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="DP,leetcode,hard," />
 
 
 
@@ -88,17 +88,18 @@
 
 
 
-<meta name="description" content="wazxser">
+<meta name="description" content="https://leetcode.com/problems/palindrome-partitioning-ii/ 代码：1234567891011121314151617181920212223class Solution &amp;#123;public:    int minCut(string s) &amp;#123;        int n = s.size();        if(!n)&amp;#12">
+<meta name="keywords" content="DP,leetcode,hard">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode_132">
+<meta property="og:title" content="Leetcode 132. Palindrome Partitioning II">
 <meta property="og:url" content="https://wazxser.github.io/2019/10/24/Leetcode-132/index.html">
 <meta property="og:site_name" content="Moon">
-<meta property="og:description" content="wazxser">
+<meta property="og:description" content="https://leetcode.com/problems/palindrome-partitioning-ii/ 代码：1234567891011121314151617181920212223class Solution &amp;#123;public:    int minCut(string s) &amp;#123;        int n = s.size();        if(!n)&amp;#12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-24T08:01:04.740Z">
+<meta property="og:updated_time" content="2019-11-08T08:09:07.597Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode_132">
-<meta name="twitter:description" content="wazxser">
+<meta name="twitter:title" content="Leetcode 132. Palindrome Partitioning II">
+<meta name="twitter:description" content="https://leetcode.com/problems/palindrome-partitioning-ii/ 代码：1234567891011121314151617181920212223class Solution &amp;#123;public:    int minCut(string s) &amp;#123;        int n = s.size();        if(!n)&amp;#12">
 
 
 
@@ -134,7 +135,7 @@
 
 
 
-  <title>Leetcode_132 | Moon</title>
+  <title>Leetcode 132. Palindrome Partitioning II | Moon</title>
   
 
 
@@ -324,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode_132</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode 132. Palindrome Partitioning II</h1>
         
 
         <div class="post-meta">
@@ -346,6 +347,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Online-Judge/" itemprop="url" rel="index">
+                    <span itemprop="name">Online Judge</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,7 +396,9 @@
       
 
       
-        
+        <p><a href="https://leetcode.com/problems/palindrome-partitioning-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/palindrome-partitioning-ii/</a></p>
+<p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int minCut(string s) &#123;</span><br><span class="line">        int n = s.size();</span><br><span class="line">        <span class="keyword">if</span>(!n)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;vector&lt;bool&gt;&gt; judge(n, vector&lt;bool&gt;(n, false));</span><br><span class="line">        vector&lt;int&gt; dp(n);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            dp[i] = i;</span><br><span class="line">            <span class="keyword">for</span>(int j = <span class="number">0</span>; j &lt;= i; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(s[j] == s[i] &amp;&amp; (i - j &lt;= <span class="number">2</span> || judge[j+<span class="number">1</span>][i<span class="number">-1</span>]))&#123;</span><br><span class="line">                    judge[j][i] = true;</span><br><span class="line">                    dp[i] = (j == 0) ? 0 : min(dp[i], dp[j-1] + 1);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">                   </span><br><span class="line">        <span class="keyword">return</span> dp[n<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -389,7 +414,7 @@
           </li>
           <li class="post-copyright-link">
             <strong>本文链接：</strong>
-            <a href="/2019/10/24/Leetcode-132/" title="Leetcode_132">2019/10/24/Leetcode-132/</a>
+            <a href="/2019/10/24/Leetcode-132/" title="Leetcode 132. Palindrome Partitioning II">2019/10/24/Leetcode-132/</a>
           </li>
           <li class="post-copyright-license">
             <strong>版权声明： </strong>
@@ -405,6 +430,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DP/" rel="tag"># DP</a>
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+            <a href="/tags/hard/" rel="tag"># hard</a>
+          
+        </div>
       
 
       
