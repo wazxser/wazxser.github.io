@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="leetcode,Tree,easy," />
 
 
 
@@ -88,17 +88,18 @@
 
 
 
-<meta name="description" content="wazxser">
+<meta name="description" content="https://leetcode.com/problems/path-sum-iii/ 123456789101112131415161718192021222324252627282930313233343536373839/** * Definition for a binary tree node. * struct TreeNode &amp;#123; *     int val; *">
+<meta name="keywords" content="leetcode,Tree,easy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode_437">
+<meta property="og:title" content="Leetcode 437. Path Sum III">
 <meta property="og:url" content="https://wazxser.github.io/2019/10/24/Leetcode-437/index.html">
 <meta property="og:site_name" content="Moon">
-<meta property="og:description" content="wazxser">
+<meta property="og:description" content="https://leetcode.com/problems/path-sum-iii/ 123456789101112131415161718192021222324252627282930313233343536373839/** * Definition for a binary tree node. * struct TreeNode &amp;#123; *     int val; *">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-24T08:00:59.469Z">
+<meta property="og:updated_time" content="2019-11-09T07:30:12.418Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode_437">
-<meta name="twitter:description" content="wazxser">
+<meta name="twitter:title" content="Leetcode 437. Path Sum III">
+<meta name="twitter:description" content="https://leetcode.com/problems/path-sum-iii/ 123456789101112131415161718192021222324252627282930313233343536373839/** * Definition for a binary tree node. * struct TreeNode &amp;#123; *     int val; *">
 
 
 
@@ -134,7 +135,7 @@
 
 
 
-  <title>Leetcode_437 | Moon</title>
+  <title>Leetcode 437. Path Sum III | Moon</title>
   
 
 
@@ -324,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Leetcode_437</h1>
+          <h1 class="post-title" itemprop="name headline">Leetcode 437. Path Sum III</h1>
         
 
         <div class="post-meta">
@@ -346,6 +347,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Online-Judge/" itemprop="url" rel="index">
+                    <span itemprop="name">Online Judge</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -373,7 +396,9 @@
       
 
       
-        
+        <p><a href="https://leetcode.com/problems/path-sum-iii/" target="_blank" rel="noopener">https://leetcode.com/problems/path-sum-iii/</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition <span class="keyword">for</span> a binary tree node.</span><br><span class="line"> * struct TreeNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     TreeNode *left;</span><br><span class="line"> *     TreeNode *right;</span><br><span class="line"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span><br><span class="line"> * &#125;;</span><br><span class="line"> */</span><br><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int pathSum(TreeNode* root, int sum) &#123;</span><br><span class="line">        int res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(!root)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        int temp = <span class="number">0</span>;</span><br><span class="line">        dfs(root, sum, res, temp);</span><br><span class="line">        </span><br><span class="line">        res += pathSum(root-&gt;left, sum) + pathSum(root-&gt;right, sum);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    void dfs(TreeNode * root, int &amp; sum, int &amp; res, int temp)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root)&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        temp += root-&gt;val;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(temp == sum)&#123;</span><br><span class="line">            res++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        dfs(root-&gt;left, sum, res, temp);</span><br><span class="line">        dfs(root-&gt;right, sum, res, temp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -389,7 +414,7 @@
           </li>
           <li class="post-copyright-link">
             <strong>本文链接：</strong>
-            <a href="/2019/10/24/Leetcode-437/" title="Leetcode_437">2019/10/24/Leetcode-437/</a>
+            <a href="/2019/10/24/Leetcode-437/" title="Leetcode 437. Path Sum III">2019/10/24/Leetcode-437/</a>
           </li>
           <li class="post-copyright-license">
             <strong>版权声明： </strong>
@@ -405,6 +430,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+            <a href="/tags/Tree/" rel="tag"># Tree</a>
+          
+            <a href="/tags/easy/" rel="tag"># easy</a>
+          
+        </div>
       
 
       
