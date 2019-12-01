@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Leetcode 72. Edit Distance]]></title>
+    <url>%2F2019%2F12%2F01%2FLeetcode-72%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/edit-distance/ 递归：123456789101112131415161718192021222324252627282930313233343536373839404142434445class Solution &#123;public: int minDistance(string word1, string word2) &#123; if(word1.size() == 0)&#123; return word2.size(); &#125; if(word2.size() == 0)&#123; return word1.size(); &#125; int m = word1.size(); int n = word2.size(); vector&lt;vector&lt;int&gt; &gt; arr(m, vector&lt;int&gt;(n, 0)); return dfs(word1, 0, word2, 0, arr); &#125; int dfs(string &amp; word1, int i, string &amp; word2, int j, vector&lt;vector&lt;int&gt; &gt; &amp; arr)&#123; if(i == word1.size()) return word2.size() - j; if(j == word2.size()) return word1.size() - i; if(arr[i][j]) return arr[i][j]; int res = 0; if(word1[i] == word2[j])&#123; return dfs(word1, i+1, word2, j+1, arr); &#125; else&#123; int insert_cnt = dfs(word1, i, word2, j+1, arr); int delete_cnt = dfs(word1, i+1, word2, j, arr); int replace_cnt = dfs(word1, i+1, word2, j+1, arr); res = min(insert_cnt, min(delete_cnt, replace_cnt)) + 1; &#125; arr[i][j] = res; return res; &#125;&#125;; 动态规划1234567891011121314151617181920212223242526272829303132333435class Solution &#123;public: int minDistance(string word1, string word2) &#123; if(word1.size() == 0)&#123; return word2.size(); &#125; if(word2.size() == 0)&#123; return word1.size(); &#125; int m = word1.size(); int n = word2.size(); vector&lt;vector&lt;int&gt; &gt; dp(m+1, vector&lt;int&gt;(n+1)); for(int i = 0; i &lt;= m; i++) dp[i][0] = i; for(int j = 0; j &lt;= n; j++) dp[0][j] = j; for(int i = 1; i &lt;= m; i++)&#123; for(int j = 1; j &lt;= n; j++)&#123; if(word1[i - 1] == word2[j - 1])&#123; dp[i][j] = dp[i-1][j-1]; &#125; else&#123; dp[i][j] = min(dp[i-1][j-1], min(dp[i-1][j], dp[i][j-1])) + 1; &#125; &#125; &#125; return dp[m][n]; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>hard</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Leetcode 42. Trapping Rain Water]]></title>
+    <url>%2F2019%2F12%2F01%2FLeetcode-42%2F</url>
+    <content type="text"><![CDATA[https://leetcode.com/problems/trapping-rain-water/ 第一种解法是单调栈 1234567891011121314151617181920212223242526272829303132class Solution &#123;public: int trap(vector&lt;int&gt;&amp; height) &#123; // 边界情况判定 if(height.size() &lt; 2)&#123; return 0; &#125; stack&lt;int&gt; s; int res = 0; int cur = 0; while(cur &lt; height.size())&#123; //栈内的元素是单调递增的 while(!s.empty() &amp;&amp; height[cur] &gt; height[s.top()])&#123; // 当遍历的到元素比当前栈顶元素值大时，计算此时的蓄水量 int top = s.top(); s.pop(); if(s.empty())&#123; break; &#125; int dist = cur - s.top() - 1; int bound = min(height[cur], height[s.top()]) - height[top]; res += dist * bound; &#125; s.push(cur++); &#125; return res; &#125;&#125;; 第二种解法是双指针 1234567891011121314151617181920212223242526class Solution &#123;public: int trap(vector&lt;int&gt;&amp; height) &#123; if(height.size() &lt; 2)&#123; return 0; &#125; int res = 0; int length = height.size(); // 分别从头和尾开始的指针 int left = 0, right = length - 1; int left_max = 0, right_max = 0; while(left &lt; right)&#123; if(height[left] &lt; height[right])&#123; height[left] &gt;= left_max ? left_max = height[left] : res += left_max - height[left]; left++; &#125; else&#123; height[right] &gt;= right_max ? right_max = height[right] : res += right_max - height[right]; right--; &#125; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>hard</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[2019_被3整除]]></title>
     <url>%2F2019%2F11%2F04%2F2019-%E8%A2%AB3%E6%95%B4%E9%99%A4%2F</url>
     <content type="text"><![CDATA[https://www.nowcoder.com/practice/51dcb4eef6004f6f8f44d927463ad5e8?tpId=98&amp;tqId=32825&amp;tPage=1&amp;rp=1&amp;ru=/ta/2019test&amp;qru=/ta/2019test/question-ranking 如果一个数各个位上的数字之和能被3整除，那么这个数就能被3整除严格来水，应该是求每位数字相加的和，但是这样做会复杂度过大，通过率70%下面的代码是将组成该数字的每个字符串的数字相加，可以通过，不懂原因还有各种找规律的解法。。 1234567891011121314151617181920212223242526272829303132333435363738#include &lt;iostream&gt;#include &lt;cstdio&gt;#include &lt;stdlib.h&gt;#include &lt;string&gt;using namespace std;long long num(int i)&#123; long long sum = 0; while(i)&#123; sum += i % 10; i = i / 10; &#125; return sum;&#125;int main()&#123; int l, r; scanf("%d %d", &amp;l, &amp;r); int res = 0; long long sum = 0; for(int i = 1; i &lt; l; i++)&#123; sum += i; &#125; for(int i = l; i &lt;= r; i++)&#123; sum += i; if(!(sum % 3))&#123; res++; &#125; &#125; printf("%d\n", res); return 0;&#125;]]></content>
@@ -282,8 +306,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>medium</tag>
         <tag>DFS</tag>
+        <tag>medium</tag>
       </tags>
   </entry>
   <entry>
@@ -309,8 +333,8 @@
       <tags>
         <tag>leetcode</tag>
         <tag>hard</tag>
-        <tag>Data structure</tag>
         <tag>more solutions</tag>
+        <tag>Data structure</tag>
       </tags>
   </entry>
   <entry>
@@ -778,6 +802,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[POJ2251DungeonMaster]]></title>
+    <url>%2F2018%2F08%2F15%2FPOJ2251DungeonMaster%2F</url>
+    <content type="text"><![CDATA[kuangbin带你飞专题 题目POJ1321You are trapped in a 3D dungeon and need to find the quickest way out! The dungeon is composed of unit cubes which may or may not be filled with rock. It takes one minute to move one unit north, south, east, west, up or down. You cannot move diagonally and the maze is surrounded by solid rock on all sides. Is an escape possible? If yes, how long will it take? InputThe input consists of a number of dungeons. Each dungeon description starts with a line containing three integers L, R and C (all limited to 30 in size).L is the number of levels making up the dungeon.R and C are the number of rows and columns making up the plan of each level.Then there will follow L blocks of R lines each containing C characters. Each character describes one cell of the dungeon. A cell full of rock is indicated by a ‘#’ and empty cells are represented by a ‘.’. Your starting position is indicated by ‘S’ and the exit by the letter ‘E’. There’s a single blank line after each level. Input is terminated by three zeroes for L, R and C. OutputEach maze generates one line of output. If it is possible to reach the exit, print a line of the formEscaped in x minute(s). where x is replaced by the shortest time it takes to escape.If it is not possible to escape, print the lineTrapped! Sample Input123456789101112131415161718192021223 4 5S.....###..##..###.#############.####...###########.#######E1 3 3S###E####0 0 0 Sample Output12Escaped in 11 minute(s).Trapped! 思路题意大致是一个三层迷宫，从出发点S到终点E，求最少时间，考虑广搜求解最优解问题，使用队列保存每步的坐标，每次移动有6种情况可以用一个二维数组来表示，设一个visit数组来表示到每个位置的最少时间，每次都是以能够到达该位置的前一个位置的最少时间+1来更新。 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include &lt;iostream&gt;#include &lt;cstdio&gt;//#include &lt;memory.h&gt;using namespace std;int n, k;char pan[10][10];int row[10];int col[10];int sum;int res;void dfs(int sum, int a)&#123; if(sum == k)&#123; res++; return; &#125; for(int i = a; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(pan[i][j] == '#' &amp;&amp; !row[i] &amp;&amp; !col[j])&#123; row[i] = 1; col[j] = 1; dfs(sum+1, i+1); row[i] = 0; col[j] = 0; &#125; &#125; &#125;&#125;int main()&#123; while(scanf("%d %d", &amp;n, &amp;k) &amp;&amp; n != -1)&#123; //memset(row, 0, sizeof(row)); //memset(col, 0, sizeof(col)); for(int i = 0; i &lt; n; i++)&#123; row[i] = col[i] = 0; &#125; res = 0; for(int i = 0; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; scanf(" %c", &amp;pan[i][j]); &#125; &#125; dfs(0, 0); printf("%d\n", res); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>kuangbin带你飞 专题一 简单搜索</tag>
+        <tag>BFS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[POJ1321棋盘问题]]></title>
     <url>%2F2018%2F08%2F15%2FPOJ1321%E6%A3%8B%E7%9B%98%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[kuangbin带你飞专题 题目POJ1321在一个给定形状的棋盘（形状可能是不规则的）上面摆放棋子，棋子没有区别。要求摆放时任意的两个棋子不能放在棋盘中的同一行或者同一列，请编程求解对于给定形状和大小的棋盘，摆放k个棋子的所有可行的摆放方案C。 Input输入含有多组测试数据。每组数据的第一行是两个正整数，n k，用一个空格隔开，表示了将在一个n*n的矩阵内描述棋盘，以及摆放棋子的数目。 n &lt;= 8 , k &lt;= n当为-1 -1时表示输入结束。随后的n行描述了棋盘的形状：每行有n个字符，其中 # 表示棋盘区域， . 表示空白区域（数据保证不出现多余的空白行或者空白列）。 Output对于每一组数据，给出一行输出，输出摆放的方案数目C （数据保证C&lt;2^31）。 Sample Input1234567892 1#..#4 4...#..#..#..#...-1 -1 Sample Output1221 思路深搜，回溯 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include &lt;iostream&gt;#include &lt;cstdio&gt;//#include &lt;memory.h&gt;using namespace std;int n, k;char pan[10][10];int row[10];int col[10];int sum;int res;void dfs(int sum, int a)&#123; if(sum == k)&#123; res++; return; &#125; for(int i = a; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(pan[i][j] == '#' &amp;&amp; !row[i] &amp;&amp; !col[j])&#123; row[i] = 1; col[j] = 1; dfs(sum+1, i+1); row[i] = 0; col[j] = 0; &#125; &#125; &#125;&#125;int main()&#123; while(scanf("%d %d", &amp;n, &amp;k) &amp;&amp; n != -1)&#123; //memset(row, 0, sizeof(row)); //memset(col, 0, sizeof(col)); for(int i = 0; i &lt; n; i++)&#123; row[i] = col[i] = 0; &#125; res = 0; for(int i = 0; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; scanf(" %c", &amp;pan[i][j]); &#125; &#125; dfs(0, 0); printf("%d\n", res); &#125; return 0;&#125;]]></content>
@@ -788,18 +824,6 @@
         <tag>DFS</tag>
         <tag>POJ</tag>
         <tag>kuangbin带你飞 专题一 简单搜索</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[POJ2251DungeonMaster]]></title>
-    <url>%2F2018%2F08%2F15%2FPOJ2251DungeonMaster%2F</url>
-    <content type="text"><![CDATA[kuangbin带你飞专题 题目POJ1321You are trapped in a 3D dungeon and need to find the quickest way out! The dungeon is composed of unit cubes which may or may not be filled with rock. It takes one minute to move one unit north, south, east, west, up or down. You cannot move diagonally and the maze is surrounded by solid rock on all sides. Is an escape possible? If yes, how long will it take? InputThe input consists of a number of dungeons. Each dungeon description starts with a line containing three integers L, R and C (all limited to 30 in size).L is the number of levels making up the dungeon.R and C are the number of rows and columns making up the plan of each level.Then there will follow L blocks of R lines each containing C characters. Each character describes one cell of the dungeon. A cell full of rock is indicated by a ‘#’ and empty cells are represented by a ‘.’. Your starting position is indicated by ‘S’ and the exit by the letter ‘E’. There’s a single blank line after each level. Input is terminated by three zeroes for L, R and C. OutputEach maze generates one line of output. If it is possible to reach the exit, print a line of the formEscaped in x minute(s). where x is replaced by the shortest time it takes to escape.If it is not possible to escape, print the lineTrapped! Sample Input123456789101112131415161718192021223 4 5S.....###..##..###.#############.####...###########.#######E1 3 3S###E####0 0 0 Sample Output12Escaped in 11 minute(s).Trapped! 思路题意大致是一个三层迷宫，从出发点S到终点E，求最少时间，考虑广搜求解最优解问题，使用队列保存每步的坐标，每次移动有6种情况可以用一个二维数组来表示，设一个visit数组来表示到每个位置的最少时间，每次都是以能够到达该位置的前一个位置的最少时间+1来更新。 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include &lt;iostream&gt;#include &lt;cstdio&gt;//#include &lt;memory.h&gt;using namespace std;int n, k;char pan[10][10];int row[10];int col[10];int sum;int res;void dfs(int sum, int a)&#123; if(sum == k)&#123; res++; return; &#125; for(int i = a; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(pan[i][j] == '#' &amp;&amp; !row[i] &amp;&amp; !col[j])&#123; row[i] = 1; col[j] = 1; dfs(sum+1, i+1); row[i] = 0; col[j] = 0; &#125; &#125; &#125;&#125;int main()&#123; while(scanf("%d %d", &amp;n, &amp;k) &amp;&amp; n != -1)&#123; //memset(row, 0, sizeof(row)); //memset(col, 0, sizeof(col)); for(int i = 0; i &lt; n; i++)&#123; row[i] = col[i] = 0; &#125; res = 0; for(int i = 0; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; scanf(" %c", &amp;pan[i][j]); &#125; &#125; dfs(0, 0); printf("%d\n", res); &#125; return 0;&#125;]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>kuangbin带你飞 专题一 简单搜索</tag>
-        <tag>BFS</tag>
       </tags>
   </entry>
   <entry>

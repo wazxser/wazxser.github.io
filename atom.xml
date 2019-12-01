@@ -6,10 +6,64 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wazxser.github.io/"/>
-  <updated>2019-11-04T13:40:08.572Z</updated>
+  <updated>2019-12-01T09:05:50.415Z</updated>
   <id>https://wazxser.github.io/</id>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Leetcode 72. Edit Distance</title>
+    <link href="https://wazxser.github.io/2019/12/01/Leetcode-72/"/>
+    <id>https://wazxser.github.io/2019/12/01/Leetcode-72/</id>
+    <published>2019-12-01T08:57:04.000Z</published>
+    <updated>2019-12-01T09:05:50.415Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/edit-distance/" target="_blank" rel="noopener">https://leetcode.com/problems/edit-distance/</a></p><p>递归：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int minDistance(string word1, string word2) &#123;</span><br><span class="line">        <span class="keyword">if</span>(word1.size() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> word2.size();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(word2.size() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> word1.size();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int m = word1.size();</span><br><span class="line">        int n = word2.size();</span><br><span class="line">        </span><br><span class="line">        vector&lt;vector&lt;int&gt; &gt; arr(m, vector&lt;int&gt;(n, <span class="number">0</span>));</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> dfs(word1, <span class="number">0</span>, word2, <span class="number">0</span>, arr);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int dfs(string &amp; word1, int i, string &amp; word2, int j, vector&lt;vector&lt;int&gt; &gt; &amp; arr)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i == word1.size())</span><br><span class="line">            <span class="keyword">return</span> word2.size() - j;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(j == word2.size())</span><br><span class="line">            <span class="keyword">return</span> word1.size() - i;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(arr[i][j])</span><br><span class="line">            <span class="keyword">return</span> arr[i][j];</span><br><span class="line">        </span><br><span class="line">        int res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(word1[i] == word2[j])&#123;</span><br><span class="line">            <span class="keyword">return</span> dfs(word1, i+<span class="number">1</span>, word2, j+<span class="number">1</span>, arr);    </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            int insert_cnt = dfs(word1, i, word2, j+<span class="number">1</span>, arr);</span><br><span class="line">            int delete_cnt = dfs(word1, i+<span class="number">1</span>, word2, j, arr);</span><br><span class="line">            int replace_cnt = dfs(word1, i+<span class="number">1</span>, word2, j+<span class="number">1</span>, arr);</span><br><span class="line">            </span><br><span class="line">            res = min(insert_cnt, min(delete_cnt, replace_cnt)) + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        arr[i][j] = res;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><p>动态规划<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int minDistance(string word1, string word2) &#123;</span><br><span class="line">        <span class="keyword">if</span>(word1.size() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> word2.size();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(word2.size() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> word1.size();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int m = word1.size();</span><br><span class="line">        int n = word2.size();</span><br><span class="line">        </span><br><span class="line">        vector&lt;vector&lt;int&gt; &gt; dp(m+<span class="number">1</span>, vector&lt;int&gt;(n+<span class="number">1</span>));</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt;= m; i++)</span><br><span class="line">            dp[i][<span class="number">0</span>] = i;</span><br><span class="line">        <span class="keyword">for</span>(int j = <span class="number">0</span>; j &lt;= n; j++)</span><br><span class="line">            dp[<span class="number">0</span>][j] = j;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">1</span>; i &lt;= m; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(int j = <span class="number">1</span>; j &lt;= n; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(word1[i - <span class="number">1</span>] == word2[j - <span class="number">1</span>])&#123;</span><br><span class="line">                    dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[i][j] = min(dp[i<span class="number">-1</span>][j<span class="number">-1</span>], min(dp[i<span class="number">-1</span>][j], dp[i][j<span class="number">-1</span>])) + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/edit-distance/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/edit-distance/&lt;/a&gt;&lt;/p
+      
+    
+    </summary>
+    
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+      <category term="hard" scheme="https://wazxser.github.io/tags/hard/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Leetcode 42. Trapping Rain Water</title>
+    <link href="https://wazxser.github.io/2019/12/01/Leetcode-42/"/>
+    <id>https://wazxser.github.io/2019/12/01/Leetcode-42/</id>
+    <published>2019-12-01T08:25:31.000Z</published>
+    <updated>2019-12-01T08:38:41.473Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/trapping-rain-water/" target="_blank" rel="noopener">https://leetcode.com/problems/trapping-rain-water/</a></p><p>第一种解法是单调栈</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int trap(vector&lt;int&gt;&amp; height) &#123;</span><br><span class="line">        // 边界情况判定</span><br><span class="line">        <span class="keyword">if</span>(height.size() &lt; <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        stack&lt;int&gt; s;</span><br><span class="line">        int res = <span class="number">0</span>;</span><br><span class="line">        int cur = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(cur &lt; height.size())&#123;</span><br><span class="line">            //栈内的元素是单调递增的</span><br><span class="line">            <span class="keyword">while</span>(!s.empty() &amp;&amp; height[cur] &gt; height[s.top()])&#123;</span><br><span class="line">                // 当遍历的到元素比当前栈顶元素值大时，计算此时的蓄水量</span><br><span class="line">                int top = s.top();</span><br><span class="line">                s.pop();</span><br><span class="line">                <span class="keyword">if</span>(s.empty())&#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                int dist = cur - s.top() - <span class="number">1</span>;</span><br><span class="line">                int bound = min(height[cur], height[s.top()]) - height[top];</span><br><span class="line">                </span><br><span class="line">                res += dist * bound;</span><br><span class="line">            &#125;</span><br><span class="line">            s.push(cur++);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>第二种解法是双指针</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int trap(vector&lt;int&gt;&amp; height) &#123;</span><br><span class="line">        <span class="keyword">if</span>(height.size() &lt; <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        int res = <span class="number">0</span>;</span><br><span class="line">        int length = height.size();</span><br><span class="line">        // 分别从头和尾开始的指针</span><br><span class="line">        int left = <span class="number">0</span>, right = length - <span class="number">1</span>;</span><br><span class="line">        int left_max = <span class="number">0</span>, right_max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">if</span>(height[left] &lt; height[right])&#123;</span><br><span class="line">                height[left] &gt;= left_max ? left_max = height[left] : res += left_max - height[left];</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                height[right] &gt;= right_max ? right_max = height[right] : res += right_max - height[right];</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/trapping-rain-water/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/trapping-rain-w
+      
+    
+    </summary>
+    
+      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
+    
+    
+      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
+    
+      <category term="hard" scheme="https://wazxser.github.io/tags/hard/"/>
+    
+  </entry>
   
   <entry>
     <title>2019_被3整除</title>
@@ -479,67 +533,6 @@
       <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
     
       <category term="easy" scheme="https://wazxser.github.io/tags/easy/"/>
-    
-      <category term="string" scheme="https://wazxser.github.io/tags/string/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode 67. Add Binary</title>
-    <link href="https://wazxser.github.io/2019/10/24/Leetcode-67/"/>
-    <id>https://wazxser.github.io/2019/10/24/Leetcode-67/</id>
-    <published>2019-10-24T07:58:14.000Z</published>
-    <updated>2019-10-24T11:35:43.787Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/add-binary/" target="_blank" rel="noopener">https://leetcode.com/problems/add-binary/</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addBinary</span><span class="params">(self, a, b)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type a: str</span></span><br><span class="line"><span class="string">        :type b: str</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        num1 = int(a, <span class="number">2</span>)</span><br><span class="line">        num2 = int(b, <span class="number">2</span>)</span><br><span class="line">        </span><br><span class="line">        res = num1 + num2</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> bin(res)[<span class="number">2</span>:]</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/add-binary/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/add-binary/&lt;/a&gt;&lt;/p&gt;
-&lt;fig
-      
-    
-    </summary>
-    
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-      <category term="easy" scheme="https://wazxser.github.io/tags/easy/"/>
-    
-      <category term="string" scheme="https://wazxser.github.io/tags/string/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Leetcode 8. String to Integer (atoi)</title>
-    <link href="https://wazxser.github.io/2019/10/24/Leetcode-8/"/>
-    <id>https://wazxser.github.io/2019/10/24/Leetcode-8/</id>
-    <published>2019-10-24T07:58:05.000Z</published>
-    <updated>2019-10-24T11:33:19.502Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="https://leetcode.com/problems/string-to-integer-atoi/" target="_blank" rel="noopener">https://leetcode.com/problems/string-to-integer-atoi/</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int myAtoi(string str) &#123;</span><br><span class="line">        int res = <span class="number">0</span>;</span><br><span class="line">        stringstream ss;</span><br><span class="line">        ss &lt;&lt; str;</span><br><span class="line">        ss &gt;&gt; res;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/string-to-integer-atoi/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://leetcode.com/problems/string-to-in
-      
-    
-    </summary>
-    
-      <category term="Online Judge" scheme="https://wazxser.github.io/categories/Online-Judge/"/>
-    
-    
-      <category term="leetcode" scheme="https://wazxser.github.io/tags/leetcode/"/>
-    
-      <category term="medium" scheme="https://wazxser.github.io/tags/medium/"/>
-    
-      <category term="more solutions" scheme="https://wazxser.github.io/tags/more-solutions/"/>
     
       <category term="string" scheme="https://wazxser.github.io/tags/string/"/>
     
