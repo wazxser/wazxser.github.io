@@ -48,88 +48,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Leetcode 413. Arithmetic Slices]]></title>
-    <url>%2F2019%2F11%2F03%2FLeetcode-413%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/arithmetic-slices/ 题意：给定一个数组，求该数组中等差数列的子数组的个数 代码：123456789101112131415161718192021class Solution &#123;public: int numberOfArithmeticSlices(vector&lt;int&gt;&amp; A) &#123; if(A.size() == 0)&#123; return 0; &#125; int res = 0, cnt = 0; for(int i = 2; i &lt; A.size(); i++)&#123; if(A[i] - A[i-1] == A[i-1] - A[i-2])&#123; cnt++; res += cnt; &#125; else&#123; cnt = 0; &#125; &#125; return res; &#125;&#125;;]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>DP</tag>
-        <tag>leetcode</tag>
-        <tag>medium</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode 678. Valid Parenthesis String]]></title>
-    <url>%2F2019%2F10%2F24%2FLeetcode-678%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/valid-parenthesis-string/ 题意：括号匹配，增加了星号可以作为左括号、右括号或者星号 代码： 1234567891011121314151617181920212223242526272829303132class Solution &#123;public: bool checkValidString(string s) &#123; if(s.size() == 0)&#123; return true; &#125; int left = 0, right = 0; for(int i = 0; i &lt; s.size(); i++)&#123; if(s[i] == '(' || s[i] == '*') left++; else left--; if(left &lt; 0) return false; &#125; if(left == 0) return true; for(int i = s.size() - 1; i &gt;= 0; i--)&#123; if(s[i] == ')' || s[i] == '*') right++; else right--; if(right &lt; 0) return false; &#125; return true; &#125;&#125;; 下面这个代码真的好难理解，一个人刷题太难了，心累。。。123456789101112131415161718192021222324252627282930class Solution &#123;public: bool checkValidString(string s) &#123; if(s.size() == 0)&#123; return true; &#125; int left = 0, right = 0; for(int i = 0; i &lt; s.size(); i++)&#123; if(s[i] == '(')&#123; left++; right++; &#125; else if(s[i] == ')')&#123; if(left &gt; 0) left--; right--; &#125; else&#123; if(left &gt; 0) left--; right++; &#125; if(right &lt; 0) return false; &#125; return left == 0; &#125;&#125;;]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>medium</tag>
-        <tag>string</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode 122. Best Time to Buy and Sell Stock II]]></title>
-    <url>%2F2019%2F10%2F24%2FLeetcode-122%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/ 1234567class Solution(object): def maxProfit(self, prices): """ :type prices: List[int] :rtype: int """ return sum(max(prices[i + 1] - prices[i], 0) for i in range(len(prices) - 1))]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>easy</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode 45. Jump Game II]]></title>
-    <url>%2F2019%2F10%2F24%2FLeetcode-45%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/jump-game-ii/ 题意：给一个数组，数组中每个字都是可以跳跃的最大步数，问到达数组末端所需要的最小步数 1234567891011121314151617181920212223class Solution &#123;public: int jump(vector&lt;int&gt;&amp; nums) &#123; int res= 0; int cur = 0; int pre = 0; int n = nums.size(); int i = 0; while(cur &lt; n-1)&#123; pre = cur; res++; for(; i &lt;= pre; i++)&#123; cur = max(cur, nums[i]+i); &#125; if(cur == pre)&#123; return -1; &#125; &#125; return res; &#125;&#125;;]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>DP</tag>
-        <tag>leetcode</tag>
-        <tag>hard</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode_215]]></title>
-    <url>%2F2019%2F10%2F24%2FLeetcode-215%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode 152. Maximum Product Subarray]]></title>
-    <url>%2F2019%2F10%2F24%2FLeetcode-152%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/maximum-product-subarray/ 题意：求数组中连续最大的乘积，和连续最大的和相似，但是要考虑到负号的问题 思路：这里解法是正着和倒着各遍历一遍，就是最终的结果 12345678910111213141516171819202122class Solution &#123;public: int maxProduct(vector&lt;int&gt;&amp; nums) &#123; int res = nums[0], prod = 1; for(int i = 0; i &lt; nums.size(); i++)&#123; res = max(res, prod *= nums[i]); if(nums[i] == 0)&#123; prod = 1; &#125; &#125; prod = 1; for(int i = nums.size()-1; i &gt;= 0; i--)&#123; res = max(res, prod *= nums[i]); if(nums[i] == 0)&#123; prod = 1; &#125; &#125; return res; &#125;&#125;;]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>medium</tag>
-        <tag>more solutions</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode 239. Sliding Window Maximum]]></title>
-    <url>%2F2019%2F10%2F24%2FLeetcode-239%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/sliding-window-maximum/ 题意： 给出每个滑动窗口的最大值 思路：用原始暴力的方法可以AC。。。 这道题还有很多解法，堆，栈等。。。 1234567891011121314151617181920class Solution &#123;public: vector&lt;int&gt; maxSlidingWindow(vector&lt;int&gt;&amp; nums, int k) &#123; vector&lt;int&gt; res; if(nums.size() == 0 || k == 0)&#123; return res; &#125; for(int i = 0; i &lt;= nums.size() - k; i++)&#123; int temp = nums[i]; for(int j = i; j &lt; i + k; j++)&#123; temp = max(temp, nums[j]); &#125; res.push_back(temp); &#125; return res; &#125;&#125;;]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>hard</tag>
-        <tag>more solutions</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Leetcode 198. House Robber]]></title>
     <url>%2F2019%2F10%2F24%2FLeetcode-198%2F</url>
     <content type="text"><![CDATA[https://leetcode.com/problems/house-robber/ 题意：抢劫，返回能抢到的最大数值，但是如果连续抢两个的话就会报警 思路：不会做伤心。。。 动态规划问题，遍历数组，对每一个元素考虑两种情况，抢它和不抢它 123456789101112131415class Solution &#123;public: int rob(vector&lt;int&gt;&amp; nums) &#123; int preRob = 0, preNotRob = 0; int rob = 0, notRob = 0; for(int i = 0; i &lt; nums.size(); i++)&#123; preRob = rob; preNotRob = notRob; rob = preNotRob + nums[i]; notRob = max(preRob, preNotRob); &#125; return max(rob, notRob); &#125;&#125;;]]></content>
@@ -140,20 +58,6 @@
         <tag>DP</tag>
         <tag>leetcode</tag>
         <tag>easy</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode 128. Longest Consecutive Sequence]]></title>
-    <url>%2F2019%2F10%2F24%2FLeetcode-128%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/longest-consecutive-sequence/ 题意：要求给出数组中存在的连续数字的个数，（这些数字数组中不一定连续），时间复杂度O(n) 思路：不能用排序算法，那就是空间换时间了，但是我也并不会。。。伤心 使用Hashset来实现去重，并且提高访问效率 还有个hashmap没看懂。。。 代码1：Hashset12345678910111213141516171819202122232425262728293031323334class Solution &#123;public: int longestConsecutive(vector&lt;int&gt;&amp; nums) &#123; int res = 0; int cnt = 0; unordered_set&lt;int&gt; s(nums.begin(), nums.end()); for(int i = 0; i &lt; nums.size(); i++)&#123; if(!s.count(nums[i]))&#123; continue; &#125; cnt = 0; s.erase(nums[i]); cnt++; int val = nums[i]; while(s.count(--val))&#123; s.erase(val); cnt++; &#125; val = nums[i]; while(s.count(++val))&#123; s.erase(val); cnt++; &#125; res = max(cnt, res); &#125; return res; &#125;&#125;;]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>hard</tag>
-        <tag>Data structure</tag>
-        <tag>more solutions</tag>
       </tags>
   </entry>
   <entry>
@@ -196,76 +100,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Leetcode 7.Reverse Integer]]></title>
-    <url>%2F2019%2F10%2F21%2FLeetcode-7%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/reverse-integer/ 题意：将整数的数字反转，注意溢出 代码：12345678910111213141516class Solution(object): def reverse(self, x): """ :type x: int :rtype: int """ num = str(x) res = 0 for i in xrange(len(num)): if num[len(num)-1-i].isdigit(): res = res*10 + int(num[len(num)-1-i]) else: res = 0 - res if abs(res) &gt; 2**31-1: res = 0 return res 1234567891011121314151617181920class Solution &#123;public: int reverse(int x) &#123; int res = 0; int num = x; long long temp = 0; while(num != 0)&#123; temp = temp * 10 + (num % 10); num /= 10; &#125; if(temp &gt; pow(2, 31) - 1 || temp &lt; -pow(2, 31))&#123; return 0; &#125; res = static_cast&lt;int&gt;(temp); //return x &gt; 0 ? res : res * -1; return res; &#125;&#125;;]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode 206. Reverse Linked List]]></title>
-    <url>%2F2019%2F10%2F18%2FLeetcode-206%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/reverse-linked-list/ 题意：反转链表 代码：1234567891011121314151617181920212223242526272829303132333435/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* reverseList(ListNode* head) &#123; if(!head)&#123; return NULL; &#125; if(!head-&gt;next)&#123; return head; &#125; ListNode * ptr1, * ptr2, * ptr3; ptr1 = head; while(ptr1)&#123; ptr2 = ptr1-&gt;next; ptr1-&gt;next = ptr3; if(!ptr2)&#123; return ptr1; &#125; ptr3 = ptr1; ptr1 = ptr2; &#125; return ptr2; &#125;&#125;;]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>List</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode 20. Valid Parentheses]]></title>
-    <url>%2F2019%2F10%2F18%2FLeetcode-20%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/valid-parentheses/ 题意：括号匹配，栈的典型题 代码： 123456789101112131415161718class Solution(object): def isValid(self, s): """ :type s: str :rtype: bool """ stack = [] for ch in s: if len(stack) == 0: stack.append(ch) elif (stack[-1] == '[' and ch == ']') or (stack[-1] == '&#123;' and ch == '&#125;') or (stack[-1] == '(' and ch == ')'): stack.pop() else: stack.append(ch) if(len(stack) &gt; 0): return False return True]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>stack</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode 15. 3Sum]]></title>
-    <url>%2F2019%2F10%2F18%2FLeetcode-15%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/3sum/ 题意：求一个数组中，三个数字相加为0的组合，要求不能重复 思路：先排序，然后遍历查找，找剩下两个数字的时候，因为排序好了，所以分别从头尾一起查找 代码：12345678910111213141516171819202122232425262728293031323334class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; threeSum(vector&lt;int&gt;&amp; nums) &#123; vector&lt;vector&lt;int&gt;&gt; res; sort(nums.begin(), nums.end()); for(int i = 0; i &lt; nums.size(); i++)&#123; if(nums[i] &gt; 0) break; if(i &gt; 0 &amp;&amp; nums[i] == nums[i-1]) continue; int a = i+1; int b = nums.size()-1; int target = 0 - nums[i]; while(a &lt; b)&#123; if(nums[a] + nums[b] == target)&#123; res.push_back(&#123;nums[i], nums[a], nums[b]&#125;); while(nums[a+1] == nums[a] &amp;&amp; a &lt; b) a++; while(nums[b-1] == nums[b] &amp;&amp; a &lt; b) b--; a++; b--; &#125; else if(nums[a]+nums[b] &lt; target)&#123; a++; &#125; else&#123; b--; &#125; &#125; &#125; return res; &#125;&#125;;]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode 200. Number of Islands]]></title>
-    <url>%2F2019%2F10%2F18%2FLeetcode-200%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/number-of-islands/ 题意：典型的DFS题目，题目给出一个由0和1组成的矩阵，0代表水，1代表陆地。求矩阵中小岛的个数。 代码：12345678910111213141516171819202122232425262728293031323334353637383940class Solution &#123;public: int numIslands(vector&lt;vector&lt;char&gt;&gt;&amp; grid) &#123; if (grid.empty() || grid[0].empty()) return 0; int m = grid.size(), n = grid[0].size(); int res = 0; for(int i = 0; i &lt; m; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(grid[i][j] == '1')&#123; res++; dfs(i, j, grid); &#125; &#125; &#125; return res; &#125; void dfs(int i, int j, vector&lt;vector&lt;char&gt;&gt; &amp; grid)&#123; int m = grid.size(), n = grid[0].size(); grid[i][j] = '0'; if(i - 1 &gt;= 0 &amp;&amp; grid[i-1][j] == '1')&#123; dfs(i-1, j, grid); &#125; if(i + 1 &lt; m &amp;&amp; grid[i+1][j] == '1')&#123; dfs(i+1, j, grid); &#125; if(j - 1 &gt;= 0 &amp;&amp; grid[i][j-1] == '1')&#123; dfs(i, j-1, grid); &#125; if(j + 1 &lt; n &amp;&amp; grid[i][j+1] == '1')&#123; dfs(i, j+1, grid); &#125; &#125;&#125;;]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>DFS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode 3. Longest Substring Without Repeating Characters]]></title>
-    <url>%2F2019%2F10%2F18%2FLeetcode-3%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/longest-substring-without-repeating-characters/ 题意：给定一个字符串，返回这个字符串中最长的不包含重复字母的子串的长度 思路：设置一个数组记录每个字符出现的最后位置，left左指针到当前位置为滑动窗口 代码：1234567891011121314151617181920class Solution &#123;public: int lengthOfLongestSubstring(string s) &#123; int len = s.length(); int left = 0; int last[255]; int res = 0; memset(last, -1, sizeof last); for(int i = 0; i &lt; len; i++)&#123; if(last[s[i]] &gt;= left)&#123; left = last[s[i]] + 1; &#125; last[s[i]] = i; res = max(res, i-left+1); &#125; return res; &#125;&#125;;]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>string</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Leetcode 5. Longest Palindromic Substring]]></title>
     <url>%2F2019%2F10%2F18%2FLeetcode-5%2F</url>
     <content type="text"><![CDATA[https://leetcode.com/problems/longest-palindromic-substring/ 题意：搜索一个字符串中最长的回文序列 思路：回文序列的搜索以中间一个单独一个字母和中间两个相同字符分为两类 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849class Solution &#123;public: string longestPalindrome(string s) &#123; if(s.length() == 1)&#123; return s; &#125; int left = 0, right = 0, index = 0, len = 0, wide = 0, res_index = 0; for(int i = 0; i &lt; s.length()-1; i++)&#123; if(s[i] == s[i+1])&#123; index = searchPalindrome(s, i, i+1, len); if(len &gt; wide)&#123; wide = len; res_index = index; &#125; &#125; index = searchPalindrome(s, i, i, len); if(len &gt; wide)&#123; wide = len; res_index = index; &#125; &#125; return s.substr(res_index, wide); &#125; int searchPalindrome(string s, int left, int right, int &amp;len)&#123; int index = 0; int flag = 0; while(left &gt; 0 &amp;&amp; right &lt; s.length()-1)&#123; left -= 1; right += 1; if(s[left] != s[right])&#123; flag = 1; break; &#125; &#125; if(flag == 1)&#123; len = right - left - 1; index = left + 1; &#125; else&#123; len = right - left + 1; index = left; &#125; return index; &#125;&#125;;]]></content>
@@ -287,29 +121,6 @@
       <tags>
         <tag>leetcode</tag>
         <tag>二分查找</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode 670. Maximum Swap]]></title>
-    <url>%2F2019%2F10%2F14%2FLeetcode-670%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/maximum-swap/ num各位上的数字交换一次，使num达到能达到的最大值 12345678910111213141516class Solution &#123;public: int maximumSwap(int num) &#123; string str = to_string(num); int res = num; for(int i = 0; i &lt; str.size()-1; i++)&#123; for(int j = i + 1; j &lt; str.size(); j++)&#123; swap(str[i], str[j]); res = max(res, stoi(str)); swap(str[j], str[i]); &#125; &#125; return res; &#125;&#125;; 使用一个数组记录num从低位开始到该位所有数字的最大值，然后从num的高位开始遍历，如果高位上数字小于数组中记录的数字，就从低位查找到数组中记录的该数字的位置，然后进行交换返回。 123456789101112131415161718192021222324class Solution &#123;public: int maximumSwap(int num) &#123; string str = to_string(num); string arr = str; for(int i = arr.size()-2; i &gt;= 0; i--)&#123; arr[i] = max(arr[i], arr[i+1]); &#125; for(int i = 0; i &lt; str.size(); i++)&#123; if(str[i] &lt; arr[i])&#123; for(int j = str.size()-1; j &gt; i; j--)&#123; if(str[j] == arr[i])&#123; swap(str[i], str[j]); return stoi(str); &#125; &#125; &#125; &#125; return num; &#125;&#125;;]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Leetcode 958 Check Completeness of a Binary Tree]]></title>
-    <url>%2F2019%2F10%2F13%2FLeetcode-958%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/check-completeness-of-a-binary-tree/ 这道题比较简单，利用树的层序遍历，当第一次遇到空节点时，设置flag，如果第二次再遇到，那就返回false。 代码：123456789101112131415161718192021222324252627282930313233343536373839/** * Definition for a binary tree node. * struct TreeNode &#123; * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: bool isCompleteTree(TreeNode* root) &#123; if(!root)&#123; return true; &#125; queue&lt;TreeNode*&gt; q; q.push(root); int flag = 0; while(!q.empty())&#123; TreeNode * temp = q.front(); q.pop(); if(!temp)&#123; flag = 1; &#125; else&#123; if(flag)&#123; return false; &#125; q.push(temp-&gt;left); q.push(temp-&gt;right); &#125; &#125; return true; &#125;&#125;;]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-        <tag>Tree</tag>
       </tags>
   </entry>
   <entry>
@@ -337,7 +148,7 @@
   <entry>
     <title><![CDATA[leetcode_137_Single_Number_II]]></title>
     <url>%2F2019%2F04%2F29%2Fleetcode-137-Single-Number-II%2F</url>
-    <content type="text"><![CDATA[https://leetcode.com/problems/single-number-ii/ 感觉这道题好有意思。题目大意为：给一个数组，数组中除了一个数字出现一次外，其他数字均出现三次，找出这个出现一次的数字。 思路：从网上看的题解，利用位运算，记录整数的二进制表示中每一位1出现的次数。 代码：123456789101112class Solution &#123;public: int singleNumber(vector&lt;int&gt;&amp; nums) &#123; int ones = 0, twos = 0; for(int i = 0; i &lt; nums.size(); i++)&#123; ones = (nums[i] ^ ones) &amp; ~twos; twos = (nums[i] ^ twos) &amp; ~ones; &#125; return ones; &#125;&#125;;]]></content>
+    <content type="text"><![CDATA[https://leetcode.com/problems/single-number-ii/ 题目大意为：给一个数组，数组中除了一个数字出现一次外，其他数字均出现三次，找出这个出现一次的数字。 思路：从网上看的题解，利用位运算，记录整数的二进制表示中每一位1出现的次数。 代码：123456789101112class Solution &#123;public: int singleNumber(vector&lt;int&gt;&amp; nums) &#123; int ones = 0, twos = 0; for(int i = 0; i &lt; nums.size(); i++)&#123; ones = (nums[i] ^ ones) &amp; ~twos; twos = (nums[i] ^ twos) &amp; ~ones; &#125; return ones; &#125;&#125;;]]></content>
       <categories>
         <category>Online Judge</category>
       </categories>
@@ -377,6 +188,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[POJ2251DungeonMaster]]></title>
+    <url>%2F2018%2F08%2F15%2FPOJ2251DungeonMaster%2F</url>
+    <content type="text"><![CDATA[kuangbin带你飞专题 题目POJ1321You are trapped in a 3D dungeon and need to find the quickest way out! The dungeon is composed of unit cubes which may or may not be filled with rock. It takes one minute to move one unit north, south, east, west, up or down. You cannot move diagonally and the maze is surrounded by solid rock on all sides. Is an escape possible? If yes, how long will it take? InputThe input consists of a number of dungeons. Each dungeon description starts with a line containing three integers L, R and C (all limited to 30 in size).L is the number of levels making up the dungeon.R and C are the number of rows and columns making up the plan of each level.Then there will follow L blocks of R lines each containing C characters. Each character describes one cell of the dungeon. A cell full of rock is indicated by a ‘#’ and empty cells are represented by a ‘.’. Your starting position is indicated by ‘S’ and the exit by the letter ‘E’. There’s a single blank line after each level. Input is terminated by three zeroes for L, R and C. OutputEach maze generates one line of output. If it is possible to reach the exit, print a line of the formEscaped in x minute(s). where x is replaced by the shortest time it takes to escape.If it is not possible to escape, print the lineTrapped! Sample Input123456789101112131415161718192021223 4 5S.....###..##..###.#############.####...###########.#######E1 3 3S###E####0 0 0 Sample Output12Escaped in 11 minute(s).Trapped! 思路题意大致是一个三层迷宫，从出发点S到终点E，求最少时间，考虑广搜求解最优解问题，使用队列保存每步的坐标，每次移动有6种情况可以用一个二维数组来表示，设一个visit数组来表示到每个位置的最少时间，每次都是以能够到达该位置的前一个位置的最少时间+1来更新。 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include &lt;iostream&gt;#include &lt;cstdio&gt;//#include &lt;memory.h&gt;using namespace std;int n, k;char pan[10][10];int row[10];int col[10];int sum;int res;void dfs(int sum, int a)&#123; if(sum == k)&#123; res++; return; &#125; for(int i = a; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(pan[i][j] == '#' &amp;&amp; !row[i] &amp;&amp; !col[j])&#123; row[i] = 1; col[j] = 1; dfs(sum+1, i+1); row[i] = 0; col[j] = 0; &#125; &#125; &#125;&#125;int main()&#123; while(scanf("%d %d", &amp;n, &amp;k) &amp;&amp; n != -1)&#123; //memset(row, 0, sizeof(row)); //memset(col, 0, sizeof(col)); for(int i = 0; i &lt; n; i++)&#123; row[i] = col[i] = 0; &#125; res = 0; for(int i = 0; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; scanf(" %c", &amp;pan[i][j]); &#125; &#125; dfs(0, 0); printf("%d\n", res); &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>Online Judge</category>
+      </categories>
+      <tags>
+        <tag>kuangbin带你飞 专题一 简单搜索</tag>
+        <tag>BFS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[POJ1321棋盘问题]]></title>
     <url>%2F2018%2F08%2F15%2FPOJ1321%E6%A3%8B%E7%9B%98%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[kuangbin带你飞专题 题目POJ1321在一个给定形状的棋盘（形状可能是不规则的）上面摆放棋子，棋子没有区别。要求摆放时任意的两个棋子不能放在棋盘中的同一行或者同一列，请编程求解对于给定形状和大小的棋盘，摆放k个棋子的所有可行的摆放方案C。 Input输入含有多组测试数据。每组数据的第一行是两个正整数，n k，用一个空格隔开，表示了将在一个n*n的矩阵内描述棋盘，以及摆放棋子的数目。 n &lt;= 8 , k &lt;= n当为-1 -1时表示输入结束。随后的n行描述了棋盘的形状：每行有n个字符，其中 # 表示棋盘区域， . 表示空白区域（数据保证不出现多余的空白行或者空白列）。 Output对于每一组数据，给出一行输出，输出摆放的方案数目C （数据保证C&lt;2^31）。 Sample Input1234567892 1#..#4 4...#..#..#..#...-1 -1 Sample Output1221 思路深搜，回溯 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include &lt;iostream&gt;#include &lt;cstdio&gt;//#include &lt;memory.h&gt;using namespace std;int n, k;char pan[10][10];int row[10];int col[10];int sum;int res;void dfs(int sum, int a)&#123; if(sum == k)&#123; res++; return; &#125; for(int i = a; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(pan[i][j] == '#' &amp;&amp; !row[i] &amp;&amp; !col[j])&#123; row[i] = 1; col[j] = 1; dfs(sum+1, i+1); row[i] = 0; col[j] = 0; &#125; &#125; &#125;&#125;int main()&#123; while(scanf("%d %d", &amp;n, &amp;k) &amp;&amp; n != -1)&#123; //memset(row, 0, sizeof(row)); //memset(col, 0, sizeof(col)); for(int i = 0; i &lt; n; i++)&#123; row[i] = col[i] = 0; &#125; res = 0; for(int i = 0; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; scanf(" %c", &amp;pan[i][j]); &#125; &#125; dfs(0, 0); printf("%d\n", res); &#125; return 0;&#125;]]></content>
@@ -387,18 +210,6 @@
         <tag>DFS</tag>
         <tag>POJ</tag>
         <tag>kuangbin带你飞 专题一 简单搜索</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[POJ2251DungeonMaster]]></title>
-    <url>%2F2018%2F08%2F15%2FPOJ2251DungeonMaster%2F</url>
-    <content type="text"><![CDATA[kuangbin带你飞专题 题目POJ1321You are trapped in a 3D dungeon and need to find the quickest way out! The dungeon is composed of unit cubes which may or may not be filled with rock. It takes one minute to move one unit north, south, east, west, up or down. You cannot move diagonally and the maze is surrounded by solid rock on all sides. Is an escape possible? If yes, how long will it take? InputThe input consists of a number of dungeons. Each dungeon description starts with a line containing three integers L, R and C (all limited to 30 in size).L is the number of levels making up the dungeon.R and C are the number of rows and columns making up the plan of each level.Then there will follow L blocks of R lines each containing C characters. Each character describes one cell of the dungeon. A cell full of rock is indicated by a ‘#’ and empty cells are represented by a ‘.’. Your starting position is indicated by ‘S’ and the exit by the letter ‘E’. There’s a single blank line after each level. Input is terminated by three zeroes for L, R and C. OutputEach maze generates one line of output. If it is possible to reach the exit, print a line of the formEscaped in x minute(s). where x is replaced by the shortest time it takes to escape.If it is not possible to escape, print the lineTrapped! Sample Input123456789101112131415161718192021223 4 5S.....###..##..###.#############.####...###########.#######E1 3 3S###E####0 0 0 Sample Output12Escaped in 11 minute(s).Trapped! 思路题意大致是一个三层迷宫，从出发点S到终点E，求最少时间，考虑广搜求解最优解问题，使用队列保存每步的坐标，每次移动有6种情况可以用一个二维数组来表示，设一个visit数组来表示到每个位置的最少时间，每次都是以能够到达该位置的前一个位置的最少时间+1来更新。 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include &lt;iostream&gt;#include &lt;cstdio&gt;//#include &lt;memory.h&gt;using namespace std;int n, k;char pan[10][10];int row[10];int col[10];int sum;int res;void dfs(int sum, int a)&#123; if(sum == k)&#123; res++; return; &#125; for(int i = a; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; if(pan[i][j] == '#' &amp;&amp; !row[i] &amp;&amp; !col[j])&#123; row[i] = 1; col[j] = 1; dfs(sum+1, i+1); row[i] = 0; col[j] = 0; &#125; &#125; &#125;&#125;int main()&#123; while(scanf("%d %d", &amp;n, &amp;k) &amp;&amp; n != -1)&#123; //memset(row, 0, sizeof(row)); //memset(col, 0, sizeof(col)); for(int i = 0; i &lt; n; i++)&#123; row[i] = col[i] = 0; &#125; res = 0; for(int i = 0; i &lt; n; i++)&#123; for(int j = 0; j &lt; n; j++)&#123; scanf(" %c", &amp;pan[i][j]); &#125; &#125; dfs(0, 0); printf("%d\n", res); &#125; return 0;&#125;]]></content>
-      <categories>
-        <category>Online Judge</category>
-      </categories>
-      <tags>
-        <tag>kuangbin带你飞 专题一 简单搜索</tag>
-        <tag>BFS</tag>
       </tags>
   </entry>
   <entry>

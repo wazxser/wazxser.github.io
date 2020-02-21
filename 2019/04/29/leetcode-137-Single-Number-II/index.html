@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="https://leetcode.com/problems/single-number-ii/ 感觉这道题好有意思。题目大意为：给一个数组，数组中除了一个数字出现一次外，其他数字均出现三次，找出这个出现一次的数字。 思路：从网上看的题解，利用位运算，记录整数的二进制表示中每一位1出现的次数。 代码：123456789101112class Solution &amp;#123;public:    int">
+<meta name="description" content="https://leetcode.com/problems/single-number-ii/ 题目大意为：给一个数组，数组中除了一个数字出现一次外，其他数字均出现三次，找出这个出现一次的数字。 思路：从网上看的题解，利用位运算，记录整数的二进制表示中每一位1出现的次数。 代码：123456789101112class Solution &amp;#123;public:    int singleNum">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode_137_Single_Number_II">
 <meta property="og:url" content="https://wazxser.github.io/2019/04/29/leetcode-137-Single-Number-II/index.html">
 <meta property="og:site_name" content="Moon">
-<meta property="og:description" content="https://leetcode.com/problems/single-number-ii/ 感觉这道题好有意思。题目大意为：给一个数组，数组中除了一个数字出现一次外，其他数字均出现三次，找出这个出现一次的数字。 思路：从网上看的题解，利用位运算，记录整数的二进制表示中每一位1出现的次数。 代码：123456789101112class Solution &amp;#123;public:    int">
+<meta property="og:description" content="https://leetcode.com/problems/single-number-ii/ 题目大意为：给一个数组，数组中除了一个数字出现一次外，其他数字均出现三次，找出这个出现一次的数字。 思路：从网上看的题解，利用位运算，记录整数的二进制表示中每一位1出现的次数。 代码：123456789101112class Solution &amp;#123;public:    int singleNum">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-24T12:26:00.949Z">
+<meta property="og:updated_time" content="2020-02-21T15:14:37.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode_137_Single_Number_II">
-<meta name="twitter:description" content="https://leetcode.com/problems/single-number-ii/ 感觉这道题好有意思。题目大意为：给一个数组，数组中除了一个数字出现一次外，其他数字均出现三次，找出这个出现一次的数字。 思路：从网上看的题解，利用位运算，记录整数的二进制表示中每一位1出现的次数。 代码：123456789101112class Solution &amp;#123;public:    int">
+<meta name="twitter:description" content="https://leetcode.com/problems/single-number-ii/ 题目大意为：给一个数组，数组中除了一个数字出现一次外，其他数字均出现三次，找出这个出现一次的数字。 思路：从网上看的题解，利用位运算，记录整数的二进制表示中每一位1出现的次数。 代码：123456789101112class Solution &amp;#123;public:    int singleNum">
 
 
 
@@ -397,7 +397,7 @@
 
       
         <p><a href="https://leetcode.com/problems/single-number-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/single-number-ii/</a></p>
-<p>感觉这道题好有意思。题目大意为：给一个数组，数组中除了一个数字出现一次外，其他数字均出现<br>三次，找出这个出现一次的数字。</p>
+<p>题目大意为：给一个数组，数组中除了一个数字出现一次外，其他数字均出现<br>三次，找出这个出现一次的数字。</p>
 <p>思路：从网上看的题解，利用位运算，记录整数的二进制表示中每一位1出现的次数。</p>
 <p>代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int singleNumber(vector&lt;int&gt;&amp; nums) &#123;</span><br><span class="line">        int ones = <span class="number">0</span>, twos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; nums.size(); i++)&#123;</span><br><span class="line">            ones = (nums[i] ^ ones) &amp; ~twos;</span><br><span class="line">            twos = (nums[i] ^ twos) &amp; ~ones;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> ones;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
@@ -532,7 +532,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -554,7 +554,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
