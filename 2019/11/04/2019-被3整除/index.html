@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="Moon">
 <meta property="og:description" content="https://www.nowcoder.com/practice/51dcb4eef6004f6f8f44d927463ad5e8?tpId=98&amp;amp;tqId=32825&amp;amp;tPage=1&amp;amp;rp=1&amp;amp;ru=/ta/2019test&amp;amp;qru=/ta/2019test/question-ranking 如果一个数各个位上的数字之和能被3整除，那么这个数就能被3整除">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-04T13:40:08.572Z">
+<meta property="og:updated_time" content="2020-02-21T14:33:51.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2019_被3整除">
 <meta name="twitter:description" content="https://www.nowcoder.com/practice/51dcb4eef6004f6f8f44d927463ad5e8?tpId=98&amp;amp;tqId=32825&amp;amp;tPage=1&amp;amp;rp=1&amp;amp;ru=/ta/2019test&amp;amp;qru=/ta/2019test/question-ranking 如果一个数各个位上的数字之和能被3整除，那么这个数就能被3整除">
@@ -397,7 +397,7 @@
 
       
         <p><a href="https://www.nowcoder.com/practice/51dcb4eef6004f6f8f44d927463ad5e8?tpId=98&amp;tqId=32825&amp;tPage=1&amp;rp=1&amp;ru=/ta/2019test&amp;qru=/ta/2019test/question-ranking" target="_blank" rel="noopener">https://www.nowcoder.com/practice/51dcb4eef6004f6f8f44d927463ad5e8?tpId=98&amp;tqId=32825&amp;tPage=1&amp;rp=1&amp;ru=/ta/2019test&amp;qru=/ta/2019test/question-ranking</a></p>
-<p>如果一个数各个位上的数字之和能被3整除，那么这个数就能被3整除<br>严格来水，应该是求每位数字相加的和，但是这样做会复杂度过大，通过率70%<br>下面的代码是将组成该数字的每个字符串的数字相加，可以通过，不懂原因<br>还有各种找规律的解法。。</p>
+<p>如果一个数各个位上的数字之和能被3整除，那么这个数就能被3整除<br>严格来说，应该是求每位数字相加的和，但是这样做会复杂度过大，通过率70%<br>下面的代码是将组成该数字的每个字符串的数字相加，可以通过，不懂原因<br>还有各种找规律的解法。。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include &lt;cstdio&gt;</span></span><br><span class="line"><span class="comment">#include &lt;stdlib.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;string&gt;</span></span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">long long num(int i)&#123;</span><br><span class="line">    long long sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i)&#123;</span><br><span class="line">        sum += i % <span class="number">10</span>;</span><br><span class="line">        i = i / <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int l, r;</span><br><span class="line">    scanf(<span class="string">"%d %d"</span>, &amp;l, &amp;r);</span><br><span class="line">    int res = <span class="number">0</span>;</span><br><span class="line">    long long sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(int i = <span class="number">1</span>; i &lt; l; i++)&#123;</span><br><span class="line">        sum += i;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(int i = l; i &lt;= r; i++)&#123;</span><br><span class="line">        sum += i;</span><br><span class="line">        <span class="keyword">if</span>(!(sum % <span class="number">3</span>))&#123;</span><br><span class="line">            res++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    printf(<span class="string">"%d\n"</span>, res);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -531,7 +531,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -673,7 +673,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
